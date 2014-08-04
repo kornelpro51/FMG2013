@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<title>Amsterdam - premium responsive admin template by Eugene Kopyov</title>
+<link href="css/main.css" rel="stylesheet" type="text/css" />
+<!--[if IE]> <link href="css/ie.css" rel="stylesheet" type="text/css"> <![endif]-->
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery_ui_custom.js"></script>
+
+<script type="text/javascript" src="js/plugins/charts/excanvas.min.js"></script>
+<script type="text/javascript" src="js/plugins/charts/jquery.flot.js"></script>
+<script type="text/javascript" src="js/plugins/charts/jquery.flot.orderBars.js"></script>
+<script type="text/javascript" src="js/plugins/charts/jquery.sparkline.min.js"></script>
+
+<script type="text/javascript" src="js/plugins/forms/jquery.tagsinput.min.js"></script>
+<script type="text/javascript" src="js/plugins/forms/jquery.inputlimiter.min.js"></script>
+<script type="text/javascript" src="js/plugins/forms/jquery.maskedinput.min.js"></script>
+<script type="text/javascript" src="js/plugins/forms/jquery.autosize.js"></script>
+<script type="text/javascript" src="js/plugins/forms/jquery.ibutton.js"></script>
+<script type="text/javascript" src="js/plugins/forms/jquery.dualListBox.js"></script>
+<script type="text/javascript" src="js/plugins/forms/jquery.validate.js"></script>
+<script type="text/javascript" src="js/plugins/forms/jquery.uniform.min.js"></script>
+<script type="text/javascript" src="js/plugins/forms/jquery.select2.min.js"></script>
+<script type="text/javascript" src="js/plugins/forms/jquery.cleditor.js"></script>
+
+<script type="text/javascript" src="js/plugins/uploader/plupload.js"></script>
+<script type="text/javascript" src="js/plugins/uploader/plupload.html4.js"></script>
+<script type="text/javascript" src="js/plugins/uploader/plupload.html5.js"></script>
+<script type="text/javascript" src="js/plugins/uploader/jquery.plupload.queue.js"></script>
+
+<script type="text/javascript" src="js/plugins/wizard/jquery.form.wizard.js"></script>
+<script type="text/javascript" src="js/plugins/wizard/jquery.form.js"></script>
+
+<script type="text/javascript" src="js/plugins/ui/jquery.collapsible.min.js"></script>
+<script type="text/javascript" src="js/plugins/ui/jquery.timepicker.min.js"></script>
+<script type="text/javascript" src="js/plugins/ui/jquery.jgrowl.min.js"></script>
+<script type="text/javascript" src="js/plugins/ui/jquery.pie.chart.js"></script>
+<script type="text/javascript" src="js/plugins/ui/jquery.fullcalendar.min.js"></script>
+<script type="text/javascript" src="js/plugins/ui/jquery.elfinder.js"></script>
+<script type="text/javascript" src="js/plugins/ui/jquery.fancybox.js"></script>
+
+<script type="text/javascript" src="js/plugins/tables/jquery.dataTables.min.js"></script>
+
+<script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/plugins/bootstrap/bootstrap-bootbox.min.js"></script>
+<script type="text/javascript" src="js/plugins/bootstrap/bootstrap-progressbar.js"></script>
+<script type="text/javascript" src="js/plugins/bootstrap/bootstrap-colorpicker.js"></script>
+
+<script type="text/javascript" src="js/charts/bar_side.js"></script>
+<script type="text/javascript" src="js/charts/chart_side.js"></script>
+<script type="text/javascript" src="js/charts/horizontal_bar_side.js"></script>
+
+<script type="text/javascript" src="js/functions/custom.js"></script>
+
+</head>
+
+<body>
+
+<!-- Main wrapper -->
+<div class="wrapper">
+
+    <!-- Left sidebar -->
+    <div class="sidebar">
+
+        <a href="index.html" title="" class="logo"><img src="images/logo.png" alt="" /></a>
+
+        <!-- Standard nav -->
+        <ul class="navigation">
+            <li><a href="index.html" title=""><img src="images/icons/mainnav/dashboard.png" alt="" />Dashboard</a></li>
+            <li><a href="#" title="" class="expand"><img src="images/icons/mainnav/form-elements.png" alt="" />Form elements<strong>3</strong></a>
+                <ul>
+                    <li><a href="forms.html" title="">Main elements</a></li>
+                    <li><a href="form_wizards.html" title="">Wizards</a></li>
+                    <li><a href="form_grid.html" title="">Inputs grid</a></li>
+                </ul>
+            </li>
+            <li class="active"><a href="#" title="" class="expand" id="current"><img src="images/icons/mainnav/components.png" alt="" />Components<strong>4</strong></a>
+                <ul>
+                    <li class="current"><a href="content_components.html" title="">Content components</a></li>
+                    <li><a href="bootstrap_components.html" title="">Bootstrap components</a></li>
+                    <li><a href="gallery.html" title="">Gallery &amp; thumbs</a></li>
+                    <li><a href="content_grid.html" title="">Content grid</a></li>
+                </ul>
+            </li>
+            <li><a href="buttons.html" title=""><img src="images/icons/mainnav/buttons-icons.png" alt="" />Icons &amp; buttons</a></li>
+            <li><a href="charts.html" title=""><img src="images/icons/mainnav/charts.png" alt="" />Charts &amp; graphs</a></li>
+            <li><a href="messages.html" title=""><img src="images/icons/mainnav/messages.png" alt="" />Messages</a></li>
+            <li><a href="tables.html" title=""><img src="images/icons/mainnav/tables.png" alt="" />Tables</a></li>
+            <li><a href="#" title="" class="expand"><img src="images/icons/mainnav/error-pages.png" alt="" />Error pages<strong>6</strong></a>
+                <ul>
+                    <li><a href="403.html" title="">403 page</a></li>
+                    <li><a href="404.html" title="">404 page</a></li>
+                    <li><a href="405.html" title="">405 page</a></li>
+                    <li><a href="500.html" title="">500 page</a></li>
+                    <li><a href="503.html" title="">503 page</a></li>
+                    <li><a href="offline.html" title="">Offline page</a></li>
+                </ul>
+            </li>
+            <li><a href="typography.html" title=""><img src="images/icons/mainnav/typography.png" alt="" />Typography</a></li>
+            <li><a href="calendar.html" title=""><img src="images/icons/mainnav/calendar.png" alt="" />Calendar</a></li>
+            <li><a href="file_manipulation.html" title=""><img src="images/icons/mainnav/file-manipulations.png" alt="" />File manipulation</a></li>
+        </ul>
+        <!-- /standard nav -->
+
+        <div class="separator-doubled"></div>
+        
+        <!-- Sidebar bars -->
+        <div class="sidebar-chart block">
+        	<div class="chart" id="sidebar-bars"></div>
+        </div>
+        <!-- /sidebar bars -->
+        
+        <!-- Horizontal bars -->
+        <div class="sidebar-chart block">
+        	<div class="chart" id="sidebar-bars-horizontal"></div>
+        </div>
+        <!-- /horizontal bars -->
+        
+        <!-- Sidebar chart -->
+        <div class="sidebar-chart block">
+        	<div class="chart" id="sidebar-chart"></div>
+        </div>
+        <!-- /sidebar chart -->
+
+        <div class="separator-doubled"></div>
+
+        <!-- Sidebar stats -->
+        <ul class="topstats block">
+            <li>
+                <div class="left">Current balance:<h1>$15,859</h1></div>
+                <div class="topchart" id="balance">10,14,8,45,23,41,22,31,19,12, 28, 21, 24, 20</div>
+            </li>
+            <li>
+                <div class="left">Total clicks:<h1>345k+</h1></div>
+                <div class="topchart" id="clicks">59,56,28,39,46,29,48,10,45,70,23,32,35,14</div>
+            </li>
+            <li>
+                <div class="left">Support tickets:<h1>+1,490</h1></div>
+                <div class="topchart" id="support">20,15,41,18,32,21,28,26,34,37,10,20,24,28</div>
+            </li>
+        </ul>
+        <!-- /sidebar stats -->
+
+        <div class="separator-doubled"></div>
+        
+        <!-- Action buttons -->
+        <div class="block buttons">
+            <a href="#" title="" class="action-button blue">Action button</a>
+            <a href="#" title="" class="action-button green" style="margin-top: 6px;">Action button</a>
+            <a href="#" title="" class="action-button greyish" style="margin-top: 6px;">Action button</a>
+            <a href="#" title="" class="action-button red" style="margin-top: 6px;">Action button</a>
+        </div>
+        <!-- /action buttons -->
+
+        <div class="separator-doubled"></div>
+        
+        <!-- Text stats -->
+        <ul class="text-stats block">
+            <li>1248<span>clicks</span></li>
+            <li>2548<span>visits</span></li>
+            <li>$603<span>balance</span></li>
+        </ul>
+        <!-- /text stats -->
+
+        <div class="separator-doubled"></div>
+        
+        <!-- Contact list -->
+        <ul class="user-list block">
+            <li>
+                <a href="#" title="">
+                    <img src="images/live/face.png" alt="" />
+                    <span class="contact-name">
+                        <strong>Eugene Kopyov <span>(5)</span></strong>
+                        <i>web &amp; ui designer</i>
+                    </span>
+                    <span class="status_away"></span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="#" title="">
+                    <img src="images/live/face2.png" alt="" />
+                    <span class="contact-name">
+                        <strong>Lucy Wilkinson <span>(12)</span></strong>
+                        <i>Team leader</i>
+                    </span>
+                    <span class="status_off"></span>
+                </a>
+            </li>
+            <li>
+                <a href="#" title="">
+                    <img src="images/live/face3.png" alt="" />
+                    <span class="contact-name">
+                        <strong>John Dow</strong>
+                        <i>PHP developer</i>
+                    </span>
+                    <span class="status_available"></span>
+                </a>
+            </li>
+            <li>
+                <a href="#" title="">
+                    <img src="images/live/face4.png" alt="" />
+                    <span class="contact-name">
+                        <strong>The Incredible</strong>
+                        <i>web &amp; ui designer</i>
+                    </span>
+                    <span class="status_available"></span>
+                </a>
+            </li>
+            <li>
+                <a href="#" title="">
+                    <img src="images/live/face5.png" alt="" />
+                    <span class="contact-name">
+                        <strong>The wazzup guy</strong>
+                        <i>web &amp; ui designer</i>
+                    </span>
+                    <span class="status_available"></span>
+                </a>
+            </li>
+            <li>
+                <a href="#" title="">
+                    <img src="images/live/face6.png" alt="" />
+                    <span class="contact-name">
+                        <strong>Viktor Fedorovich</strong>
+                        <i>web &amp; ui designer</i>
+                    </span>
+                    <span class="status_available"></span>
+                </a>
+            </li>
+        </ul>
+        <!-- /contact list -->
+
+        <div class="separator-doubled"></div>
+        
+        <!-- Date picker -->
+        <div class="block">
+            <div class="inlinepicker"></div>
+        </div>
+        <!-- /date picker -->
+
+        <div class="separator-doubled"></div>
+    
+        <!-- Search -->
+        <form action="#" class="side-search block">
+            <input type="text" value="" placeholder="Search..." />
+            <input type="submit" value="" name="submit" />
+        </form>
+        <!-- /search -->
+
+        <div class="separator-doubled"></div>
+        
+        <!-- Progress bars -->
+        <div class="block">
+            <div class="progress progress-info slim"><div class="bar" data-percentage="25"></div></div>
+        </div>
+        
+        <div class="block">
+            <div class="progress progress-success slim"><div class="bar" data-percentage="50"></div></div>
+        </div>
+        
+        <div class="block">
+            <div class="progress progress-warning slim"><div class="bar" data-percentage="75"></div></div>
+        </div>
+        
+        <div class="block">
+            <div class="progress progress-danger slim"><div class="bar" data-percentage="100"></div></div>
+        </div>
+        
+        <div class="block">
+            <div class="progress progress-info"><div class="bar filled-text" data-percentage="25"></div></div>
+        </div>
+        
+        <div class="block">
+            <div class="progress progress-success"><div class="bar filled-text" data-percentage="50"></div></div>
+        </div>
+        
+        <div class="block">
+            <div class="progress progress-warning"><div class="bar filled-text" data-percentage="75"></div></div>
+        </div>
+        
+        <div class="block">
+            <div class="progress progress-danger"><div class="bar filled-text" data-percentage="100"></div></div>
+        </div>
+        <!-- /progress bars -->
+
+        <div class="separator-doubled"></div>
+        
+        <div class="separator"></div>
+        <div class="separator-alt"></div>
+        <div class="separator-doubled"></div>
+        
+        <!-- Form elements -->
+        <form action="#" class="block">
+            <input type="text" value="" placeholder="Your name" class="spacer-bottom" />
+            <input type="password" value="" class="spacer-bottom" placeholder="Your password" />
+            <input type="file" class="style" />
+            <select name="select2" class="style" >
+                <option value="opt1">Usual select box</option>
+                <option value="opt2">Option 2</option>
+                <option value="opt3">Option 3</option>
+                <option value="opt4">Option 4</option>
+                <option value="opt5">Option 5</option>
+                <option value="opt6">Option 6</option>
+                <option value="opt7">Option 7</option>
+                <option value="opt8">Option 8</option>
+            </select>
+            <select data-placeholder="Choose a Country..." class="select" tabindex="2">
+                <option value=""></option> 
+                <option value="Cambodia">Cambodia</option> 
+                <option value="Cameroon">Cameroon</option> 
+                <option value="Canada">Canada</option> 
+                <option value="Cape Verde">Cape Verde</option> 
+            </select>
+            <div class="sidebar-checks">
+                <label class="checkbox"><input type="checkbox" name="checkbox1" class="style" value="" checked="checked" />Checkbox checked</label>
+                <label class="radio"><input type="radio" name="radio" class="style" value="" />Unchecked radio</label>
+                <label class="radio"><input type="radio" name="radio" class="style" value="" checked="checked" />Checked radio</label>
+            </div>
+            <textarea cols="4" rows="4" placeholder="Your message" class="spacer-bottom"></textarea>
+            <div class="form-actions">
+                <input type="submit" value="Submit form" class="btn btn-info pull-left" />
+                <input type="reset" value="Reset form" class="btn btn-danger pull-right" />
+            </div>
+            <input type="submit" value="Success button" class="btn btn-block btn-success spacer-top" />
+            <input type="submit" value="Primary button" class="btn btn-block btn-primary" />
+            <input type="submit" value="Warning button" class="btn btn-block btn-medium btn-warning" />
+        </form>
+        <!-- /form elements -->
+
+        <div class="separator-doubled"></div>
+        
+        <!-- Tags -->
+        <div class="block">
+            <input type="text" class="tags" value="this, tag">
+        </div>
+        <!-- /tags -->
+
+        <div class="separator-doubled"></div>
+        
+        <!-- Links -->
+        <ul class="block sidebar-links">
+            <li><a href="#" title=""><i class="icon-cog icon-white"></i>Lorem ipsum dolor sit amet</a></li>
+            <li><a href="#" title=""><i class="icon-wrench icon-white"></i>Vestibulum eget posuere</a></li>
+            <li><a href="#" title=""><i class="icon-camera icon-white"></i>Nulla aliquet posuere diam</a></li>
+            <li><a href="#" title=""><i class="icon-comment icon-white"></i>Nulla vel pellentesque</a></li>
+        </ul>
+        <!-- /links -->
+        
+        <!-- Links -->
+        <ul class="block sidebar-links marks">
+            <li><a href="#" title="">Lorem ipsum dolor sit amet</a></li>
+            <li><a href="#" title="">Vestibulum eget posuere</a></li>
+            <li><a href="#" title="">Nulla aliquet posuere diam</a></li>
+            <li><a href="#" title="">Nulla vel pellentesque</a></li>
+        </ul>
+        <!-- /links -->
+
+        <div class="separator-doubled"></div>
+        
+        <!-- Stats progress -->
+        <ul class="block progress-statistics">
+            <li>
+                <strong>Windows PC</strong><strong class="pull-right">88%</strong>
+                <div class="progress progress-danger slim"><div class="bar" data-percentage="88"></div></div>
+            </li>
+            <li>
+                <strong>Mac</strong><strong class="pull-right">70%</strong>
+                <div class="progress progress-info slim"><div class="bar" data-percentage="70"></div></div>
+            </li>
+            <li>
+                <strong>iPad/iPhone</strong><strong class="pull-right">50%</strong>
+                <div class="progress progress-success slim"><div class="bar" data-percentage="50"></div></div>
+            </li>
+            <li>
+                <strong>Windows 8</strong><strong class="pull-right">22%</strong>
+                <div class="progress progress-warning slim"><div class="bar" data-percentage="22"></div></div>
+            </li>
+        </ul>
+        <!-- /stats progress -->
+
+    </div><!-- /left sidebar -->
+
+	<!-- Main content -->
+    <div class="content">    
+    
+        <div class="page-header"><!-- page title -->
+            <h5><i class="font-user"></i>Content components</h5>
+            <ul class="topnav">
+                <li class="topuser">
+                    <a title="" data-toggle="dropdown"><img src="images/user.png" alt="" /><span>Eugene Kopyov</span><i class="caret"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" title=""><span class="user-profile"></span>My profile</a></li>
+                        <li><a href="#" title=""><span class="user-stats"></span>Statistics <strong>2</strong></a></li>
+                        <li><a href="#" title=""><span class="user-settings"></span>Switch user</a></li>
+                        <li><a href="#" title=""><span class="user-logout"></span>Logout</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" title=""><b class="settings"></b></a></li>
+                <li><a href="#" title=""><b class="mail"></b></a></li>
+                <li class="search">
+                    <a title=""><b class="search"></b></a>
+                    <form class="top-search" action="#">
+                        <input type="text" placeholder="Search..." />
+                        <input type="submit" value="" />
+                    </form>
+                </li>
+                <li class="sidebar-button"><a href="#" title=""><b class="responsive-nav"></b></a></li>
+                <li><a href="#" title=""><b class="logout"></b></a></li>
+            </ul>
+        </div><!-- /page title -->
+
+        <!-- Dark notes -->
+        <div class="notice">
+            <div class="note note-danger">
+                <button type="button" class="close">×</button>
+                <strong>Warning!</strong> Best check yo self, you're not looking too good.
+            </div>
+        </div>
+
+        <div class="notice">
+            <div class="note">
+                <button type="button" class="close">×</button>
+                <strong>Warning!</strong> Best check yo self, you're not looking too good.
+            </div>
+        </div>
+        
+        <div class="notice">
+            <div class="note note-warning">
+                <button type="button" class="close">×</button>
+                <strong>Warning!</strong> Best check yo self, you're not looking too good.
+            </div>
+        </div>
+        
+        <div class="notice closing">
+            <div class="note note-success">
+                <button type="button" class="close">×</button>
+                <strong>Warning!</strong> Best check yo self, you're not looking too good.
+            </div>
+        </div>
+        <!-- /dark notes -->
+
+        <div class="body">
+    
+            <!-- Middle navigation standard -->
+            <ul class="midnav">
+                <li><a href="#" title="Add an article"><img src="images/icons/color/order-149.png" alt="" /><span>New tasks</span></a></li>
+                <li><a href="#" title="Upload files"><img src="images/icons/color/issue.png" alt="" /><span>My invoices</span></a></li>
+                <li><a href="#" title="Add something"><img src="images/icons/color/hire-me.png" alt="" /><span>Add users</span></a><strong>4</strong></li>
+                <li><a href="#" title="Messages"><img src="images/icons/color/donate.png" alt="" /><span>Donations</span></a></li>
+                <li><a href="#" title="Check statistics"><img src="images/icons/color/config.png" alt="" /><span>Parameters</span></a></li>
+            </ul>
+            <!-- /middle navigation standard -->
+            
+            <div class="separator-doubled" style="margin-bottom: 20px;"></div>
+            
+            <!-- Standard without background -->
+            <ul class="midnav no-background">
+                <li><a href="#" title="Add an article"><img src="images/icons/color/order-149.png" alt="" /><span>New tasks</span></a></li>
+                <li><a href="#" title="Upload files"><img src="images/icons/color/issue.png" alt="" /><span>My invoices</span></a></li>
+                <li><a href="#" title="Add something"><img src="images/icons/color/hire-me.png" alt="" /><span>Add users</span></a><strong>7</strong></li>
+                <li><a href="#" title="Messages"><img src="images/icons/color/donate.png" alt="" /><span>Donations</span></a></li>
+                <li><a href="#" title="Check statistics"><img src="images/icons/color/config.png" alt="" /><span>Parameters</span></a></li>
+            </ul>
+            <!-- /standard without background -->
+            
+            <div class="separator-doubled" style="margin-bottom: 20px;"></div>
+            
+            <!-- Pie charts -->
+            <ul class="midnav piechart">
+                <li><div data-percent="73">73%</div><span>Memory used</span></li>
+                <li><div data-percent="12">12%</div><span>Storage used</span></li>
+                <li><div data-percent="59">59%</div><span>Bounce rate</span></li>
+                <li><div data-percent="35">35%</div><span>Server load</span></li>
+            </ul>
+            <!-- /pie charts -->
+            
+            <div class="separator-doubled" style="margin-bottom: 20px;"></div>
+        
+            <!-- Font icons -->
+            <ul class="midnav midnav-font">
+                <li><a href="#" title="Add an article"><i class="font-cog"></i><span>Settings</span></a></li>
+                <li><a href="#" title="Add an article"><i class="font-comments"></i><span>Comments</span></a></li>
+                <li><a href="#" title="Add an article"><i class="font-camera"></i><span>Add photos</span></a></li>
+                <li><a href="#" title="Add an article"><i class="font-shopping-cart"></i><span>Shopping</span></a></li>
+                <li><a href="#" title="Add an article"><i class="font-map-marker"></i><span>Map marks</span></a></li>
+            </ul>
+            <!-- /font icons -->
+            
+            <div class="separator-doubled" style="margin-bottom: 20px;"></div>
+            
+            <!-- Font icons, no background -->
+            <ul class="midnav midnav-font no-background">
+                <li><a href="#" title="Add an article"><i class="font-cog"></i><span>Settings</span></a></li>
+                <li><a href="#" title="Add an article"><i class="font-comments"></i><span>Comments</span></a></li>
+                <li><a href="#" title="Add an article"><i class="font-camera"></i><span>Add photos</span></a></li>
+                <li><a href="#" title="Add an article"><i class="font-shopping-cart"></i><span>Shopping</span></a></li>
+                <li><a href="#" title="Add an article"><i class="font-map-marker"></i><span>Map marks</span></a></li>
+            </ul>
+            <!-- /font icons, no background -->
+
+            <!-- Content container -->
+            <div class="container">
+        
+            	<!-- Sliders -->
+                <div class="block well">
+                    <div class="navbar"><div class="navbar-inner"><h5>jQuery UI sliders</h5></div></div>
+                    <div class="row-fluid form-horizontal">
+
+                        <div class="control-group">
+                            <span class="control-label">Simple slider:</span>
+                            <div class="controls"><div id="slider"></div></div>
+                        </div>
+
+                        <div class="control-group">
+                            <span class="control-label">Range slider:</span>
+                            <div class="controls">
+                                <div class="sliderSpecs"><label for="amount">Price range:</label><input type="text" id="amount" /></div>
+                                <div id="slider-range"></div>
+                            </div>
+                        </div>	
+
+                        <div class="control-group">
+                            <span class="control-label">With minimum:</span>
+                            <div class="controls">
+                                <div class="sliderSpecs"><label for="amount">Minimum:</label><input type="text" id="amount2" /></div>
+                                <div id="slider-range-min"></div>
+                            </div>
+                        </div>	
+
+                        <div class="control-group">
+                            <span class="control-label">With maximum:</span>
+                            <div class="controls">
+                                <div class="sliderSpecs"><label for="amount">Maximum:</label><input type="text" id="amount3" /></div>
+                                <div id="slider-range-max"></div>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <span class="control-label">Vertical sliders:</span>
+                            <div class="controls">
+                                <div id="eq">
+                                    <span>88</span>
+                                    <span>77</span>
+                                    <span>55</span>
+                                    <span>33</span>
+                                    <span>40</span>
+                                    <span>45</span>
+                                    <span>70</span>
+                                    <span>82</span>
+                                </div>    
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- /sliders -->
+                            
+                <div class="separator-doubled"></div> 
+            	
+                <!-- Pickers -->
+                <form class="form-horizontal">
+                    <div class="row-fluid">
+                    
+                    	<!-- Column -->
+                        <div class="span6">
+                        
+                            <!-- Date pickers -->
+                            <div class="block well">
+                                <div class="navbar"><div class="navbar-inner"><h5>Date pickers</h5></div></div>
+                            
+                                <div class="control-group">
+                                    <label class="control-label">Default datepicker:</label>
+                                    <div class="controls">
+                                        <input type="text" class="datepicker" />
+                                    </div>
+                                </div>
+                                
+                                <div class="control-group">
+                                    <label class="control-label">Inline fixed:</label>
+                                    <div class="controls">
+                                        <div class="inlinepicker datepicker-fixed"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="control-group">
+                                    <label class="control-label">Inline liquid:</label>
+                                    <div class="controls">
+                                        <div class="inlinepicker datepicker-liquid"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="control-group">
+                                    <label class="control-label">Date range:</label>
+                                    <div class="controls">
+                                        <ul class="dates-range">
+                                            <li><input type="text" id="fromDate" name="from" placeholder="From" /></li>
+                                            <li class="sep">-</li>
+                                            <li><input type="text" id="toDate" name="to" placeholder="To" /></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="control-group">
+                                    <label class="control-label">Icon trigger:</label>
+                                    <div class="controls">
+                                        <div class="date-trigger"><input type="text" name="trigger" placeholder="Select date" id="datepicker-icon" /></div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <!-- /date pickers -->
+                        
+                        </div>
+                        <!-- /column -->
+                        
+                        <!-- Column -->
+                        <div class="span6">
+                        
+                        	<!-- Color picker -->
+                            <div class="block well">
+                                <div class="navbar"><div class="navbar-inner"><h5>Color picker</h5></div></div>
+                                
+                                <div class="control-group">
+                                    <label class="control-label">HEX format:</label>
+                                    <div class="controls"><input type="text" value="#8fff00" id="cp1" ></div>
+                                </div>
+                                
+                                <div class="control-group">
+                                    <label class="control-label">RGBa format:</label>
+                                    <div class="controls"><input type="text" value="rgb(0,194,255,0.78)" id="cp2" data-color-format="rgba" ></div>
+                                </div>
+                                
+                                <div class="control-group">
+                                    <label class="control-label">As component:</label>
+                                    <div class="controls">
+                                        <div class="input-append color" data-color="rgb(255, 146, 180)" data-color-format="rgb" id="cp3">
+                                            <input type="text" value="" readonly >
+                                            <span class="add-on"><i style="background-color: rgb(255, 146, 180)"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="control-group">
+                                    <label class="control-label">Using events:</label>
+                                    <div class="controls"><a href="#" class="btn small" id="cp4" data-color-format="hex" data-color="rgb(255, 255, 255)">Change background color</a></div>
+                                </div>
+                                
+                            </div>
+                            <!-- /color picker -->
+                            
+                            <!-- Time pickers -->
+                            <div class="block well">
+                                <div class="navbar"><div class="navbar-inner"><h5>Time picker</h5></div></div>
+                                
+                                <div class="control-group">
+                                    <label class="control-label">Default:</label>
+                                    <div class="controls"><input id="defaultValueExample" type="text" /></div>
+                                </div>
+                                
+                                <div class="control-group">
+                                    <label class="control-label">Duration:</label>
+                                    <div class="controls"><input id="durationExample" type="text" /></div>
+                                </div>
+                                
+                                <div class="control-group">
+                                    <label class="control-label">Event:</label>
+                                    <div class="controls"><input id="onselectExample" type="text" /><span id="onselectTarget" class="help-inline"></span></div>
+                                </div>
+                                
+                                <div class="control-group">
+                                    <label class="control-label">Time formats:</label>
+                                    <div class="controls">
+                                        <ul class="dates-range">
+                                            <li><input id="timeformatExample1" type="text" /></li>
+                                            <li class="sep">-</li>
+                                            <li><input id="timeformatExample2" type="text" /></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="control-group">
+                                    <label class="control-label">With date picker:</label>
+                                    <div class="controls">
+                                        <ul class="dates-range no-append">
+                                            <li><input type="text" placeholder="Select date..." id="date" class="datepicker time" ></li>
+                                            <li class="sep">-</li>
+                                            <li><input id="time" type="text" class="time" placeholder="Select time..." /></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <!-- /time pickers -->
+                            
+                        </div>
+                        <!-- /column -->
+                        
+                    </div>
+                </form>
+                <!-- /pickers -->
+            
+                <div class="separator-doubled"></div> 
+            
+            	<!-- Navbar elements -->
+                <div class="row-fluid">
+                    
+                    <!-- Column -->
+                    <div class="span4">
+                    
+                        <!-- Collapsible widget -->
+                        <div class="block well">
+                            <div class="navbar">
+                                <div class="navbar-inner">
+                                    <h5>Collapsible widget</h5>
+                                    <div class="nav pull-right">
+                                        <a class="just-icon" data-toggle="collapse" data-target="#demo"><i class="font-resize-vertical"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="collapse in" id="demo">
+                                <div class="body">This block is opened by default</div>
+                            </div>
+                        </div>
+                        <!-- /collapsible widget -->
+                        
+                        <!-- Progress bar -->
+                        <div class="block well">
+                            <div class="navbar">
+                                <div class="navbar-inner">
+                                    <h5>Progress bar</h5>
+                                    <div class="progress progress-danger"><div class="bar filled-text" data-percentage="60"></div></div>
+                                </div>
+                            </div>
+                            <div class="body">Just add necessary style to stylize it! <code>class="progress progress-danger"</code></div>
+                        </div>
+                        <!-- /progress bar -->
+                        
+                        <!-- Input field -->
+                        <div class="block well">
+                            <div class="navbar">
+                                <div class="navbar-inner">
+                                    <h5>Input field</h5>
+                                    <input type="text" name="progress-input" class="pull-right navbar-input" placeholder="Input field" />
+                                </div>
+                            </div>
+                            <div class="body"><code>class="pull-right navbar-input"</code></div>
+                        </div>
+                        <!-- /input field -->
+                        
+                        <!-- Button -->
+                        <div class="block well">
+                            <div class="navbar">
+                                <div class="navbar-inner">
+                                    <h5>Button</h5>
+                                    <button type="button" class="btn btn-info pull-right">Button</button>
+                                </div>
+                            </div>
+                            <div class="body">There are 2 button sizes for navbar, <code>.btn</code> and <code>.btn .btn-small</code></div>
+                        </div>
+                        <!-- /button -->
+
+                        <!-- Button in title -->
+                        <div class="block well">
+                            <div class="navbar">
+                                <div class="navbar-inner">
+                                    <h5>Inside title</h5>
+                                    <input type="button" class="btn btn-small btn-danger" value="Submit" />
+                                </div>
+                            </div>
+                            <div class="body"><code>class="btn btn-small"</code>. 2 button sizes are allowed</div>
+                        </div>
+                        <!-- /button in title -->
+
+                        <!-- Toolbar tabs -->
+                        <div class="block well">
+                            <div class="navbar">
+                                <div class="navbar-inner">
+                                    <h5>Toolbar tabs</h5>
+                                </div>
+                            </div>
+                            <div class="tabbable toolbar-tabs">
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a href="#tab13" data-toggle="tab">Section 1</a></li>
+                                    <li><a href="#tab14" data-toggle="tab">Section 2</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="tab13">
+                                        I'm in Section 1.
+                                    </div>
+                                    <div class="tab-pane" id="tab14">
+                                        Howdy, I'm in Section 2.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /toolbar tabs -->
+                        
+                        <!-- Pager -->
+                        <div class="block well">
+                            <div class="navbar">
+                                <div class="navbar-inner">
+                                    <h5>Pager</h5>
+                                    <ul class="pager pull-right">
+                                        <li><a href="#">&larr; Prev</a></li>
+                                        <li><a href="#">Next &rarr;</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="body"><code>ul class="pager pull-right"</code> right after title</div>
+                        </div>
+                        <!-- /pager -->
+                        
+                        <!-- Links -->
+                        <div class="block well">
+                            <div class="navbar">
+                                <div class="navbar-inner">
+                                    <h5>Links</h5>
+                                    <ul class="nav pull-right">
+                                        <li><a href="#">Link</a></li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                                            <ul class="dropdown-menu pull-right">
+                                                <li><a href="#"><i class="font-heart"></i>Favorite it</a></li>
+                                                <li><a href="#"><i class="font-refresh"></i>Reload page</a></li>
+                                                <li><a href="#"><i class="font-link"></i>Attach something</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="body"><code>ul class="nav pull-right"</code></div>
+                        </div>
+                        <!-- /links -->
+                        
+                    </div>
+                    <!-- /column -->
+                    
+                    <!-- Column -->
+                    <div class="span4">
+                    
+                        <!-- Collapsible widget -->
+                        <div class="block well">
+                            <div class="navbar">
+                                <div class="navbar-inner">
+                                    <h5>Collapsible widget</h5>
+                                    <div class="nav pull-right">
+                                        <a class="just-icon" data-toggle="collapse" data-target="#demo2"><i class="font-resize-vertical"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="collapse" id="demo2">
+                                <div class="body">And this one is closed by default</div>
+                            </div>
+                        </div>
+                        <!-- /collapsible widget -->
+                        
+                        <!-- Label -->
+                        <div class="block well">
+                            <div class="navbar">
+                                <div class="navbar-inner">
+                                    <h5>Label</h5>
+                                    <span class="label label-inverse pull-right">Inverse</span>
+                                </div>
+                            </div>
+                            <div class="body">Use <code>class="label label-inverse pull-right"</code> to add label</div>
+                        </div>
+                        <!-- /label -->
+                        
+                        <!-- Badge -->
+                        <div class="block well">
+                            <div class="navbar">
+                                <div class="navbar-inner">
+                                    <h5>Badge</h5>
+                                    <span class="badge badge-info pull-right">7</span>
+                                </div>
+                            </div>
+                            <div class="body">Use <code>class="badge badge-inverse pull-right"</code> to place badge</div>
+                        </div>
+                        <!-- /badge -->
+                        
+                        <!-- Icons -->
+                        <div class="block well">
+                            <div class="navbar">
+                                <div class="navbar-inner">
+                                    <h5>Icons</h5>
+                                    <ul class="nav pull-right">
+                                        <li><a href="#"><i class="icon-heart"></i> Link</a></li>
+                                        <li><a href="#" class="just-icon"><i class="icon-heart"></i></a></li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle just-icon" data-toggle="dropdown"><i class="icon-th-list"></i></a>
+                                            <ul class="dropdown-menu pull-right">
+                                                <li><a href="#"><i class="font-heart"></i>Favorite it</a></li>
+                                                <li><a href="#"><i class="font-refresh"></i>Reload page</a></li>
+                                                <li><a href="#"><i class="font-link"></i>Attach something</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="body">Just a showcase of what can be used in the navbar nav - single glyph and font awesome icons, single caret or icon as a part of usual link.</div>
+                        </div>
+                        <!-- /icons -->
+
+                        <!-- Icons (font awesome) -->
+                        <div class="block well">
+                            <div class="navbar">
+                                <div class="navbar-inner">
+                                    <h5>Icons (Font Awesome)</h5>
+                                    <ul class="nav pull-right">
+                                        <li><a href="#"><i class="font-heart"></i> Link</a></li>
+                                        <li><a href="#" class="just-icon"><i class="font-heart"></i></a></li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle just-caret" data-toggle="dropdown"><i class="font-reorder"></i></a>
+                                            <ul class="dropdown-menu pull-right">
+                                                <li><a href="#"><i class="font-heart"></i>Favorite it</a></li>
+                                                <li><a href="#"><i class="font-refresh"></i>Reload page</a></li>
+                                                <li><a href="#"><i class="font-link"></i>Attach something</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="body">Just a showcase of what can be used in the navbar nav - single glyph and font awesome icons, single caret or icon as a part of usual link.</div>
+                        </div>
+                        <!-- /icons (font awesome) -->
+
+                        <!-- Icon -->
+                        <div class="block well">
+                            <div class="navbar">
+                                <div class="navbar-inner">
+                                    <h5>Icon</h5>
+                                    <div class="nav pull-right">
+                                        <a href="#" class="just-icon"><i class="font-cog"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="body"><code>class="dropdown-toggle just-icon"</code> for parent link</div>
+                        </div>
+                        <!-- /icon -->
+                        
+                        <!-- Caret dropdown -->
+                        <div class="block well">
+                            <div class="navbar">
+                                <div class="navbar-inner">
+                                    <h5>Caret dropdown</h5>
+                                    <div class="nav pull-right">
+                                        <a href="#" class="dropdown-toggle just-caret" data-toggle="dropdown"><b class="caret"></b></a>
+                                        <ul class="dropdown-menu pull-right">
+                                            <li><a href="#"><i class="font-heart"></i>Favorite it</a></li>
+                                            <li><a href="#"><i class="font-refresh"></i>Reload page</a></li>
+                                            <li><a href="#"><i class="font-link"></i>Attach something</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="body"><code>ul class="nav pull-right"</code></div>
+                        </div>
+                        <!-- /caret dropdown -->
+                        
+                        <!-- Icon dropdown -->
+                        <div class="block well">
+                            <div class="navbar">
+                                <div class="navbar-inner">
+                                    <h5>Icon dropdown</h5>
+                                    <div class="nav pull-right">
+                                        <a href="#" class="dropdown-toggle just-icon" data-toggle="dropdown"><i class="font-cog"></i></a>
+                                        <ul class="dropdown-menu pull-right">
+                                            <li><a href="#"><i class="font-heart"></i>Favorite it</a></li>
+                                            <li><a href="#"><i class="font-refresh"></i>Reload page</a></li>
+                                            <li><a href="#"><i class="font-link"></i>Attach something</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="body"><code>class="dropdown-toggle just-icon"</code> for parent link</div>
+                        </div>
+                        <!-- /icon dropdown -->
+                    
+                    </div>
+                    <!-- /column -->
+                    
+                    <!-- Column -->
+                    <div class="span4">
+                        
+                        <!-- Datepicker -->
+                        <div class="block well">
+                            <div class="navbar">
+                                <div class="navbar-inner">
+                                    <h5>Datepicker</h5>
+                                    <div class="pull-right pick-a-date"><i class="font-calendar"></i><input type="text" class="datepicker" placeholder="select date..." /></div>
+                                </div>
+                            </div>
+                            <div class="body">For input field use <code>class="input-mini datepicker"</code></div>
+                        </div>
+                        <!-- /datepicker -->
+                        
+                        <!-- Toggle checkbox -->
+                        <div class="block well">
+                            <div class="navbar">
+                                <div class="navbar-inner">
+                                    <h5>Toggle checkbox</h5>
+                                    <div class="checkbox on_off pull-right"><label class="toggle-label" for="navbar-check">Checked</label><input type="checkbox" id="navbar-check" checked="checked" name="chbox" /></div>
+                                </div>
+                            </div>
+                            <div class="body"><code>div class="checkbox on_off pull-right"</code></div>
+                        </div>
+                        <!-- /toggle checkbox -->
+                        
+                        <!-- Simple icons -->
+                        <div class="block well">
+                            <div class="navbar">
+                                <div class="navbar-inner">
+                                    <h5>Simple icons</h5>
+                                    <ul class="icons">
+                                        <li><a href="#" class="hovertip" title="My tasks"><i class="font-tasks"></i></a></li>
+                                        <li><a href="#" class="hovertip" title="Favorite"><i class="font-heart"></i></a></li>
+                                        <li><a href="#" class="hovertip" title="Settings"><i class="font-cog"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="body"><code>ul class="icons pull-right"</code></div>
+                        </div>
+                        <!-- /simple icons -->
+                        
+                        <!-- Smaller font size -->
+                        <div class="block well">
+                            <div class="navbar">
+                                <div class="navbar-inner">
+                                    <h6>Smaller font size</h6>
+                                </div>
+                            </div>
+                            <div class="body">Use <code>h6</code> instead of <code>h5</code> in navbar</div>
+                        </div>
+                        <!-- /smaller font size -->
+                        
+                        <!-- Simple toolbar -->
+                        <div class="block well">
+                            <div class="navbar">
+                                <div class="navbar-inner">
+                                    <h5>Simple toolbar</h5>
+                                </div>
+                            </div>
+                            <ul class="toolbar">
+                                <li><a href="#" title=""><i class="font-heart"></i><span>Upload file</span></a></li>
+                                <li><a href="#" title=""><i class="font-star"></i><span>Download file</span></a></li>
+                                <li><a href="#" title=""><i class="font-wrench"></i><span>Settings</span></a></li>
+                            </ul>
+                            <div class="body">hello</div>
+                        </div>
+                        <!-- /simple toolbar -->
+                        
+                        <!-- Pagination -->
+                        <div class="block well">
+                            <div class="navbar">
+                                <div class="navbar-inner">
+                                    <h5>Pagination</h5>
+                                    <div class="pagination pagination-small pull-right">
+                                        <ul>
+                                            <li class="disabled"><a href="#">Prev</a></li>
+                                            <li class="active"><a href="#">1</a></li>
+                                            <li><a href="#">2</a></li>
+                                            <li><a href="#">3</a></li>
+                                            <li><a href="#">4</a></li>
+                                            <li><a href="#">Next</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="body"><code>div class="pagination pull-right"</code> right after title</div>
+                        </div>
+                        <!-- /pagination -->
+                        
+                        <!-- With loader -->
+                        <div class="block well">
+                            <div class="navbar">
+                                <div class="navbar-inner">
+                                    <h5>With loader</h5>
+                                    <div class="loading pull-right">
+                                        <span>Updating data</span>
+                                        <img src="images/elements/loaders/6s.gif" alt="" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="body"><code>div class="loading pull-right"</code> with <strong>span</strong> and loader image inside</div>
+                        </div>
+                        <!-- /with loader -->
+
+                        <!-- Navbar form components -->
+                        <div class="block well">
+                            <div class="navbar">
+                                <div class="navbar-inner">
+                                    <h5>Navbar form</h5>
+                                    <form class="navbar-form pull-right">
+                                        <input type="text" name="input" placeholder=".navbar-form" />
+                                        <button type="submit" class="btn btn-info">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="body"><code>form class="navbar-form"</code></div>
+                        </div>
+                        <!-- /navbar form conponents -->
+
+                    </div>
+                    <!-- /column -->
+                
+                </div>
+                <!-- /navbar elements -->
+            
+                <div class="separator-doubled"></div>
+                
+                <!-- Stats progress -->
+                <div class="row-fluid">
+
+                    <!-- Column -->
+                    <div class="span6">
+                        <div class="block well progress-statistics">
+                            <div class="body">
+                                <strong>Windows PC</strong><strong class="pull-right">30%</strong>
+                                <div class="progress progress-danger value"><div class="bar" data-percentage="30" data-amount-part="3000" data-amount-total="9000"></div></div>
+                                
+                                <div class="semi-block">
+                                    <strong>Mac</strong><strong class="pull-right">80%</strong>
+                                    <div class="progress progress-info value"><div class="bar" data-percentage="40" data-amount-part="7000" data-amount-total="8000"></div></div>
+                                </div>
+                                
+                                <div class="semi-block">
+                                    <strong>iPad/iPhone</strong><strong class="pull-right">50%</strong>
+                                    <div class="progress progress-success value"><div class="bar" data-percentage="79" data-amount-part="200" data-amount-total="400"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /column -->
+                    
+                    <!-- Column -->
+                    <div class="span6">
+                        <div class="block well progress-statistics">
+                            <div class="body">
+                                <strong>Windows PC</strong><strong class="pull-right">30%</strong>
+                                <div class="progress progress-danger slim"><div class="bar" data-percentage="30"></div></div>
+                                
+                                <div class="semi-block">
+                                    <strong>Mac</strong><strong class="pull-right">40%</strong>
+                                    <div class="progress progress-info slim"><div class="bar" data-percentage="40"></div></div>
+                                </div>
+                                
+                                <div class="semi-block">
+                                    <strong>iPad/iPhone</strong><strong class="pull-right">79%</strong>
+                                    <div class="progress progress-success slim"><div class="bar" data-percentage="79"></div></div>
+                                </div>
+                                
+                                <div class="semi-block">
+                                    <strong>Windows 8</strong><strong class="pull-right">23%</strong>
+                                    <div class="progress progress-warning slim"><div class="bar" data-percentage="23"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /column -->
+
+                </div>
+                <!-- /stats progress -->
+                
+                <!-- Player controls -->
+                <div class="btn-toolbar align-center block">
+                    <div class="btn-group">
+                        <a href="#" class="btn btn-inverse"><i class="icon-white icon-fast-backward"></i></a>
+                        <a href="#" class="btn btn-inverse"><i class="icon-white icon-backward"></i></a>
+                        <a href="#" class="btn btn-inverse"><i class="icon-white icon-stop"></i></a>
+                        <a href="#" class="btn btn-inverse"><i class="icon-white icon-play"></i></a>
+                        <a href="#" class="btn btn-inverse"><i class="icon-white icon-pause"></i></a>
+                        <a href="#" class="btn btn-inverse"><i class="icon-white icon-forward"></i></a>
+                        <a href="#" class="btn btn-inverse"><i class="icon-white icon-fast-forward"></i></a>
+                    </div>
+                </div>
+                <!-- /player controls -->
+                
+                <!-- Toolbar buttons -->
+                <div class="btn-toolbar semi-block align-center">
+                    <div class="btn-group">
+                        <button class="btn" data-original-title="Bold - Ctrl+B"><i class="icon-bold"></i></button>
+                        <button class="btn" data-original-title="Italic - Ctrl+I"><i class="icon-italic"></i></button>
+                        <button class="btn" data-original-title="Img"><i class="icon-picture"></i></button>
+                        <button class="btn" data-original-title="URL"><i class="icon-arrow-right"></i></button>
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn" data-original-title="Align Right"><i class="icon-align-right"></i></button>
+                        <button class="btn" data-original-title="Align Center"><i class="icon-align-center"></i></button>
+                        <button class="btn" data-original-title="Align Left"><i class="icon-align-left"></i></button>
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn" data-original-title="Preview"><i class="icon-eye-open"></i></button>
+                        <button class="btn" data-original-title="Save"><i class="icon-ok"></i></button>
+                        <button class="btn" data-original-title="Cancel"><i class="icon-trash"></i></button>
+                    </div>
+                </div>
+                <!-- /toolbar buttons -->
+                
+                <!-- Control buttons -->
+                <div class="semi-block align-center">
+                    <a href="#" class="btn"><b class="icon-pencil"></b> Write</a>
+                    <a href="#" class="btn"><b class="icon-edit"></b> Edit</a>
+                    <a href="#" class="btn"><b class="icon-trash"></b> Delete</a>
+                    <a href="#" class="btn"><b class="icon-align-justify"></b> List</a>                    
+                </div>
+                <!-- /control buttons -->
+                
+                <!-- Grid buttons -->
+                <div class="semi-block" style="width: 30%; margin-left: auto; margin-right: auto;">
+                    <button type="button" class="btn btn-large btn-primary btn-block">Block button</button>
+                    <div class="row-fluid">
+                        <div class="span6 semi-block"><button type="button" class="btn btn-danger btn-block">Block button</button></div>
+                        <div class="span6 semi-block"><button type="button" class="btn btn-success btn-block">Block button</button></div>
+                    </div>
+                </div>
+                <!-- /grid buttons -->
+        
+                <!-- Search block -->
+                <div class="semi-block" style="width: 35%; margin-left: auto; margin-right: auto;">
+                    <form action="#" class="search-block">
+                        <input type="text" name="search" class="jquery-autocomplete" placeholder="Search with autocomplete..." />
+                       <button type="submit" name="find" value="" class="btn"><span class="search"></span></button>
+                    </form>
+                </div>
+                <!-- /search block -->
+                                    
+                <!-- Custom content elements -->
+                <div class="row-fluid">
+                
+                	<!-- Column -->
+                	<div class="span4">
+                    
+                    	<!-- Statistics -->
+                    	<div class="block well">
+                        	<div class="navbar"><div class="navbar-inner"><h5>Web statistics</h5></div></div>
+                            <div class="table-overflow">
+                                <table class="table table-bordered table-block table-gradient table-stats">
+                                    <thead>
+                                        <tr>
+                                            <th>Amount</th>
+                                            <th>Description</th>
+                                            <th>Changes</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><a href="#" title="">980</a></td>
+                                            <td>returned visitors</td>
+                                            <td><span class="stats-plus">0.32%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="#" title="" class="webStatsLink">1545</a></td>
+                                            <td>new registrations</td>
+                                            <td><span class="stats-minus">82.3%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="#" title="" class="webStatsLink">457</a></td>
+                                            <td>new affiliates registrations</td>
+                                            <td><span class="stats-plus">100%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="#" title="">9543</a></td>
+                                            <td>new visitors</td>
+                                            <td><span class="stats-plus">4.99%</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>    
+                            </div>
+                        </div>
+                        <!-- /statistics -->
+                        
+                    </div>
+                    <!-- /column -->
+                    
+                	<!-- Column -->
+                	<div class="span4">
+                        
+                        <!-- Inline block datepicker -->
+                        <div class="block">
+                            <div class="inlinepicker datepicker-liquid"></div>
+                        </div>
+                        <!-- /inline block datepicker -->
+
+                    </div>
+                    <!-- /column -->
+                    
+                	<!-- Column -->
+                	<div class="span4">
+
+                        <!-- News list -->
+                        <div class="block well">
+                            <div class="navbar"><div class="navbar-inner"><h5>News</h5></div></div>
+                            <ul class="updates">
+                                <li>
+                                    <div class="item">
+                                        <a href="#" title="" class="headline"><img src="images/live/face1.png" alt="" /></a>
+                                        <div class="announce">
+                                            <a href="#" title="">New iPhone 5 is coming!</a>
+                                            <span>A very nice phone with useless stuff ...</span>
+                                        </div>
+                                    </div>
+                                    <span class="date"><span>02</span>jun</span>
+                                </li>
+                                <li>
+                                    <div class="item">
+                                        <a href="#" title="" class="headline"><img src="images/live/face2.png" alt="" /></a>
+                                        <div class="announce">
+                                            <a href="#" title="">Sensor finds lost keys and wallet</a>
+                                            <span>Forgetful geeks need never lose keys ...</span>
+                                        </div>
+                                    </div>
+                                    <span class="date"><span>04</span>jun</span>
+                                </li>
+                                <li>
+                                    <div class="item">
+                                        <a href="#" title="" class="headline"><img src="images/live/face3.png" alt="" /></a>
+                                        <div class="announce">
+                                            <a href="#" title="">China plans new manned space flight</a>
+                                            <span>China has announced it will carry out ...</span>
+                                        </div>
+                                    </div>
+                                    <span class="date"><span>05</span>jun</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- /news list -->
+
+                    </div>
+                    <!-- /column -->
+
+                </div>
+                <!-- /custom content elements -->
+                
+                <div class="separator-doubled"></div>
+            	
+                <!-- Growl notifications -->
+                <div class="row-fluid">
+                
+                	<!-- Column -->
+                    <div class="span6">
+                        <div class="block well">
+                            <div class="navbar"><div class="navbar-inner"><h5>Notification options</h5></div></div>
+                            <div class="body align-center">
+                                <button type="button" class="btn btn-primary" onclick="$.jGrowl('Hello world!');">Basic notice</button>
+                                <button type="button" class="btn btn-primary" onclick="$.jGrowl('Stick this!', { sticky: true });">Sticky notice</button>
+                                <button type="button" class="btn btn-primary" onclick="$.jGrowl('A message with a header', { header: 'Important' });">Message with header</button>
+                                <button type="button" class="btn btn-primary" onclick="$.jGrowl('A message that will live a little longer.', { life: 10000 });">Long live message</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /column -->
+                    
+                    <!-- Column -->
+                    <div class="span6">
+                        <div class="block well">
+                            <div class="navbar"><div class="navbar-inner"><h5>Notification colors</h5></div></div>
+                            <div class="body align-center">
+                                <button type="button" class="btn btn-primary" onclick="$.jGrowl('Basic notice', { sticky: true, header: 'Default notice' });">Default notice</button>
+                                <button type="button" class="btn btn-danger" onclick="$.jGrowl('Something went wrong here', { sticky: true, theme: 'growl-error', header: 'Error!' });">Error notice</button>
+                                <button type="button" class="btn btn-success" onclick="$.jGrowl('Everything is fine here', { sticky: true, theme: 'growl-success', header: 'Success!' });">Success notice</button>
+                                <button type="button" class="btn btn-warning" onclick="$.jGrowl('Be sure you want to do it!', { sticky: true, theme: 'growl-warning', header: 'Attention all units!' });">Warning notice</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /column -->
+                    
+                </div>
+                <!-- /growl notifications -->
+            
+                <div class="separator-doubled"></div>
+                            
+            	<!-- Loaders, tooltips -->
+                <div class="row-fluid">
+                
+                	<!-- Column -->
+                    <div class="span6">
+                    	<div class="block well">
+                            <div class="navbar"><div class="navbar-inner"><h5>Animated loaders</h5></div></div>
+                            <ul class="demo-list body" style="padding-top: 18px;">
+                                <li><img src="images/elements/loaders/1.gif" alt="" style="float: left;" /><img src="images/elements/loaders/1s.gif" style="float: left; margin: 10px 0 0 10px;" alt="" /></li>
+                                <li><img src="images/elements/loaders/2.gif" alt="" style="float: left;" /><img src="images/elements/loaders/2s.gif" style="float: left; margin: 10px 0 0 10px;" alt="" /></li>
+                                <li><img src="images/elements/loaders/3.gif" alt="" style="float: left;" /><img src="images/elements/loaders/3s.gif" style="float: left; margin: 10px 0 0 10px;" alt="" /></li>
+                                <li><img src="images/elements/loaders/4.gif" alt="" style="float: left;" /><img src="images/elements/loaders/4s.gif" style="float: left; margin: 10px 0 0 10px;" alt="" /></li>
+                                <li><img src="images/elements/loaders/5.gif" alt="" style="float: left;" /><img src="images/elements/loaders/5s.gif" style="float: left; margin: 10px 0 0 10px;" alt="" /></li>
+                                <li><img src="images/elements/loaders/6.gif" alt="" style="float: left;" /><img src="images/elements/loaders/6s.gif" style="float: left; margin: 10px 0 0 10px;" alt="" /></li>
+                                <li><img src="images/elements/loaders/7.gif" alt="" style="float: left;" /><img src="images/elements/loaders/7s.gif" style="float: left; margin: 10px 0 0 10px;" alt="" /></li>
+                                <li><img src="images/elements/loaders/8.gif" alt="" style="float: left;" /><img src="images/elements/loaders/8s.gif" style="float: left; margin: 10px 0 0 10px;" alt="" /></li>
+                                <li><img src="images/elements/loaders/9.gif" alt="" style="float: left;" /><img src="images/elements/loaders/9s.gif" style="float: left; margin: 10px 0 0 10px;" alt="" /></li>
+                                <li><img src="images/elements/loaders/10.gif" alt="" style="float: left;" /><img src="images/elements/loaders/10s.gif" style="float: left; margin: 10px 0 0 10px;" alt="" /></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /column -->
+                    
+                    <!-- Column -->
+                    <div class="span6">
+                    	<div class="block well">
+                            <div class="navbar"><div class="navbar-inner"><h5>Tooltips</h5></div></div>
+                            <div class="body">
+                                <ul class="tooltips demo-list">
+                                    <li><a href="#" data-placement="top" title="Tooltip on top" class="btn hovertip">Tooltip on top</a></li>
+                                    <li><a href="#" data-placement="right" title="Tooltip on right" class="btn hovertip">Tooltip on right</a></li>
+                                    <li><a href="#" data-placement="bottom" title="Tooltip on bottom" class="btn hovertip">Tooltip on bottom</a></li>
+                                    <li><a href="#" data-placement="left" title="Tooltip on left" class="btn hovertip">Tooltip on left</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /column -->
+                    
+                </div>
+                <!-- /loaders/ tooltips -->
+                
+                <div class="separator-doubled"></div>
+    			
+                <!-- Separators -->
+                <div class="separator"></div>
+                <div class="separator"><span></span></div>
+                <div class="separator-reflected"></div>
+                <div class="separator-dashed"></div>
+                <div class="separator-shadow"></div>
+                <!-- /separators -->
+
+            </div>
+            <!-- /content container -->
+        
+        </div>
+    </div>
+    <!-- /content -->
+    
+</div>
+<!-- /main wrapper -->
+
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <!-- Setting the Title -->
+    <title>Fetch My Guest</title>
+    <!-- setting the favicon -->
+    {% load static %}
+    <link rel="icon" href="{{ STATIC_URL }}favicon.ico">
+    <!-- load css files -->
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.css">
+    <link rel="stylesheet" href="{{ STATIC_URL }}demos/fetch/new/css/style.css">
+    <!-- select 2 css -->
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/select2.css">
+
+    <!-- load jQuery first to optimize angular ui handling -->
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/select2.min.js"></script>
+    <!-- load required AngularJS libraries -->
+    <script type="text/javascript" src="{{ STATIC_URL }}ng/lib/angular.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}ng/lib/angular-resource.min.js"></script>
+
+    <!-- load Angular Supporting Libraries -->
+    <script type="text/javascript" src="{{ STATIC_URL }}ng/lib/ui-bootstrap-tpls-0.5.0.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}ng/lib/ui-select2.js"></script>
+
+    <!-- load custom angular app specific scripts -->
+    <script type="text/javascript" src="{{ STATIC_URL }}ng/directives.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}ng/config.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}ng/services.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}ng/controllers.js"></script>
+
+</head>
+<body>
+<div id='wrap'>
+    <div class="header-wrapper">
+        <div class="header">
+            <a ng-href="#"><img id='guestretriever-logo' src="{{ STATIC_URL }}images/Fetch-My-Guest-BETA.png"
+                                alt="FetchMyGuest logo" width="430"></a>
+            <!-- begin navigation tabs -->
+            <ul class="nav" style=": none;">
+                <li class="first main active">
+                    <a class="root" href="/dashboard/">Home</a>
+                </li>
+                <!-- end of tab home -->
+                <li class="dropdown report main">
+                    <a href="#" class="root reports">Reports</a>
+                    <ul class="sub-menu">
+                        <li class="sub leads">
+                            <a href="#">Leads »</a>
+                            <ul class="leads-sub">
+                                <li>
+                                    <a href="#">Source</a>
+                                </li>
+                                <li>
+                                    <a href="#">City</a>
+                                </li>
+                                <li>
+                                    <a href="#">State</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <!-- end of tab reports -->
+                <li class="dropdown main">
+                    <a href="javascript:void(0);" id="showalert" ng-click="showalert();" class="root alerts"><span
+                            id="alert-id">No New Alerts</span></a>
+                    <ul class="sub-menu">
+                        <li class="sub">
+                            <a id="comment-alert-link-id" href="#"><span
+                                    id="comment-alert-id">No New Comments</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown agent main">
+                    <a href="#" class="root agents">Agents</a>
+                    <ul class="sub-menu">
+                        <li class="sub">
+                            <a href="welcome.html">Training</a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- end of tab agents -->
+                <li class="last dropdown account main">
+                    <a href="#" class="root">My Account</a>
+                    <ul class="sub-menu">
+                        <li class="sub">
+                            <a href="/accounts/logout/" class="logout">Log Out</a>
+                        </li>
+                        <li class="sub settings">
+                            <a href="#">Settings »</a>
+                            <ul class="settings-sub">
+                                <li>
+                                    <a href="/fetch/my_info/edit/16/">My Info</a>
+                                </li>
+                                <li>
+                                    <a href="/fetch/inner/">Inner</a>
+                                </li>
+                                <li>
+                                    <a href="/fetch/bookings_goal/edit/16/">Goals</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <!-- end of tab my account -->
+            </ul>
+            <!-- end of nav tabs -->
+        </div>
+    </div>
+
+    <div class="container-holder">
+        <div class="container">
+            <div class="container-top">
+                <div class="date_container">
+                    <div class="date" ng-controller="HeaderCtrl">
+                        {% verbatim %}
+                        <a href="/fetch/dashboard/">{{ date|date:'medium' }}</a>
+                        {% endverbatim %}
+                    </div>
+                    <!-- end date -->
+                </div>
+                <!-- end date_container -->
+                <div class="content">
+                    <ul class="items row">
+                        <li class="span3">
+                            <h1 class="top-number calls-received">
+                                1</h1>
+
+                            <p class="text">
+                                <a class="iconm leadin" aria-hidden="true" data-icon="" href=""></a>Leads In</p>
+                        </li>
+                        <li class="span3">
+                            <h1 class="top-number emails-sent">
+                                3</h1>
+
+                            <p class="text">
+                                <a class="iconm fol-up" aria-hidden="true" data-icon="" href=""></a>Follow Ups</p>
+                        </li>
+                        <li class="span3">
+                            <h1 class="top-number bookings-from-leads">
+                                0</h1>
+
+                            <p class="text">
+                                <a class="iconm book-lead" aria-hidden="true" data-icon="" href=""></a>Hot Leads</p>
+                        </li>
+                        <li class="last-item">
+                            <h1 class="top-number bookings-from-leads">
+                                0</h1>
+
+                            <p class="text">
+                                Bookings is your goal this month</p>
+
+                            <div class="progress-bar">
+                                <div id="id_progress_bar" class="complete" style="width: 100%;">
+                                </div>
+                            </div>
+                            <p class="progress-count">
+                                100% of your goal</p>
+                        </li>
+                    </ul>
+                    <!-- end items -->
+                </div>
+                <!-- end content -->
+            </div>
+        </div>
+        <div ng-view>
+
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

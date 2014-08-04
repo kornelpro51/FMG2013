@@ -1,0 +1,92 @@
+{% verbatim %}
+<div class="container">
+    <ul class="midnav piechart">
+        <li>
+            <div class='easyPieChart' data-percent='73'>73/100</div>
+            <span>InBound/Replied</span>
+        </li>
+        <li>
+
+        </li>
+        <li>
+            <div class='easyPieChart' data-percent='42'>42/100</div>
+            <span>Success/Monthly Goal</span>
+        </li>
+    </ul>
+    <div class="separator-doubled" style="margin-bottom: 20px;"></div>
+    <!--<div class="row-fluid">
+        <div class="span2">
+            <button class="btn btn-success span12" ng-click="openAddLeadDialog()">New Lead <i class="icon-plus icon-white"></i></button>
+        </div>
+        <div class="span10">
+            <input id="appendedInputButton" class='span9' type="text">
+            <button class="btn btn-warning" type="button">Search Leads <i class="icon-search"></i></button>
+        </div>
+    </div> -->
+    <div class="row-fluid">
+        <!-- Table with toolbar -->
+        <div class="block well">
+            <!--
+            <div class="navbar">
+                <div class="navbar-inner"><h5>Table with toolbar</h5></div>
+            </div>
+            -->
+            <!--
+                <ul class="toolbar">
+                <li><a href="#" title=""><i class="font-plus"></i><span>Add Lead</span></a></li>
+                <li><a href="#" title=""><i class="font-cog"></i><span>Download file</span></a></li>
+                <li><a href="#" title=""><i class="font-th-list"></i><span>Settings</span></a></li>
+                <li>
+                <input id="appendedInputButton" type="text">
+            </li>
+        </ul> -->
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="span2">
+                        <button class="btn btn-success" ng-click="openAddLeadDialog()">New Lead <i
+                                class="icon-plus icon-white"></i></button>
+                    </div>
+                    <div class="span6" style="margin-top: 8px;">
+                        <div class="input-append">
+                            <input class="span12" id="appendedInputButton" type="text" ng-model="query">
+                            <button class="btn btn-warning" type="button">Search Leads <i class="icon-search"></i></button>
+                        </div>
+                    </div>
+                    <div class="span4">
+                        place for filters(by year/month/week)
+                    </div>
+                </div>
+            </div>
+            <div class="table-overflow">
+                <table class="table table-block table-bordered table-condensed">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>Arrival</th>
+                        <th>Source</th>
+                        <th>Departure</th>
+                        <th>Customer Name</th>
+                        <th>Properties</th>
+                        <th>Send Rate</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="lead in leads | filter:query" >
+                        <td>bones? progress bar</td>
+                        <td>{{ lead.arrival | date:'mediumDate' }}</td>
+                        <td>{{ lead.source }}</td>
+                        <td>{{ lead.departure | date:'mediumDate' }}</td>
+                        <td>{{ lead.customer_name }}</td>
+                        <td>for loop + not enough info</td>
+                        <td>
+                            <button class="btn btn-danger"><i class="icon-envelope" ng-click='openEditLeadDialog(lead)'></i></button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- /table with toolbar -->
+    </div>
+</div>
+{% endverbatim %}

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<title>Amsterdam - premium responsive admin template by Eugene Kopyov</title>
+<link href="css/main.css" rel="stylesheet" type="text/css" />
+<!--[if IE]> <link href="css/ie.css" rel="stylesheet" type="text/css"> <![endif]-->
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery_ui_custom.js"></script>
+
+<script type="text/javascript" src="js/plugins/charts/excanvas.min.js"></script>
+<script type="text/javascript" src="js/plugins/charts/jquery.flot.js"></script>
+<script type="text/javascript" src="js/plugins/charts/jquery.flot.orderBars.js"></script>
+<script type="text/javascript" src="js/plugins/charts/jquery.flot.pie.js"></script>
+<script type="text/javascript" src="js/plugins/charts/jquery.flot.threshold.js"></script>
+<script type="text/javascript" src="js/plugins/charts/jquery.flot.fillbetween.js"></script>
+<script type="text/javascript" src="js/plugins/charts/jquery.flot.resize.js"></script>
+<script type="text/javascript" src="js/plugins/charts/jquery.sparkline.min.js"></script>
+
+<script type="text/javascript" src="js/plugins/forms/jquery.tagsinput.min.js"></script>
+<script type="text/javascript" src="js/plugins/forms/jquery.inputlimiter.min.js"></script>
+<script type="text/javascript" src="js/plugins/forms/jquery.maskedinput.min.js"></script>
+<script type="text/javascript" src="js/plugins/forms/jquery.autosize.js"></script>
+<script type="text/javascript" src="js/plugins/forms/jquery.ibutton.js"></script>
+<script type="text/javascript" src="js/plugins/forms/jquery.dualListBox.js"></script>
+<script type="text/javascript" src="js/plugins/forms/jquery.validate.js"></script>
+<script type="text/javascript" src="js/plugins/forms/jquery.uniform.min.js"></script>
+<script type="text/javascript" src="js/plugins/forms/jquery.select2.min.js"></script>
+<script type="text/javascript" src="js/plugins/forms/jquery.cleditor.js"></script>
+
+<script type="text/javascript" src="js/plugins/uploader/plupload.js"></script>
+<script type="text/javascript" src="js/plugins/uploader/plupload.html4.js"></script>
+<script type="text/javascript" src="js/plugins/uploader/plupload.html5.js"></script>
+<script type="text/javascript" src="js/plugins/uploader/jquery.plupload.queue.js"></script>
+
+<script type="text/javascript" src="js/plugins/wizard/jquery.form.wizard.js"></script>
+<script type="text/javascript" src="js/plugins/wizard/jquery.form.js"></script>
+
+<script type="text/javascript" src="js/plugins/ui/jquery.collapsible.min.js"></script>
+<script type="text/javascript" src="js/plugins/ui/jquery.timepicker.min.js"></script>
+<script type="text/javascript" src="js/plugins/ui/jquery.jgrowl.min.js"></script>
+<script type="text/javascript" src="js/plugins/ui/jquery.pie.chart.js"></script>
+<script type="text/javascript" src="js/plugins/ui/jquery.fullcalendar.min.js"></script>
+<script type="text/javascript" src="js/plugins/ui/jquery.elfinder.js"></script>
+<script type="text/javascript" src="js/plugins/ui/jquery.fancybox.js"></script>
+
+<script type="text/javascript" src="js/plugins/tables/jquery.dataTables.min.js"></script>
+
+<script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/plugins/bootstrap/bootstrap-bootbox.min.js"></script>
+<script type="text/javascript" src="js/plugins/bootstrap/bootstrap-progressbar.js"></script>
+<script type="text/javascript" src="js/plugins/bootstrap/bootstrap-colorpicker.js"></script>
+
+<script type="text/javascript" src="js/functions/custom.js"></script>
+
+<script type="text/javascript" src="js/charts/chart.js"></script>
+<script type="text/javascript" src="js/charts/bar.js"></script>
+<script type="text/javascript" src="js/charts/hBar.js"></script>
+<script type="text/javascript" src="js/charts/updating.js"></script>
+<script type="text/javascript" src="js/charts/pie.js"></script>
+
+<script type="text/javascript" src="js/charts/bar_side.js"></script>
+<script type="text/javascript" src="js/charts/chart_side.js"></script>
+<script type="text/javascript" src="js/charts/horizontal_bar_side.js"></script>
+
+<script type="text/javascript" src="js/charts/filled.js"></script>
+<script type="text/javascript" src="js/charts/threshold.js"></script>
+
+</head>
+
+<body>
+
+<!-- Main wrapper -->
+<div class="wrapper">
+
+	<!-- Left sidebar -->
+    <div class="sidebar">
+
+        <a href="index.html" title="" class="logo"><img src="images/logo.png" alt="" /></a>
+        
+        <ul class="navigation"><!-- standard nav -->
+            <li><a href="index.html" title=""><img src="images/icons/mainnav/dashboard.png" alt="" />Dashboard</a></li>
+            <li><a href="#" title="" class="expand"><img src="images/icons/mainnav/form-elements.png" alt="" />Form elements<strong>3</strong></a>
+                <ul>
+                    <li><a href="forms.html" title="">Main elements</a></li>
+                    <li><a href="form_wizards.html" title="">Wizards</a></li>
+                    <li><a href="form_grid.html" title="">Inputs grid</a></li>
+                </ul>
+            </li>
+            <li><a href="#" title="" class="expand"><img src="images/icons/mainnav/components.png" alt="" />Components<strong>4</strong></a>
+                <ul>
+                    <li><a href="content_components.html" title="">Content components</a></li>
+                    <li><a href="bootstrap_components.html" title="">Bootstrap components</a></li>
+                    <li><a href="gallery.html" title="">Gallery &amp; thumbs</a></li>
+                    <li><a href="content_grid.html" title="">Content grid</a></li>
+                </ul>
+            </li>
+            <li><a href="buttons.html" title=""><img src="images/icons/mainnav/buttons-icons.png" alt="" />Icons &amp; buttons</a></li>
+            <li class="active"><a href="charts.html" title=""><img src="images/icons/mainnav/charts.png" alt="" />Charts &amp; graphs</a></li>
+            <li><a href="messages.html" title=""><img src="images/icons/mainnav/messages.png" alt="" />Messages</a></li>
+            <li><a href="tables.html" title=""><img src="images/icons/mainnav/tables.png" alt="" />Tables</a></li>
+            <li><a href="#" title="" class="expand"><img src="images/icons/mainnav/error-pages.png" alt="" />Error pages<strong>6</strong></a>
+                <ul>
+                    <li><a href="403.html" title="">403 page</a></li>
+                    <li><a href="404.html" title="">404 page</a></li>
+                    <li><a href="405.html" title="">405 page</a></li>
+                    <li><a href="500.html" title="">500 page</a></li>
+                    <li><a href="503.html" title="">503 page</a></li>
+                    <li><a href="offline.html" title="">Offline page</a></li>
+                </ul>
+            </li>
+            <li><a href="typography.html" title=""><img src="images/icons/mainnav/typography.png" alt="" />Typography</a></li>
+            <li><a href="calendar.html" title=""><img src="images/icons/mainnav/calendar.png" alt="" />Calendar</a></li>
+            <li><a href="file_manipulation.html" title=""><img src="images/icons/mainnav/file-manipulations.png" alt="" />File manipulation</a></li>
+        </ul><!-- /standard nav -->
+        
+        <!-- Sidebar bars -->
+        <div class="sidebar-chart block">
+        	<div class="chart" id="sidebar-bars"></div>
+        </div>
+        <!-- /sidebar bars -->
+        
+        <!-- Horizontal bars -->
+        <div class="sidebar-chart block">
+        	<div class="chart" id="sidebar-bars-horizontal"></div>
+        </div>
+        <!-- /horizontal bars -->
+        
+        <!-- Sidebar chart -->
+        <div class="sidebar-chart block">
+        	<div class="chart" id="sidebar-chart"></div>
+        </div>
+        <!-- /sidebar chart -->
+        
+    </div>
+    <!-- /left sidebar -->
+    
+    <!-- Content -->
+    <div class="content">
+        <div class="page-header"><!-- Page header -->
+            <h5><i class="font-signal"></i>Charts</h5>
+            <ul class="topnav">
+                <li class="topuser">
+                    <a title="" data-toggle="dropdown"><img src="images/user.png" alt="" /><span>Eugene Kopyov</span><i class="caret"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" title=""><span class="user-profile"></span>My profile</a></li>
+                        <li><a href="#" title=""><span class="user-stats"></span>Statistics <strong>2</strong></a></li>
+                        <li><a href="#" title=""><span class="user-settings"></span>Switch user</a></li>
+                        <li><a href="#" title=""><span class="user-logout"></span>Logout</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" title=""><b class="settings"></b></a></li>
+                <li><a href="#" title=""><b class="mail"></b></a></li>
+                <li class="search">
+                    <a title=""><b class="search"></b></a>
+                    <form class="top-search" action="#">
+                        <input type="text" placeholder="Search..." />
+                        <input type="submit" value="" />
+                    </form>
+                </li>
+                <li class="sidebar-button"><a href="#" title=""><b class="responsive-nav"></b></a></li>
+                <li><a href="#" title=""><b class="logout"></b></a></li>
+            </ul>
+        </div><!-- /page header -->
+        
+        <div class="body">
+        
+            <!-- Middle navigation standard -->
+            <ul class="midnav">
+                <li><a href="#" title="Add an article"><img src="images/icons/color/order-149.png" alt="" /><span>New tasks</span></a></li>
+                <li><a href="#" title="Upload files"><img src="images/icons/color/issue.png" alt="" /><span>My invoices</span></a></li>
+                <li><a href="#" title="Add something"><img src="images/icons/color/hire-me.png" alt="" /><span>Add users</span></a><strong>17</strong></li>
+                <li><a href="#" title="Messages"><img src="images/icons/color/donate.png" alt="" /><span>Donations</span></a></li>
+                <li><a href="#" title="Check statistics"><img src="images/icons/color/config.png" alt="" /><span>Parameters</span></a></li>
+            </ul>
+            <!-- /middle navigation standard -->
+            
+            <!-- Content container -->
+            <div class="container">
+
+            	<!-- Line chart -->
+    			<div class="block well">
+                    <div class="navbar">
+                    	<div class="navbar-inner">
+                            <h5>Line chart</h5>
+                            <div class="nav pull-right">
+                                <a href="#" class="dropdown-toggle just-icon" data-toggle="dropdown"><i class="font-cog"></i></a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li><a href="#"><i class="font-heart"></i>Favorite it</a></li>
+                                    <li><a href="#"><i class="font-refresh"></i>Reload page</a></li>
+                                    <li><a href="#"><i class="font-link"></i>Attach something</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="body">
+                        <div class="chart with-legend" id="chart"></div>
+                    </div>
+                </div>
+                <!-- /line chart -->
+
+    			<div class="row-fluid">
+                	<div class="span6">
+                        <!-- Vertical bars -->
+                    	<div class="block well">
+                            <div class="navbar">
+                                <div class="navbar-inner">
+                                    <h5>Vertical bars</h5>
+                                    <div class="nav pull-right">
+                                        <a href="#" class="dropdown-toggle just-icon" data-toggle="dropdown"><i class="font-cog"></i></a>
+                                        <ul class="dropdown-menu pull-right">
+                                            <li><a href="#"><i class="font-heart"></i>Favorite it</a></li>
+                                            <li><a href="#"><i class="font-refresh"></i>Reload page</a></li>
+                                            <li><a href="#"><i class="font-link"></i>Attach something</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="body">
+                                <div class="chart" id="placeholder1"></div>
+                            </div>
+                        </div>
+                        <!-- /vertical bars -->
+                        
+                        <!-- Threshold chart -->
+                        <div class="block well">
+                            <div class="navbar">
+                                <div class="navbar-inner">
+                                    <h5>Threshold chart</h5>
+                                    <div class="nav pull-right">
+                                        <a href="#" class="dropdown-toggle just-icon" data-toggle="dropdown"><i class="font-cog"></i></a>
+                                        <ul class="dropdown-menu pull-right">
+                                            <li><a href="#"><i class="font-heart"></i>Favorite it</a></li>
+                                            <li><a href="#"><i class="font-refresh"></i>Reload page</a></li>
+                                            <li><a href="#"><i class="font-link"></i>Attach something</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="body">
+                                    <p class="well-smoke body">With the threshold plugin, you can apply a specific color to the part of a data series below a threshold. This is can be useful for highlighting negative values, e.g. when displaying net results or what's in stock.</p>
+                                    <div class="chart" id="placeholder-threshold"></div>
+                                    <div class="threshold-buttons well-smoke body">
+                                        <input type="button" class="btn btn-info" value="Threshold at 5">
+                                        <input type="button" class="btn btn-info" value="Threshold at 0">
+                                        <input type="button" class="btn btn-info" value="Threshold at -2.5">
+                                    </div>
+                            </div>
+                        </div>
+                        <!-- /threshold chart -->
+                    </div>
+                    
+                    <div class="span6">
+                    	<!-- Horizontal bars -->
+                    	<div class="well block">
+                            <div class="navbar">
+                                <div class="navbar-inner">
+                                    <h5>Horizontal bars</h5>
+                                    <div class="nav pull-right">
+                                        <a href="#" class="dropdown-toggle just-icon" data-toggle="dropdown"><i class="font-cog"></i></a>
+                                        <ul class="dropdown-menu pull-right">
+                                            <li><a href="#"><i class="font-heart"></i>Favorite it</a></li>
+                                            <li><a href="#"><i class="font-refresh"></i>Reload page</a></li>
+                                            <li><a href="#"><i class="font-link"></i>Attach something</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="body">
+                                <div class="chart" id="placeholder1_h"></div>
+                            </div>
+                        </div>
+                        <!-- /horizontal bars -->
+                        
+                        <!-- Filled chart -->
+                        <div class="well block">
+                        	<div class="navbar">
+                                <div class="navbar-inner">
+                                    <h5>Filled chart</h5>
+                                    <div class="nav pull-right">
+                                        <a href="#" class="dropdown-toggle just-icon" data-toggle="dropdown"><i class="font-cog"></i></a>
+                                        <ul class="dropdown-menu pull-right">
+                                            <li><a href="#"><i class="font-heart"></i>Favorite it</a></li>
+                                            <li><a href="#"><i class="font-refresh"></i>Reload page</a></li>
+                                            <li><a href="#"><i class="font-link"></i>Attach something</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="body">
+                                <p class="well-smoke body">For each point of a filled curve, you can specify an arbitrary bottom. As this example illustrates, this can be useful for plotting percentiles. If you have the data sets available without appropriate fill bottoms, you can use the fillbetween plugin to compute the data point bottoms automatically.</p>
+                                <div class="chart with-annotation" id="placeholder-fill"></div>
+                            </div>
+                        </div>
+                        <!-- Filled chart -->
+                    </div>
+                </div>
+                
+                <div class="row-fluid">
+                	<div class="span4">
+                    	<!-- Donut chart -->
+                    	<div class="well block">
+                            <div class="navbar">
+                                <div class="navbar-inner">
+                                    <h5>Donut chart</h5>
+                                    <div class="nav pull-right">
+                                        <a href="#" class="dropdown-toggle just-icon" data-toggle="dropdown"><i class="font-cog"></i></a>
+                                        <ul class="dropdown-menu pull-right">
+                                            <li><a href="#"><i class="font-heart"></i>Favorite it</a></li>
+                                            <li><a href="#"><i class="font-refresh"></i>Reload page</a></li>
+                                            <li><a href="#"><i class="font-link"></i>Attach something</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="body">
+                                <div class="chart" id="donut"></div>
+                            </div>
+                        </div>
+                        <!-- /donut chart -->
+                    </div>
+                    
+                    <div class="span8">
+                    	<!-- Auto updating chart -->
+                    	<div class="block well">
+                            <div class="navbar">
+                                <div class="navbar-inner">
+                                    <h5>Auto updating</h5>
+                                    <div class="nav pull-right">
+                                        <a href="#" class="dropdown-toggle just-icon" data-toggle="dropdown"><i class="font-cog"></i></a>
+                                        <ul class="dropdown-menu pull-right">
+                                            <li><a href="#"><i class="font-heart"></i>Favorite it</a></li>
+                                            <li><a href="#"><i class="font-refresh"></i>Reload page</a></li>
+                                            <li><a href="#"><i class="font-link"></i>Attach something</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="body">
+                                <div class="chart" id="updating"></div>
+                            </div>
+                        </div>
+                        <!-- /auto updating chart -->
+                    </div>
+                </div>
+
+            </div>
+            <!-- /content container -->
+
+        </div>
+    </div>
+    <!-- /content -->
+    
+</div>
+<!-- /main wrapper -->
+
+</body>
+</html>

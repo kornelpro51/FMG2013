@@ -1,0 +1,20 @@
+{% extends 'full_width.html' %}
+{% block extrahead %}
+    {{ block.super }}
+             <script>
+                $(document).ready(function() {
+                    // create Editor from textarea HTML element with default set of tools
+                    $("#id_message").kendoEditor();
+                });
+            </script>
+{% endblock extrahead %}
+{% block content %}
+<form action="{{ action }}"  method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success">Send</button>
+</form>
+    <p>
+    {{ message.get_text_body|linebreaksbr }}
+    </p>
+{% endblock content %}

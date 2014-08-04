@@ -1,0 +1,174 @@
+{% verbatim %}
+
+<div class="container">
+    <div class="row-fluid">
+        <div class="span9">
+
+            <form class="form-horizontal">
+                <fieldset>
+
+                    <!-- General form elements -->
+                    <div class="well row-fluid block">
+                        <div class="navbar">
+                            <div class="navbar-inner">
+                                <h5>Add New Customer</h5>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label">First Name</label>
+
+                            <div class="controls"><input class="span12" type="text" ng-model='customer.first_name'>
+                            </div>
+                        </div>
+
+
+                        <div class="control-group">
+                            <label class="control-label">Last Name</label>
+
+                            <div class="controls"><input class="span12" type="text" ng-model='customer.last_name'></div>
+                        </div>
+
+
+                        <div class="control-group">
+                            <label class="control-label">Email Address</label>
+
+                            <div class="controls"><input class="span12" type="text" ng-model='customer.email'></div>
+                        </div>
+
+
+                        <div class="control-group">
+                            <label class="control-label">Phone Number</label>
+
+                            <div class="controls"><input class="span12" type="text" ng-model='customer.phone'></div>
+                        </div>
+
+
+                        <div class="control-group">
+                            <label class="control-label">Source</label>
+
+                            <div class="controls">
+                                <select ui-select2 data-placeholder="Phone Call / Walk in" class="select-full"
+                                        ng-model='lead.source' tabindex="2">
+                                    <option value=""> --</option>
+                                    <option value="Phone call">Phone Call</option>
+                                    <option value="Walk in">Walk in</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <!--<div class="controls"><input class="span12" type="text" ng-model='lead.source'></div>-->
+                        </div>
+
+                        <div class='control-group'>
+                            <div class='span12'>
+                                <div class='row-fluid'>
+                                    <div class='span6'>
+                                        <div class="control-group">
+                                            <label class="control-label">Adults</label>
+
+                                            <div class="controls">
+                                                <input class="span12" type="text" ng-model='lead.adults'>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class='span6'>
+                                        <div class="control-group">
+                                            <label class="control-label">Children</label>
+
+                                            <div class="controls">
+                                                <input class="span12" type="text" ng-model='lead.children'>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class='control-group'>
+                            <div class='span12'>
+                                <div class='row-fluid'>
+                                    <div class='span6'>
+                                        <div class="control-group">
+                                            <label class="control-label">Arrival</label>
+
+                                            <div class="controls">
+                                                <input class="span12" type="text" datepicker-popup="mediumDate"
+                                                       show-weeks=false ng-model='lead.arrival'>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class='span6'>
+                                        <div class="control-group">
+                                            <label class="control-label">Departure</label>
+
+                                            <div class="controls">
+                                                <input class="span12" type="text" datepicker-popup="mediumDate"
+                                                       show-weeks=false ng-model='lead.departure'>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="control-group">
+                            <div class="row-fluid" ng-repeat="property in lead_properties">
+                                <div class="span5">
+                                    <div class="control-group">
+                                        <label class="control-label">Selected Property</label>
+
+                                        <div class="controls">
+                                            <select ui-select2='propertyListOptions' ng-model='property.property'>
+                                                <option value="0"> ---</option>
+                                                <!-- item.url needs to change to item.id -->
+                                                <option ng-repeat="item in properties.results" value="{{ item.id }}">{{
+                                                    item.address }}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="span4">
+                                    <div class="control-group">
+                                        <label class="control-label">Rate</label>
+
+                                        <div class="controls">
+                                            <input type="number" class="span12" ng-model="property.rate">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="span3 pull-right" style="margin-top: 20px;">
+                                    <a class="btn btn-mini" ng-click="addPropertyToLead()"><i class="icon-plus"></i> Add
+                                        Propertry</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label">Note</label>
+
+                            <div class="controls">
+                                <textarea rows="5" cols="5" name="textarea" class="span12" ng-model='note.content'
+                                          placeholder="add a note to the lead, this can be left blank"></textarea>
+                            </div>
+                        </div>
+
+
+                        <!-- /general form elements -->
+
+                </fieldset>
+                <br>
+
+                <div class='span12'>
+                    <button class='btn btn-success' ng-click='saveLead()'>Save</button>
+                    <button class='btn' ng-click='redirectToHome()'>Cancel</button>
+                </div>
+            </form>
+            <!-- /form validation -->
+        </div>
+    </div>
+</div>
+
+{% endverbatim %}

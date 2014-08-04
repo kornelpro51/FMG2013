@@ -1,0 +1,13 @@
+<!-- template for creating new notes popup -->
+<script id="popup_create_note" type="text/x-kendo-template">
+    <div data-container-for="csrfmiddlewaretoken">
+        {% csrf_token %}
+    </div>
+    
+    <div class="k-edit-label">
+        <label for="content">Content</label>
+    </div>
+    <div data-container-for="content" class="k-edit-field">
+        <textarea data-bind="value:content" name="content"></textarea>
+    </div>
+</script>

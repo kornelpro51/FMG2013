@@ -1,0 +1,117 @@
+<!doctype html>
+<html ng-app="app" ng-init="init_val={{ init_val }}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Dashboard - Fetch My Guest (Beta)</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <!-- build:css({.tmp,app}) styles/main.css -->
+    <link rel="stylesheet" href="{{ STATIC_URL }}dashboard/bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="{{ STATIC_URL }}dashboard/bower_components/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="{{ STATIC_URL }}dashboard/styles/main.css">
+    <link rel="stylesheet" href="{{ STATIC_URL }}dashboard/styles/retina.css">
+    <link rel="stylesheet" href="{{ STATIC_URL }}dashboard/styles/fmg-icons.css">
+    <!-- endbuild -->
+</head>
+<body>
+<!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+<!--[if lt IE 9]>
+      <script src="bower_components/es5-shim/es5-shim.js"></script>
+      <script src="bower_components/json3/lib/json3.min.js"></script>
+    <![endif]-->
+
+<!-- start: Header -->
+<header class="navbar">
+    <div class="container">
+        <a class="navbar-brand col-lg-2 col-sm-1 col-xs-12" href="index.html"><span>Fetch My Guest</span></a>
+        <!-- start: Header Menu -->
+        <div class="nav-no-collapse header-nav">
+            <ul class="nav navbar-nav pull-right">
+
+                <li>
+                    <a class="btn" href="index.html#">
+                        <i class="fa fa-wrench"></i>
+                    </a>
+                </li>
+                <!-- start: User Dropdown -->
+                <li class="dropdown">
+                    <a class="btn account dropdown-toggle" data-toggle="dropdown" href="index.html#">
+                        <div class="avatar">
+                            <i class="fa fa-user"></i>
+                        </div>
+                        <div class="user">
+                            {% verbatim %}
+                            <span class="hello">{{ init_val.agent }}</span>
+                            {% endverbatim %}
+                        </div>
+                    </a>
+                </li>
+                <!-- end: User Dropdown -->
+            </ul>
+        </div>
+        <!-- end: Header Menu -->
+
+    </div>
+</header>
+<!-- end: Header -->
+
+<!-- Add your site or application content here -->
+<div class="container">
+    <div class="row">
+        <!-- start: Main Menu -->
+        <div id="sidebar-left" class="col-lg-2 col-sm-1">
+
+            <div class="nav-collapse sidebar-nav collapse navbar-collapse bs-navbar-collapse">
+                <ul class="nav nav-tabs nav-stacked main-menu">
+                    <li>
+                        <a href=""><i class="fa fa-home"></i><span class="hidden-sm"> Home</span></a>
+                    </li>
+                    <li>
+                        <a href=""><i class="fa fa-group"></i><span class="hidden-sm"> Agents</span></a>
+                    </li>
+                    <li>
+                        <a href=""><i class="icon-fmg-Plug"></i> Leads</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- end: Main Menu -->
+        <!-- start: Content -->
+		<div id="content" class="col-lg-10 col-sm-11" ng-view>
+        </div>
+    </div>
+</div>
+
+
+<script src="{{ STATIC_URL }}dashboard/bower_components/jquery/jquery.min.js"></script>
+<script src="{{ STATIC_URL }}dashboard/bower_components/angular/angular.min.js"></script>
+<script src="{{ STATIC_URL }}dashboard/bower_components/socket.io-client/dist/socket.io.min.js"></script>
+<!-- jquery plugins -->
+
+<!-- build:js scripts/plugins.js -->
+<script src="{{ STATIC_URL }}dashboard/bower_components/select2/select2.min.js"></script>
+<!-- endbuild -->
+
+<!-- angular modules -->
+<!-- build:js scripts/modules.js -->
+<script src="{{ STATIC_URL }}dashboard/bower_components/angular-resource/angular-resource.js"></script>
+<script src="{{ STATIC_URL }}dashboard/bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="{{ STATIC_URL }}dashboard/bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="{{ STATIC_URL }}dashboard/bower_components/angular-route/angular-route.js"></script>
+<script src="{{ STATIC_URL }}dashboard/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<!-- endbuild -->
+
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="{{ STATIC_URL }}dashboard/scripts/config.js"></script>
+<script src="{{ STATIC_URL }}dashboard/scripts/services/api.js"></script>
+<script src="{{ STATIC_URL }}dashboard/scripts/services/storage.js"></script>
+<script src="{{ STATIC_URL }}dashboard/scripts/controllers/main.js"></script>
+<!-- endbuild -->
+</body>
+</html>

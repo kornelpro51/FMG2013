@@ -1,0 +1,82 @@
+[
+    {
+        "pk": 1,
+        "model": "cities_light.country",
+        "fields": {
+            "code2": null,
+            "code3": null,
+            "name": "United States",
+            "tld": "",
+            "alternate_names": "",
+            "continent": "NA",
+            "geoname_id": null,
+            "name_ascii": "United States",
+            "slug": "united-states"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "cities_light.region",
+        "fields": {
+            "display_name": "California, United States",
+            "name": "California",
+            "country": 1,
+            "alternate_names": "",
+            "geoname_id": null,
+            "geoname_code": null,
+            "name_ascii": "California",
+            "slug": "california"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "cities_light.city",
+        "fields": {
+            "display_name": "Capitola, California, United States",
+            "name": "Capitola",
+            "country": 1,
+            "region": 1,
+            "alternate_names": "",
+            "search_names": "capitolaunitedstates capitolacaliforniaunitedstates",
+            "longitude": null,
+            "geoname_id": null,
+            "name_ascii": "Capitola",
+            "latitude": null,
+            "slug": "capitola"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "cities_light.city",
+        "fields": {
+            "display_name": "Santa Cruz, California, United States",
+            "name": "Santa Cruz",
+            "country": 1,
+            "region": 1,
+            "alternate_names": "",
+            "search_names": "santacruzunitedstates santacruzcaliforniaunitedstates",
+            "longitude": null,
+            "geoname_id": null,
+            "name_ascii": "Santa Cruz",
+            "latitude": null,
+            "slug": "santa-cruz"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "cities_light.city",
+        "fields": {
+            "display_name": "Capitola, United States",
+            "name": "Capitola",
+            "country": 1,
+            "region": null,
+            "alternate_names": "",
+            "search_names": "capitolaunitedstates",
+            "longitude": null,
+            "geoname_id": null,
+            "name_ascii": "Capitola",
+            "latitude": null,
+            "slug": "capitola"
+        }
+    }
+]

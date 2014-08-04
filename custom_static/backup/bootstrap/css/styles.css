@@ -1,0 +1,468 @@
+@charset "utf-8";
+/* CSS Document */
+/* Handcrafted by Ramit Arora http://iamramit.com , http://www.ddeveloperz.com */
+
+/*-------------------------------------------------------------------------
+@BROWSER RESET
+-------------------------------------------------------------------------*/
+html,body,address,blockquote,div,dl,form,h1,h2,h3,h4,h5,h6,ol,p,pre,table,ul,dd,dt,li,tbody,td,tfoot,th,thead,tr,button,del,ins,map,object,a,abbr,acronym,b,bdo,big,br,cite,code,dfn,em,i,img,kbd,q,samp,small,span,strong,sub,sup,tt,var,legend,fieldset,input,textarea{margin:0;padding:0}input,textarea,object{outline:none}ol,ul{list-style:none}table{border-collapse:separate;border-spacing:0}caption,th,td{text-align:left;font-weight:normal}button,a img,fieldset,input,textarea{border:0}textarea{overflow:auto}address{font-style:normal}cite{font-style:normal}abbr,acronym{ border-bottom:1px dotted; cursor:help }
+
+
+/*-------------------------------------------------------------------------
+@TOOLKIT
+-------------------------------------------------------------------------*/
+	.floatNone { float:none }
+	.floatLeft { float:left }
+	.floatRight { float:right }
+	
+	.clearLeft { clear:left }
+	.clearRight { clear:right }
+	.clearBoth { clear:both }
+	
+	.noBg { background:none !important }
+	.noBgColor { background-color:inherit !important }
+	.noMargin { margin:0 !important }
+	.noPadding { padding:0 !important }
+	.noBorder { border:0 !important }
+	
+	.show { display:block !important }
+	.hide { display:none !important }
+	
+	.hideText { display:block; text-indent:-9999px }
+	.Textcenter{
+	text-align:center}
+	.nounderline{
+	text-decoration:none}
+	
+	.clearfix:after { content:"."; display:block; height:0; clear:both; visibility:hidden }
+
+	
+	.centered{
+	margin:0 auto}
+	.overflow-hide{
+	overflow:hidden}
+	.one_half{
+		width:46.5%}
+	
+
+/*-------------------------------------------------------------------------
+@LAYOUT
+-------------------------------------------------------------------------*/
+body{
+	background:#fff url(../images/background-light.png);
+	font-family:Helvetica, sans-serif;
+
+	}
+	
+	.contents{	padding-top:95px}
+	.container{
+		width:950px;
+		margin:0 auto;
+		padding:20px}
+	#header{
+		height:95px;
+		background:url(../images/black_scales.png);
+		box-shadow:0px 3px 3px #333;
+		position:fixed;
+		top:0;
+		width:100%;
+		z-index:1
+		}
+		#content{
+			
+			padding-top:30px}
+		#header .container{
+			padding-top:10px}
+		#header #logo{
+			float:left;
+			margin-top:5px}
+		#header .header_login{
+			float:right}
+			.header_login span{
+				color:#bbb;
+				}
+				.header_login span b{
+					font-size:10px}
+				
+
+ul.nav{
+	float:right;
+	margin-top:-8px;}	
+ul.nav li{
+	float:left;
+	list-style:none;
+	margin:10px;
+	position:relative}
+	ul.nav li.active:after{
+		position:absolute;
+		content:" ";
+		border-top:20px solid #1D1D1D;
+		border-bottom:20px solid transparent;
+			border-left:20px solid transparent;
+				border-right:20px solid transparent;
+				left:35%;
+				bottom:-48px}
+	ul.nav li:first-child{
+		margin-left:0;}
+	ul.nav li:last-child{
+		margin-right:0;}
+
+	ul.nav li a{
+		padding:5px 0px;
+		text-transform:uppercase;
+		letter-spacing:0.9px;
+		font-size:13px;
+		color:#aaa;
+		text-shadow:0px 1px 0.5px #000;
+		outline:none}
+		ul.nav li a:hover{
+			text-decoration:none;
+			color:#fff}
+			
+			.dashboard_screen img{
+				box-shadow:0px 0px 4px #333 inset
+				
+				}
+				.dashboard_screen{
+							background:rgba(0,0,0,0.2);
+					border-radius:0 5px 5px 5px;
+					-webkit-border-radius:0 5px 5px 5px;
+					box-shadow:0px 0px 3px #000;
+					-webkit-box-shadow:0px 0px 3px #000;
+					padding:6px 10px 7px;
+		}
+				.dashboard_screen h2{
+									float:left;
+									color:#fff;
+									padding:2px;
+									line-height:30px;
+									text-shadow:0px -1px 0px #666
+		}
+		.dashboard_screen img{
+			border:1px solid #777}
+			#content .one_half.floatLeft p{-webkit-border-radius:0 5px 5px 5px;
+					box-shadow:0px 0px 3px #000;
+					-webkit-box-shadow:0px 0px 3px #000;	background:rgba(0,0,0,0.2);
+					margin:15px 0;
+					padding:6px 10px;
+					color:#555;
+					text-align:justify;
+					font-size:1.0em;
+					text-shadow:0px 1px 0px #ccc}
+					#content .one_half.floatLeft p:first-letter{
+						font-size:1.6em;
+						color:#333;
+						text-shadow:0px -1px 0px #333;
+						}
+						.intro_video iframe{
+							box-shadow:0px 0px 3px #000;
+					-webkit-box-shadow:0px 0px 3px #000;}
+					.sign_fetch{
+						background: url(../images/10.png);
+						background-color:#EBF5F8;
+					box-shadow:0px -1px 3px #ccc;
+					-webkit-box-shadow:0px -1px 3px #ccc;
+						overflow:hidden;
+						padding:25px 0;
+						border-top:1px solid #fff;
+						
+						
+					
+						}
+							#content3 .sign_fetch{
+								background-color:transparent}
+						.sign_fetch h1{
+							color:#F78811;
+						
+							text-align:left;
+							float:left;
+							font-size:2.4em;
+							line-height:66px;
+							text-shadow:0px 1px 0px #fff}
+							.sign_fetch .container{
+								overflow:hidden
+								}
+							.sign_fetch h2{
+								color:#aaa;
+							
+								line-height:42px;
+								font-size:1.1em;
+								margin-left:15px;}
+						#content4{
+						background:#EBF5F8 url(../images/10.png);
+						box-shadow:0px 0px 7px #777;
+						-webkit-box-shadow:0px 0px 7px #777;
+						}
+						#content2,#content3,#content4,#content5{
+							padding:25px 0 0;
+							border-bottom:1px solid #eee;
+							border-top:1px solid #fff}
+						
+							 a.big_button{
+									
+									background: #ffa341; /* Old browsers */
+background: -moz-linear-gradient(top,  #ffa341 0%, #f7870f 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffa341), color-stop(100%,#f7870f)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #ffa341 0%,#f7870f 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #ffa341 0%,#f7870f 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #ffa341 0%,#f7870f 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #ffa341 0%,#f7870f 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffa341', endColorstr='#f7870f',GradientType=0 ); /* IE6-9 */
+;
+width:280px;
+padding:15px 0;
+height:40px;
+display:block;
+
+text-align:center;
+border-radius:4px 4px 4px 4px;
+border-radius:4px 4px 4px 4px;
+font-size:1.7em;
+line-height:40px;
+color:#fff;
+text-shadow:0px -1px 0px #666;
+
+text-decoration:none
+}
+ a.big_button:hover{
+	 text-decoration:none;
+	 color:#fff}
+#content3{
+		background:rgba(249,226,196,0.4);
+	
+}
+#content2 h2,#content3 h2,#content4 h2,#content5 h2{
+	color:#666;
+	line-height:40px;
+	text-shadow:0px 1px 0px #fff}
+	#content2 p,#content3 p,#content4 p,#content5 p{
+		color:#888;
+		text-align:justify;
+		text-shadow:0px 1px 0px #fff;
+		line-height:22px}
+		#content2 ul{ font-size:0.9em;
+		color:#666;
+		margin:5px 0}
+		#content2 ul li{
+			line-height:24px}
+		.one_half p b{
+			line-height:20px;
+			color:#333}
+			.one_half p i{
+			line-height:32px;
+			color:#333}
+			
+	
+#footer{
+	background:url(../images/black_scales.png);
+		box-shadow:0px -3px 3px #000;
+		}
+	#footer ul li a{
+		color:#888;
+		cursor:pointer;
+		text-decoration:none;
+		line-height:25px;
+		font-size:0.8em;
+	
+		}
+			ul.socials{
+				margin:5px 0}
+		ul.socials li{
+			list-style:none;
+			margin-right:10px;
+			float:left;
+			line-height:30px;
+			color:#ccc}
+					ul.socials li a{
+						display:inline-block;
+						width:32px ;
+						height:32px;
+						float:left;}
+				ul.socials li a.facebook{
+				background:url(../images/facebooksprite.png) no-repeat top center}
+				ul.socials li a.facebook:hover{
+				background-position:bottom center}
+
+				ul.socials li a.twitter{
+				background:url(../images/twittersprite.png) no-repeat top center}
+				ul.socials li a.twitter:hover{
+				background-position:bottom center}
+
+				ul.socials li a.googleplus{
+				background:url(../images/googlesprite.png) no-repeat top center}
+				ul.socials li a.googleplus:hover{
+				background-position:bottom center}
+
+
+		 #copyrights {
+		 color:#666;
+		 margin-top:15px}
+		  #copyrights p{
+			  line-height:30px}
+		 #copyrights  .container{
+			padding:5px 10px;
+		
+		
+			border-top:1px solid #666;
+		}
+		#content3{
+				background:rgba(249,226,196,0.4)}
+/*-------------------------------------------------------------------------
+@COMMON ELEMENTS (buttons etc)
+-------------------------------------------------------------------------*/
+ 
+ 
+ 
+/*-------------------------------------------------------------------------
+@GLOBAL CLASSES/COLORS   
+
+== blue :#
+-------------------------------------------------------------------------*/
+	.clear{
+	clear:both}
+
+
+
+/*-------------------------------------------------------------------------
+@LINKS
+-------------------------------------------------------------------------*/
+a { color:#333; text-decoration:none }
+a:hover { color:#000; text-decoration:underline }
+a#printThis { display:block; margin-top:20px; font-size:14px; font-weight:bold; color:#a4bc00; text-decoration:underline }
+ 
+ 
+  
+/*-------------------------------------------------------------------------
+@HEADINGS
+-------------------------------------------------------------------------*/
+h1, h2, h3, h4 {  font-weight:bold; color:#333 }
+
+
+ 
+ 
+
+  
+/*-------------------------------------------------------------------------
+@NAVIGATIONS
+-------------------------------------------------------------------------*/
+
+
+/*-------------------------------------------------------------------------
+@FORM ELEMENTS
+-------------------------------------------------------------------------*/
+
+/*-------------------------------------------------------------------------
+@TOPBAR
+-------------------------------------------------------------------------*/
+
+
+
+/*-------------------------------------------------------------------------
+@HEADER
+-------------------------------------------------------------------------*/
+
+
+/*-------------------------------------------------------------------------
+@CONTENT   
+-------------------------------------------------------------------------*/
+
+
+
+
+
+/*-------------------------------------------------------------------------
+@FOOTER
+-------------------------------------------------------------------------*/
+
+
+
+/*-------------------------------------------------------------------------
+@PAGE: index.html
+-------------------------------------------------------------------------*/
+.timeline{
+	padding:25px 0;
+	padding-top:10px;
+	background:url(../images/timelinebg.png) repeat-x center;
+	margin-bottom:15px }
+	.timeline .container{
+		padding:0}
+.timeline_wrap{}
+.time_lineyear{float:left;
+	margin:15px;
+	margin-left:5.7%;
+	margin-right:5.7%;
+	position:relative}
+.time_lineyear span{
+	display:inline-block;
+	width:40px;
+	text-align:center;
+	font-size:0.9em;
+	color:#4D4D4D
+}
+.time_lineyear a{
+	width:40px;
+	height:40px;
+	display:block;
+	background:url(../images/timeyear.png) no-repeat top center;
+	cursor:pointer;
+	
+	
+	
+
+	
+	}
+	.time_lineyear a:hover{
+		background-position: center -42px;}
+			.time_lineyear:hover .tooltip{
+				visibility:visible;
+				opacity:1}
+	.time_lineyear:first-child{
+		margin-left:0}
+	.time_lineyear:last-child{
+		margin-right:0}
+.time_lineyear .tooltip{
+	width:125px;
+	height:50px;
+	position:absolute;
+	top:75px;
+	left:-47px;
+	border-radius:5px;
+	-webkit-border-radius:5px;
+	box-shadow:0px 0px 5px #333;
+	-webkit-box-shadow:0px 0px 5px #333;
+	background:#bbb;
+	transition:0.3s all ease-in-out 0s;
+	-webkit-transition:0.3s all ease-in-out 0s;
+	-moz-transition:0.3s all ease-in-out 0s;
+	opacity:0;
+	visibility:hidden;
+	padding:5px;
+	font-size:0.7em;
+	color:#666}
+	.time_lineyear .tooltip:before{
+		content:" ";
+		border-top:15px solid transparent;
+		border-bottom:15px solid #bbb;
+		border-left:15px solid transparent;
+		border-right:15px solid transparent;
+		position:absolute;
+		left:38%;
+		top:-30px}
+
+
+/*-------------------------------------------------------------------------
+@PAGE: Error 404
+-------------------------------------------------------------------------*/
+
+
+/*-------------------------------------------------------------------------
+@BROWSER FIXES
+-------------------------------------------------------------------------*/
+
+
+
+
+
+
+
+

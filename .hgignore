@@ -1,0 +1,27 @@
+syntax: glob
+
+*.txt~
+*.hgignore~
+*.pydevproject
+*.pyc
+*.orig
+*.bak
+*.db
+*.log
+*.DS_Store
+*.py~
+*.css~
+*.html~
+*.js~
+local_settings.py
+media/*
+fetch/migrations/*
+email2api/migrations/*
+static/tiny_mce
+build/django-tinymce
+
+syntax: regexp
+^\.project$
+reports/*
+
+.git/*

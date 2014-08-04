@@ -1,0 +1,36 @@
+<!-- template for filter status toolbar -->
+<script type="text/x-kendo-template" id="status-toolbar-template">
+    <div class="toolbar">
+        <label class="status-label" for="status-select">Show leads by status:</label>
+        <input type="search" id="status-select" style="width: 150px"/>
+    </div>
+</script>
+
+<!-- template for search toolbar -->
+<script type="text/x-kendo-template" id="search-toolbar-template">
+    <div class="toolbar">
+        <label class="search-label" for="search">Search:</label>
+        <input type="search" id="search" style="width: 150px" placeholder="Customer name"/>
+    </div>
+</script>
+
+<style scoped="scoped">
+    #grid .k-toolbar
+    {
+        min-height: 27px;
+        padding: 1.3em;
+    }
+    .status-label
+    {
+        vertical-align: middle;
+        padding-right: .5em;
+    }
+    #status-select
+    {
+        vertical-align: middle;
+    }
+    .toolbar {
+        float: right;
+        padding-right: .5em;
+    }
+</style>

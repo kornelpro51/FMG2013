@@ -1,0 +1,185 @@
+{% load compress %}
+<!DOCTYPE html>
+<html ng-app="app" ng-init="init_val={{ init_val }};">
+<head>
+    <title>Dashboard - Fetch My Guest</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+
+    <!-- Set the favicon -->
+    <link rel="icon" href="{{ STATIC_URL }}favicon.ico">
+
+    <!-- Set the style sheet -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+    {% compress css %}
+        <link rel="stylesheet" href="{{ STATIC_URL }}include/css/plugins.css">
+        <link rel="stylesheet" href="{{ STATIC_URL }}include/css/bootstrap.css">
+        <link rel="stylesheet" href="{{ STATIC_URL }}include/css/elfinder.css">
+        <link rel="stylesheet" href="{{ STATIC_URL }}include/css/fancybox.css">
+        <link rel="stylesheet" href="{{ STATIC_URL }}include/css/ui_custom.css">
+        <link rel="stylesheet" href="{{ STATIC_URL }}include/css/fmg-icons.css">
+        <link rel="stylesheet" href="{{ STATIC_URL }}include/css/fetch.css">
+        <link rel="stylesheet" href="{{ STATIC_URL }}include/css/toaster.css">
+        <link rel="stylesheet" href="{{ STATIC_URL }}include/css/main.css">
+    {% endcompress %}
+
+     <script type="text/javascript" src="{{ STATIC_URL }}include/js/ckeditor/ckeditor.js"></script>
+    {% compress js %}
+        <!-- setting jQuery -->
+        <script type="text/javascript" src="{{ STATIC_URL }}include/js/jquery-1.9.1.js"></script>
+
+
+        <!-- socket.io --> <!-- these js files should me move to include/js folder -->
+        <script src="{{ STATIC_URL }}backup/js/socket.io.js"></script>
+
+        {% comment %}<script src="{{ STATIC_URL }}backup/js/moment.min.js"></script>{% endcomment %}
+
+        <!-- setting TinyMCE -->
+        <!--<script type="text/javascript" src="{{ STATIC_URL }}tinymce/tinymce.min.js"></script>-->
+
+        <!-- ckEditor -->
+
+        <!--<script type="text/javascript" src="http://demo.azureits.com/js/cms/ckeditor/ckeditor.js"></script> -->
+
+        {% comment %}<!-- setting angular.JS core components -->
+    <script type="text/javascript" src="{{ STATIC_URL }}ng/lib/angular.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}ng/lib/angular-resource.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}ng/lib/angular-sanitize.min.js"></script>
+
+    <!-- load Angular Supporting Libraries -->
+    <script type="text/javascript" src="{{ STATIC_URL }}ng/lib/ui-bootstrap-tpls-0.5.0.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}ng/lib/ui-select2.js"></script>
+    {% endcomment %}
+
+        <!-- Bower Components -->
+        <script src="{{ STATIC_URL }}libraries/bower_components/angular/angular.js"></script>
+        <script src="{{ STATIC_URL }}libraries/bower_components/angular-resource/angular-resource.js"></script>
+        <script src="{{ STATIC_URL }}libraries/bower_components/angular-route/angular-route.js"></script>
+        <script src="{{ STATIC_URL }}libraries/bower_components/angular-cookies/angular-cookies.js"></script>
+        <script src="{{ STATIC_URL }}libraries/bower_components/angular-sanitize/angular-sanitize.js"></script>
+        <script src="{{ STATIC_URL }}libraries/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+        <script src="{{ STATIC_URL }}libraries/bower_components/momentjs/moment.js"></script>
+        <script src="{{ STATIC_URL }}libraries/bower_components/angular-ui-select2/src/select2.js"></script>
+        <!-- need to replace toaster with Messenger -->
+        <script type="text/javascript" src="{{ STATIC_URL }}ng/lib/toaster.js"></script>
+
+        <!-- load angularJs code specific to the application -->
+        <script type="text/javascript" src="{{ STATIC_URL }}ng/config.js"></script>
+
+        <!-- load custome directives -->
+        <script type="text/javascript" src="{{ STATIC_URL }}ng/directives/alerts.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}ng/directives/ckeditor.js"></script>
+
+        <!-- load services and factories -->
+        <script type="text/javascript" src="{{ STATIC_URL }}ng/services/resources.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}ng/services/sockets.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}ng/services/globals.js"></script>
+
+        <!-- load customer filters -->
+        <script type="text/javascript" src="{{ STATIC_URL }}ng/filters/truncate.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}ng/filters/fromNow.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}ng/filters/requestedProperties.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}ng/filters/craigslist.js"></script>
+        <!-- load controllers -->
+        <script type="text/javascript" src="{{ STATIC_URL }}ng/controllers/home.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}ng/controllers/header.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}ng/controllers/leads.js"></script>
+    {% endcompress %}
+    <script type="text/javascript" src="{{ STATIC_URL }}include/js/select2.min.js"></script>
+
+</head>
+<body>
+<toaster-container toaster-options="{'time-out': 3000}"></toaster-container>
+<!-- Main Wrapper -->
+<div class="wrapper">
+
+    <!-- Sidebar for Navigation -->
+    <div class="sidebar">
+        <!-- setting the logo -->
+        <a href="/dashboard/" title="" class="logo">
+            <img src="{{ STATIC_URL }}include/images/fmg-logo-beta.png" width="210" alt="Fetch My Guest"/>
+        </a>
+
+        <ul class="navigation"><!-- standard nav -->
+            <li class="active"><a href="/dashboard/" title=""><i class="icon-white icon-home"></i> Dashboard</a></li>
+            <li>
+                <a href="#" title="" class="expand"><i class="icon-white icon-book"></i> Reports</a>
+                <ul>
+                    <li><a href="#">Leads</a></li>
+                    <li><a href="#">Reports</a></li>
+                </ul>
+            </li>
+        </ul>
+        <!-- /standard nav -->
+    </div>
+    <div ng-controller="HeaderCtrl" class="content">
+        {% verbatim %}
+        <div class="page-header"><!-- Page header -->
+            <h5>Dashboard</h5>
+            <ul class="topnav">
+                <li class="topuser">
+                    <a title=""><i class="icon-user"></i> <span ng-bind="init_val.agent"></span></a>
+                </li>
+                <li class="dropdown">
+                    <a ng-show="connected" class="dropdown-toggle"><i class="icon-bell-alt large"></i><strong
+                            ng-show="alerts.length" ng-bind="alerts.length"></strong></a>
+                    <ul class="dropdown-menu">
+                        <!--<li ng-repeat="alert in alerts"><a href="javascript:void(0);" ng-click="editLead(alert); alerts.splice($index,1)" title="">New <span ng-bind="alert.object.source"></span> lead</a></li>-->
+                        <li ng-repeat='alert in alerts' style="white-space:nowrap;">
+                            <i style="margin-left: 3px; color: #ba494e; cursor: pointer;"
+                               class="icon-remove-circle icon-large" ng-click="muteAlert(alert)"></i><span
+                                ng-click="viewAlert(alert)" style=" cursor: alias;">{{ alert.content }}</span>
+                        </li>
+                    </ul>
+                </li>
+                <li class="topuser"><a><span ng-bind="date|date:'MMM d, y h:mm a'"></span></a></li>
+
+                <li class="sidebar-button"><a href="#" title=""><b class="responsive-nav"></b></a></li>
+                <li><a href="#" title=""><b class="logout"></b></a></li>
+            </ul>
+
+        </div>
+        {% endverbatim %}
+        <!-- /page header -->
+        <!-- main content body -->
+
+        <div class="notice">
+            <!--notification ng-model="msg"></notification-->
+        </div>
+        <div class="body">
+            <div ng-view>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- UserVoice JavaScript SDK (only needed once on a page) -->
+<script>(function () {
+    var uv = document.createElement('script');
+    uv.type = 'text/javascript';
+    uv.async = true;
+    uv.src = '//widget.uservoice.com/aG5U1aaYifjaqKQEj6keg.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(uv, s)
+})()</script>
+
+<!-- A tab to launch the Classic Widget -->
+<script>
+    UserVoice = window.UserVoice || [];
+    UserVoice.push(['showTab', 'classic_widget', {
+        mode: 'full',
+        primary_color: '#cc6d00',
+        link_color: '#007dbf',
+        default_mode: 'support',
+        forum_id: 202908,
+        tab_label: 'Feedback & Support',
+        tab_color: '#cc6d00',
+        tab_position: 'middle-right',
+        tab_inverted: false
+    }]);
+</script>
+
+</body>

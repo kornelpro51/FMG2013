@@ -1,0 +1,799 @@
+﻿<!DOCTYPE html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="css/manstyles.css" />
+    <!--<link rel="stylesheet" href="css/bootstrap.min.css media="screen">-->
+    <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+    <!--Add more function-->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //var htmlcontent = "";
+
+
+        });
+         var entityMap = {
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': '&quot;',
+    "'": '&#39;',
+    "/": '&#x2F;'
+  };
+
+  function escapeHtml(string) {
+    return String(string).replace(/[&<>"'\/]/g, function (s) {
+      return entityMap[s];
+    });
+  }
+        count = 0;
+        function add_more(id, title, plchlder) {            
+        
+        count = count + 1;
+        var str = escapeHtml(plchlder);        
+        if (id == 'inp_agent')
+            $('.popup_wrap').find("#div_agent").append("<label id='lbl" + count + "'>" + title + "</label> <input id='inp" + count + "' type='text' placeholder='" + str + "'/><input id='rem" + count + "' type='button' value='Remove' class='r_btn' onclick='remove_agent(" + count + ")'/>");
+        else
+            $('.popup_wrap').find("#div_lead").append("<label id='lbl" + count + "'>" + title + "</label> <input id='inp" + count + "' type='text' placeholder='" + str + "'/><input id='rem" + count + "' type='button' value='Remove' class='r_btn' onclick='remove_lead(" + count + ")'/>");
+        }
+        function remove_agent(id) {
+            $(".popup_wrap").find("#div_agent").find('#lbl' + id).remove();
+            $(".popup_wrap").find("#div_agent").find('#inp' + id).remove();
+            $(".popup_wrap").find("#div_agent").find('#rem' + id).remove();
+        }
+        function remove_lead(id) {
+            $(".popup_wrap").find("#div_lead").find('#lbl' + id).remove();
+            $(".popup_wrap").find("#div_lead").find('#inp' + id).remove();
+            $(".popup_wrap").find("#div_lead").find('#rem' + id).remove();
+        }
+    </script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+  m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-42636953-1', 'fetchmyguest.com');
+        ga('send', 'pageview');
+
+    </script>
+    <!--DATA TABLES FOR REPORTS-->
+    <!--Year to Date Lead Effectiveness-->
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+        google.load('visualization', '1', { packages: ['corechart'] });
+    </script>
+    <script type="text/javascript">
+        function drawVisualization() {
+            // Create and populate the data table.
+            var data = google.visualization.arrayToDataTable([
+          ['x', 'HomeAway', 'VRBO', 'Rentoneonline', 'Beach House Rentals'],
+          ['Jan', 10, 10, 5, 10],
+          ['Feb', 20, 5, 10, 10],
+          ['Mar', 40, 10, 5, 35],
+          ['Apr', 80, 5, 10, 30],
+          ['May', 70, 10, 5, 35],
+          ['Jun', 70, 5, 10, 20],
+          ['Jul', 80, 10, 5, 40],
+          ['Aug', 40, 5, 10, 80],
+          ['Sep', 20, 10, 5, 70],
+          ['Oct', 35, 5, 10, 70],
+          ['Nov', 30, 10, 5, 80],
+          ['Dec', 35, 5, 10, 40],
+        ]);
+
+            // Create and draw the visualization.
+            new google.visualization.LineChart(document.getElementById('visualization')).
+            draw(data, { curveType: "function",
+                width: 360, height: 225,
+                vAxis: { maxValue: 100 }, colors: ['#FFBF00', '#FF8000', '#F7D358', '#FAAC58']
+            }
+                );
+        }
+
+        google.setOnLoadCallback(drawVisualization);
+    </script>
+    <!--Leads by Source-->
+    <script type="text/javascript">
+        function drawVisualization() {
+            // Create and populate the data table.
+            var data = google.visualization.arrayToDataTable([
+          ['Year', 'HomeAway', 'Beach House Rentals', 'FlipKey', 'VRBO'],
+          ['2010', 1600652, 4604684, 940478, 1167979],
+          ['2011', 1968113, 4013653, 1037079, 1207029],
+          ['2012', 1901067, 6792087, 1037327, 1284795],
+          ['2013', 1600652, 4604684, 940478, 1167979]
+        ]);
+
+            // Create and draw the visualization.
+            new google.visualization.ColumnChart(document.getElementById('visualization2')).
+            draw(data,
+                 { width: 360, height: 225,
+                     hAxis: { title: "Year" }, colors: ['#FFBF00', '#FF8000', '#F7D358', '#FAAC58']
+                 }
+            );
+        }
+
+        google.setOnLoadCallback(drawVisualization);
+    </script>
+    <!--Booking by Source-->
+    <script type="text/javascript">
+        function drawVisualization() {
+            // Create and populate the data table.
+            var data = google.visualization.arrayToDataTable([
+          ['Year', 'HomeAway', 'Beach House Rentals', 'FlipKey', 'VRBO'],
+          ['2010', 1470646, 1022927, 1856622, 1661023],
+          ['2011', 1059230, 1401707, 1312703, 1123705],
+          ['2012', 1705122, 1513555, 1170462, 1627218],
+          ['2013', 1044499, 1186502, 1879090, 1975888]
+        ]);
+
+            // Create and draw the visualization.
+            new google.visualization.ColumnChart(document.getElementById('visualization3')).
+            draw(data,
+                 { width: 360, height: 225,
+                     hAxis: { title: "Year" }, colors: ['#FFBF00', '#FF8000', '#F7D358', '#FAAC58']
+                 }
+            );
+        }
+
+        google.setOnLoadCallback(drawVisualization);
+    </script>
+    <!--Local Booking by Source (Office Specific)-->
+    <script type="text/javascript">
+        function drawVisualization() {
+            // Create and populate the data table.
+            var data = google.visualization.arrayToDataTable([
+          ['Year', 'HomeAway', 'Beach House Rentals', 'FlipKey', 'VRBO'],
+          ['2010', 1470646, 1022927, 1856622, 1661023],
+          ['2011', 1059230, 1401707, 1312703, 1123705],
+          ['2012', 1705122, 1513555, 1170462, 1627218],
+          ['2013', 1044499, 1186502, 1879090, 1975888]
+        ]);
+
+            // Create and draw the visualization.
+            new google.visualization.ColumnChart(document.getElementById('visualization4')).
+            draw(data,
+                 { width: 360, height: 225,
+                     hAxis: { title: "Year" }, colors: ['#FFBF00', '#FF8000', '#F7D358', '#FAAC58']
+                 }
+            );
+        }
+
+        google.setOnLoadCallback(drawVisualization);
+    </script>
+    <!--Leads by Agent-->
+    <script type="text/javascript">
+        function drawVisualization() {
+            // Create and populate the data table.
+            var data = google.visualization.arrayToDataTable([
+          ['Agent', 'Agent'],
+          ['1', 13],
+          ['2', 15],
+          ['3', 15],
+          ['4', 16],
+          ['5', 19],
+          ['6', 19]
+        ]);
+
+            // Create and draw the visualization.
+            new google.visualization.ColumnChart(document.getElementById('visualization5')).
+            draw(data,
+                 { width: 360, height: 220,
+                     hAxis: { title: "Agent" }, colors: ['#f9a44a']
+                 }
+            );
+        }
+
+        google.setOnLoadCallback(drawVisualization);
+    </script>
+    <!--Booking by Agent-->
+    <script type="text/javascript">
+        function drawVisualization() {
+            // Create and populate the data table.
+            var data = google.visualization.arrayToDataTable([
+          ['Agent', 'Agent'],
+          ['1', 9],
+          ['2', 11],
+          ['3', 12],
+          ['4', 15],
+          ['5', 18],
+          ['6', 23]
+        ]);
+
+            // Create and draw the visualization.
+            new google.visualization.ColumnChart(document.getElementById('visualization6')).
+            draw(data,
+                 { width: 360, height: 220,
+                     hAxis: { title: "Agent" }, colors: ['#f9a44a']
+                 }
+            );
+        }
+
+        google.setOnLoadCallback(drawVisualization);
+    </script>
+    <!--Local Leads(Office Specific)-->
+    <script type="text/javascript">
+        function drawVisualization() {
+            // Create and populate the data table.
+            var data = google.visualization.arrayToDataTable([
+          ['Agent', 'Agent'],
+          ['1', 2],
+          ['2', 5],
+          ['3', 5],
+          ['4', 7],
+          ['5', 10],
+          ['6', 14]
+        ]);
+
+            // Create and draw the visualization.
+            new google.visualization.ColumnChart(document.getElementById('visualization7')).
+            draw(data,
+                 { width: 360, height: 220,
+                     hAxis: { title: "Agent" }, colors: ['#f9a44a']
+                 }
+            );
+        }
+
+        google.setOnLoadCallback(drawVisualization);
+    </script>
+    <!--Leads by City and State-->
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.setOnLoadCallback(drawTable);
+      function drawTable() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Location');
+        data.addColumn('number', 'Leads');
+        data.addColumn('number', 'Total Percent');
+        data.addRows([
+          ['Santa Cruz',  255, {v: 66.06, f: '66.06%'}],
+          ['San Jose',   18,  {v: 4.66, f: '4.66%'}],
+          ['Capitola', 17, {v: 4.40, f: '4.40%'}],
+          ['San Francisco',   15,  {v: 3.89, f: '3.89%'}],
+          ['San Diego', 5, {v: 1.30, f: '1.30%'}],
+          ['Watsonville', 5, {v: 1.30, f: '1.30%'}],
+          ['Los Angeles', 4, {v: 1.04, f: '1.04%'}],
+          ['Washington', 4, {v: 1.04, f: '1.04%'}]
+         <!-- ['Scotts Valley', 3, {v: 0.78, f: '0.78%'}],
+          <!--['Phoenix', 2, {v: 0.52, f: '0.52%'}]
+        ]);
+
+        var table = new google.visualization.Table(document.getElementById('table_div'));
+        table.draw(data, {showRowNumber: true});
+      }
+    </script>
+    <!--Booking by City and State-->
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.setOnLoadCallback(drawTable);
+      function drawTable() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Location');
+        data.addColumn('number', 'Leads');
+        data.addColumn('number', 'Total Percent');
+        data.addRows([
+          ['Santa Cruz',  255, {v: 66.06, f: '66.06%'}],
+          ['San Jose',   18,  {v: 4.66, f: '4.66%'}],
+          ['Capitola', 17, {v: 4.40, f: '4.40%'}],
+          ['San Francisco',   15,  {v: 3.89, f: '3.89%'}],
+          ['San Diego', 5, {v: 1.30, f: '1.30%'}],
+          ['Watsonville', 5, {v: 1.30, f: '1.30%'}],
+          ['Los Angeles', 4, {v: 1.04, f: '1.04%'}],
+          ['Washington', 4, {v: 1.04, f: '1.04%'}],
+          <!--['Scotts Valley', 3, {v: 0.78, f: '0.78%'}],
+          <!--['Phoenix', 2, {v: 0.52, f: '0.52%'}]
+        ]);
+
+        var table = new google.visualization.Table(document.getElementById('table_div2'));
+        table.draw(data, {showRowNumber: true});
+      }
+    </script>
+    <!--County Leads-->
+    <script type="text/javascript">
+        function drawVisualization() {
+            // Create and populate the data table.
+            var data = google.visualization.arrayToDataTable([
+          ['Santa Cruz County', 'Leads'],
+          ['HomeAway', 11],
+          ['VRBO', 2],
+          ['FlipKey', 2],
+          ['RentOneOnline', 2],
+          ['Beach House Rentals', 7]
+        ]);
+
+            // Create and draw the visualization.
+            new google.visualization.PieChart(document.getElementById('visualization8')).
+            draw(data, { colors: ['#FFBF00', '#FF8000', '#F7D358', '#FAAC58', '#F5D0A9'] });
+        }
+
+
+        google.setOnLoadCallback(drawVisualization);
+    </script>
+    <!--Best performing Properties by Source-->
+    <script type="text/javascript">
+        function drawVisualization() {
+            // Create and populate the data table.
+            var data = google.visualization.arrayToDataTable([
+          ['Year', 'HomeAway', 'Beach House Rentals', 'FlipKey', 'VRBO'],
+          ['2010', 1600652, 4604684, 940478, 1167979],
+          ['2011', 1968113, 4013653, 1037079, 1207029],
+          ['2012', 1901067, 6792087, 1037327, 1284795],
+          ['2013', 1600652, 4604684, 940478, 1167979]
+        ]);
+
+            // Create and draw the visualization.
+            new google.visualization.ColumnChart(document.getElementById('visualization9')).
+            draw(data,
+                 { width: 360, height: 225,
+                     hAxis: { title: "Year" }, colors: ['#FFBF00', '#FF8000', '#F7D358', '#FAAC58']
+                 }
+            );
+        }
+
+        google.setOnLoadCallback(drawVisualization);
+    </script>
+</head>
+<body>
+    <div id="container">
+        <div id="sidebar">
+            <ul class="tabs_nav">
+                <img id='guestretriever-logo' src="images/Fetch-My-Guest-BETA.png" alt="FetchMyGuest logo"
+                    width="230" class="floatLeft" />
+            </ul>
+            <ul class="navigation ">
+                <li class="active"><a href="#;">Manager's Dashboard</a> </li>
+                <li class="dropdown po"><a href="#;"><i class="icon-home"></i>Manager's Info</a> <span
+                    class="popin" title="Edit Manager's Info"></span>
+                    <ul>
+                        <li><a title="" href="#;">Company </a></li>
+                        <li><a title="" href="#;">Contact name</a></li>
+                        <li><a title="" href="#;">Phone #</a></li>
+                        <li><a title="" href="#;">Business</a></li>
+                        <li><a title="" href="#;">Address</a></li>
+                        <li><a title="" href="#;">City , State and Zip</a></li>
+                        <li><a title="" href="#;">Web adress</a></li>
+                        <li><a title="" href="#;">Contact Email</a></li>
+                        <li><a title="" href="#;">Reservation System</a></li>
+                        <!--<li><a title="" href="#;">Credit Card info</a></li>-->
+                    </ul>
+                    <div class="popup">
+                        <div class="popup_wrap">
+                            <a id="close_popup" onclick="close_popup()"></a>
+                            <h2>
+                                Set Manager's Info</h2>
+                            <form>
+                            <div class="formrow">
+                                <label>
+                                    Company</label>
+                                <input type="text" placeholder="Enter vacation rental company here">
+                            </div>
+                            <div class="formrow">
+                                <label>
+                                    Contact Name</label>
+                                <input type="text" placeholder="Enter manager/owner's name here">
+                            </div>
+                            <div class="formrow">
+                                <label>
+                                    Phone No.</label>
+                                <input type="text" placeholder="Enter business phone number here">
+                            </div>
+                            <div class="formrow">
+                                <label>
+                                    Business</label>
+                                <input type="text" placeholder="Enter business here">
+                            </div>
+                            <div class="formrow">
+                                <label>
+                                    Address</label>
+                                <input type="text" placeholder="Enter business address here">
+                            </div>
+                            <div class="formrow">
+                                <label>
+                                    City, State, Zip</label>
+                                <input type="text" placeholder="Enter city, state, and zip here">
+                            </div>
+                            <div class="formrow">
+                                <label>
+                                    Web Address</label>
+                                <input type="text" placeholder="Enter business website here">
+                            </div>
+                            <div class="formrow">
+                                <label>
+                                    Contact Email</label>
+                                <input type="text" placeholder="Enter email here">
+                            </div>
+                            <div class="formrow">
+                                <label>
+                                    Reservations</label>
+                                <input type="text" placeholder="Enter reservation software here">
+                            </div>
+                            <!--
+                             <div class="formrow">
+                            <label>Credit Card</label>
+                            <input type="text" placeholder="Enter credit card here">
+                            </div>-->
+                            <input type="submit" value="Save">
+                            </form>
+                        </div>
+                    </div>
+                </li>
+                <li class="dropdown po"><span class="popin" title="Edit Agents"></span><a href="#;">
+                    <i class="icon-home"></i>Sign Up Agents</a>
+                    <ul>
+                        <li><a title="" href="#;">janedoez@my address </a></li>
+                        <li><a title="" href="#;">billjoe@myadress</a></li>
+                        <li><a title="" href="#;">jilldoe@myaddress</a></li>
+                    </ul>
+                    <div class="popup">
+                        <div class="popup_wrap add_field">
+                            <a id="close_popup" onclick="close_popup()"></a>
+                            <h2>
+                                Sign Up Agents</h2>
+                            <form>
+                            <div class="formrow">
+                                <input type="button" value="Add more" class="addmore" id="inp_agent" onclick='add_more(this.id,"Email","Enter agent&#39;s email here");' /></div>
+                            <div class="formrow" id="div_agent">
+                                <label>
+                                    Email</label>
+                                <input type="text" placeholder="Enter agent's email here">
+                            </div>
+                            <input type="submit" value="Save">
+                            </form>
+                        </div>
+                    </div>
+                </li>
+                <li class="dropdown po"><span class="popin" title="Edit Lead Sources"></span><a href="#;">
+                    <i class="icon-home"></i>Lead Sources</a>
+                    <ul>
+                        <li><a title="" href="#;">homeway.com </a></li>
+                        <li><a title="" href="#;">flipkey.com</a></li>
+                        <li><a title="" href="#;">crbo.com</a></li>
+                    </ul>
+                    <div class="popup">
+                        <div class="popup_wrap add_field">
+                            <a id="close_popup" onclick="close_popup()"></a>
+                            <h2>
+                                Set Up Lead Sources</h2>
+                            <form>
+                            <div class="formrow">
+                                <input type="button" value="Add more" class="addmore" id="inp_lead" onclick="add_more(this.id,'Website','Enter lead source website here');" /></div>
+                            <div class="formrow" id="div_lead">
+                                <label>
+                                    Website</label>
+                                <input type="text" placeholder="Enter lead source website here">
+                            </div>
+                            <input type="submit" value="Save">
+                            </form>
+                        </div>
+                    </div>
+                </li>
+                <li class="dropdown po">
+                    <!-- <span class="popin" title="Edit Fields"></span> -->
+                    <a href="#;"><i class="icon-home"></i>Templates</a>
+                    <ul>
+                        <li><a title="" href="#;">Coming soon!</a></li>
+                        <!-- <li><a title="" href="#;">Property and rate</a></li>
+			                    <li><a title="" href="#;">Follow Up</a></li>
+			                    <li><a title="" href="#;">Response</a></li>
+                                <li><a title="" href="#;">Seasonable Offer</a></li>
+                                <li><a title="" href="#;">Verify Properties</a></li> -->
+                    </ul>
+                    <!-- <div class="popup"><div class="popup_wrap">
+                            <a  id="close_popup" onClick="close_popup()"></a>
+                            <h2>Edit Fields</h2>
+                            <form>
+                            <div class="formrow">
+							
+                            <label>Property and rate</label>
+                            <input type="text" placeholder="Enter the property and rate here">
+                            </div>
+                            <div class="formrow">
+                            <label>Follow Up</label>
+                            <input type="text"  placeholder="Enter follow up here">
+                            </div>
+                         <div class="formrow">
+                            <label>Response</label>
+                            <input type="text" placeholder="Enter response here">
+                            </div>
+                            <div class="formrow">
+                            <label>Seasonable Offer</label>
+                            <input type="text" placeholder="Enter seasonable offer here">
+                            </div>
+                             <div class="formrow">
+                            <label>Verify Properties</label>
+                            <input type="text" placeholder="Verify the properties here">
+                            </div>
+                            <input type="submit" value="Save">
+                            </form>
+                            
+                            
+                            </div></div> -->
+                </li>
+                <li class="dropdown">
+                    <!-- <span class="popin" title="Edit Fields"></span> -->
+                    <a href="#;"><i class="icon-home"></i>Schedules</a>
+                    <ul>
+                        <li><a title="" href="#;">Coming soon!</a></li>
+                        <!-- <li><a title="" href="#;">Follow Up Response</a></li>
+			                    <li><a title="" href="#;">Turn off Hot Leads</a></li>
+			                    <li><a title="" href="#;">Lead expires</a></li> -->
+                    </ul>
+                </li>
+                <li class="dropdown po"><span class="popin" title="Edit Alerts"></span><a href="#;">
+                    <i class="icon-home"></i>Alerts</a>
+                    <ul>
+                        <li><a title="" href="#;">Hot Leads - No response</a></li>
+                        <li><a title="" href="#;">Lead Minimum (per day)</a></li>
+                        <li><a title="" href="#;">Lead No Response (per day)</a></li>
+                    </ul>
+                    <div class="popup">
+                        <div class="popup_wrap">
+                            <a id="close_popup" onclick="close_popup()"></a>
+                            <h2>
+                                Set Up Alerts</h2>
+                            <form>
+                            <div class="formrow">
+                                <label>
+                                    Hot Leads</label>
+                                <input type="text" placeholder="Enter response time here">
+                            </div>
+                            <div class="formrow">
+                                <label>
+                                    Lead Minimum</label>
+                                <input type="text" placeholder="Enter lead minimum here">
+                            </div>
+                            <div class="formrow">
+                                <label>
+                                    No Response</label>
+                                <input type="text" placeholder="Enter lead expiration here">
+                            </div>
+                            <input type="submit" value="Save">
+                            </form>
+                        </div>
+                    </div>
+                </li>
+                <li class="dropdown po"><span class="popin" title="Edit Goals"></span><a href="#;"><i
+                    class="icon-home"></i>Monthly Goals</a>
+                    <ul>
+                        <li><a title="" href="#;">Bookings</a></li>
+                    </ul>
+                    <div class="popup">
+                        <div class="popup_wrap">
+                            <a id="close_popup" onclick="close_popup()"></a>
+                            <h2>
+                                Set Monthly Goals</h2>
+                            <form>
+                            <div class="formrow">
+                                <label>
+                                    Bookings</label>
+                                <input type="text" placeholder="Enter monthly bookings goal here">
+                            </div>
+                            <input type="submit" value="Save">
+                            </form>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div id="content">
+            <div class="wrapper">
+                <div class="crumb">
+                    <!--<ul class="bread_crumb">
+            	<li>
+                	<a>Dashboard</a>
+                </li>
+                <li>
+                	<a>Current Page</a>
+                </li>
+            </ul>-->
+                    <ul class="crumb_buttons">
+                        <li><a class="active">Managers</a> </li>
+                        <li><a href="agent.html">Go to Fetch</a> </li>
+                    </ul>
+                </div>
+                <div class="clear">
+                </div>
+                <div class="page_header">
+                    <div class="page_title">
+                        <span>
+                            <h2>
+                                Hello [manager's name]</h2>
+                        </span>
+                    </div>
+                </div>
+                <div class="showcase_wrapper">
+                    <div id="showcase">
+                        <ul class="items">
+                            <li>
+                                <h2>
+                                    307</h2>
+                                <p class="text">
+                                    <a class="iconm leadin" aria-hidden="true" data-icon="&#xf0ea;"></a>Leads In</p>
+                            </li>
+                            <li>
+                                <h2>
+                                    6</h2>
+                                <p class="text">
+                                    <a class="iconm fol-up" aria-hidden="true" data-icon="&#xe002;"></a>Follow Ups</p>
+                            </li>
+                            <li>
+                                <h2>
+                                    7</h2>
+                                <p class="text">
+                                    <a class="iconm book-lead" aria-hidden="true" data-icon="&#xf310;"></a>Hot Leads</p>
+                            </li>
+                            <li class="goal_bookings">
+                                <h2>
+                                    93</h2>
+                                <p class="text">
+                                    Bookings is your goal this month</p>
+                                <div class="progress-bar">
+                                    <div style="width: 18%;" class="complete" id="id_progress_bar">
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--<form class="search_dash">
+        	<div class="search_dash_wrap"><input type="text" placeholder="Search Anything"><input class="button" type="submit" value="Search" >
+        	</div>
+        </form>-->
+            </div>
+            <div class="infograph_row">
+                <div class="infograph_block">
+                    <div class="infograph_block_wrapper">
+                        <div class="heading">
+                            Leads By Source</div>
+                        <div class="block_content">
+                            <div id="visualization2" style="width: 360px; height: 225px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="infograph_block">
+                    <div class="infograph_block_wrapper">
+                        <div class="heading">
+                            Leads By Agent</div>
+                        <div class="block_content">
+                            <div id="visualization5" style="width: 360px; height: 225px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="infograph_block">
+                    <div class="infograph_block_wrapper">
+                        <div class="heading">
+                            Leads By City and State</div>
+                        <div class="block_content">
+                            <div id='table_div'>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="infograph_row">
+                <div class="infograph_block">
+                    <div class="infograph_block_wrapper">
+                        <div class="heading">
+                            Booking by Source</div>
+                        <div class="block_content">
+                            <div id="visualization3" style="width: 360px; height: 225px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="infograph_block">
+                    <div class="infograph_block_wrapper">
+                        <div class="heading">
+                            Booking by Agents</div>
+                        <div class="block_content">
+                            <div id="visualization6" style="width: 360px; height: 225px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="infograph_block">
+                    <div class="infograph_block_wrapper">
+                        <div class="heading">
+                            Booking By City and State</div>
+                        <div class="block_content">
+                            <div id='table_div2'>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="infograph_row">
+                <div class="infograph_block">
+                    <div class="infograph_block_wrapper">
+                        <div class="heading">
+                            Local Leads(Office specific)</div>
+                        <div class="block_content">
+                            <div id="visualization7" style="width: 360px; height: 225px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="infograph_block">
+                    <div class="infograph_block_wrapper">
+                        <div class="heading">
+                            Local Booking By Source(Office specific)</div>
+                        <div class="block_content">
+                            <div id="visualization4" style="width: 360px; height: 225px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="infograph_block">
+                    <div class="infograph_block_wrapper">
+                        <div class="heading">
+                            Santa Cruz County, CA</div>
+                        <div class="block_content">
+                            <div id="visualization8" style="width: 360px; height: 225px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="infograph_row">
+                <div class="infograph_block">
+                    <div class="infograph_block_wrapper">
+                        <div class="heading">
+                            Best performing Properties By Source</div>
+                        <div class="block_content">
+                            <div id="visualization9" style="width: 360px; height: 225px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="infograph_block">
+                    <div class="infograph_block_wrapper">
+                        <div class="heading">
+                            Year to Date Effectiveness</div>
+                        <div class="block_content">
+                            <div id="visualization" style="width: 360px; height: 225px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="foot_dash" style="margin-bottom: 25px;">
+        <h3>Year To Date Lead Effectiveness</h3>
+		<!--<div class="block_content"><img src="//chart.googleapis.com/chart?chxl=0:|Jan|Feb|Mar|Jun|Jul|Aug|1:|0|25|50|75|100&chxr=1,0,105&chxt=x,y&chs=360x150&cht=lc&chd=s:YdYdcdfedddffcbbeffgghjnoqtuuuuuuuvvurrqnlkiigffdddcd&chg=25,25&chls=0.75,-1,-1" width="440" height="150" alt="" /></div>-->
+            <!--<div id="visualization" style="width: 360px; height: 225px;"></div>
+        <!--<b class="floatLeft">200 Leads</b>
+        <b class="floatRight">38 Bookings</b>-->
+            <!--</div>-->
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-content">
+            Copyright 2012 Fetch My Guest | <a href="#">Privacy Policy</a> | <a href="#">Contact
+                Us</a>
+        </div>
+    </div>
+    <!-- UserVoice JavaScript SDK (only needed once on a page) -->
+    <script>        (function () { var uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true; uv.src = '//widget.uservoice.com/aG5U1aaYifjaqKQEj6keg.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s) })()</script>
+    <!-- A tab to launch the Classic Widget -->
+    <script>
+        UserVoice = window.UserVoice || [];
+        UserVoice.push(['showTab', 'classic_widget', {
+            mode: 'full',
+            primary_color: '#cc6d00',
+            link_color: '#007dbf',
+            default_mode: 'support',
+            forum_id: 202908,
+            tab_label: 'Feedback & Support',
+            tab_color: '#fb8021',
+            tab_position: 'middle-right',
+            tab_inverted: false
+        }]);
+    </script>
+    <script type="text/javascript" src="js/manscript.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <title>Simple chat</title>
+    <!-- Bootstrap CSS -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+<header class="container">
+    <div></div>
+    <h3 ng-bind="name"></h3>
+</header>
+
+<div ng-controller="simpleChatCtrl" class="container">
+    <div class="row-fluid">
+        <div class="span3">
+            <h5 ng-show="nickname">User: <span ng-bind="nickname"></span></h5>
+            <form ng-show="!nickname" class="form-inline" ng-submit="setNickname()">
+                <input ng-disabled="!connected" type="text" class="" ng-model="new_nickname">
+                <input ng-disabled="!connected" type="submit" class="button" value="Set Nickname">
+            </form>
+            <form class="form-inline" ng-submit="sendMessage()">
+                <input ng-disabled="!nickname" type="text" class="" ng-model="message">
+                <input ng-disabled="!nickname" type="submit" class="button" value="Send">
+            </form>
+           <!-- select ng-options="r.name for r in rooms" ng-model="room" ng-change="joinRoom()">
+
+            </select-->
+
+        </div>
+        <div class="span9">
+            <p ng-repeat="message in messages"><i ng-bind="message.user"></i>: <span ng-bind="message.text"></span></p>
+        </div>
+    </div>
+</div>
+
+    <!-- setting angular.JS core components -->
+    <script src="{{ STATIC_URL }}js/socket.io.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}ng/lib/angular.js"></script>
+
+
+
+    <!-- load Angular Supporting Libraries -->
+<script type="text/javascript" src="{{ STATIC_URL }}ng/lib/ui-bootstrap-tpls-0.5.0.min.js"></script>
+
+
+    <!-- load customer directives -->
+
+
+    <!-- load angularJs code specific to the application -->
+    <script type="text/javascript" src="{{ STATIC_URL }}ng/app.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}ng/services/sockets.js"></script>
+
+
+    <script type="text/javascript" src="{{ STATIC_URL }}ng/socket_controllers.js"></script>
+
+</body>
+</html>

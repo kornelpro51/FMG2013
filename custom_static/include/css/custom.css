@@ -1,0 +1,56 @@
+.modal-open.page-overflow .page-container,
+.modal-open.page-overflow .page-container .navbar-fixed-top,
+.modal-open.page-overflow .page-container .navbar-fixed-bottom,
+.modal-open.page-overflow .modal-scrollable {
+	overflow-y: scroll;
+}
+.modal {
+    margin: 5% 5% 5% -5%;
+    width: 85%;
+    left: 10%;
+}
+
+.modal.fade.in {
+    top: 10%;
+}
+
+.modal .modal-body {
+
+}
+
+.modal .modal-body div {
+
+}
+
+.modal .modal-header {
+
+}
+
+.modal .modal-header .close {
+    right: 15px;
+}
+
+.modal .modal-header .close:hover {
+    border: 0;
+}
+
+@media (max-width: 480px) {
+    .modal .modal-header .close {
+        padding: 0;
+    }
+}
+
+.modal.dialog1 {
+    width: 60%;
+    height: 50%;
+    left: 20%;
+}
+
+@media (max-width: 480px) {
+    .modal.dialog1 {
+        height: 90%;
+        left: 5%;
+        top: 5%;
+        width: 90%;
+    }
+}

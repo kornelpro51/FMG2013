@@ -1,0 +1,26 @@
+.lead-wrap {
+    min-height: 100%;
+    /* equal to footer height */
+
+}
+
+.lead-footer .lead-wrap:after {
+    height: 200px;
+
+}
+
+.lead-footer {
+    position: fixed;
+    bottom: 18px;
+    background: url(../images/backgrounds/bg.png);
+    text-align: center;    
+    min-width: 66.5%;
+}
+
+.no-flags {
+	font-weight: bold !important;
+}
+
+tr.long-term {
+	background-color: #f3eae9;
+}

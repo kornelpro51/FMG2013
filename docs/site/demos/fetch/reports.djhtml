@@ -1,0 +1,224 @@
+<!DOCTYPE html>                               
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Guest Retriever</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="js/functions.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.8.22.custom.min.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css" media="screen"/>
+<link rel="stylesheet" type="text/css" href="css/ui-darkness/jquery-ui-1.8.22.custom.css" media="all">
+<!--[if IE 7]>
+<style type="text/css">
+	#wrap .container .container-top .content ul li{
+    	padding: 24px 20px 0px 24px;
+    }
+    #wrap .container .container-top .content ul li h1.top-number{
+    	margin-bottom:2px;
+        margin-top:30px;
+    }
+	#wrap .container .container-top .content ul li a.see-them{
+    	margin-left:0;
+        margin-right:0;
+    }
+</style>
+<![endif]-->
+<!--[if IE 8]>
+<style type="text/css">
+	#wrap .container .container-top .content ul li{
+    	padding: 24px 20px 0px 24px;
+    }
+</style>
+<![endif]-->
+<!--[if IE 9]>
+<style type="text/css">
+	#wrap .container-body .body-content .flags ul li{
+	margin-bottom: 1px;
+}
+</style>
+<![endif]-->
+<!--[if IE]>
+<style type="text/css">
+    #wrap .menubg{
+        float: none;
+        height: 50px;
+    }
+#wrap .header-wrapper{
+    margin-top:-55px;
+    }
+</style>
+<![endif]-->
+<script>
+	$(function() {
+		$( "#startdate" ).datepicker();
+		$( "#enddate" ).datepicker();
+	});
+	</script>
+</head>
+<body>
+<div id="wrap">
+	<div class="top-layer"></div> <!-- holdes top orange layer -->
+    <div class="menubg"></div>
+    <div class="header-wrapper">
+        <div class="header">
+                <h1 class="logo">Logo</h1>
+                <h1 class="header-label">Guest Retriever</h1>
+                
+                <ul class="nav" style=": none;">
+                    <li class="first main"><a class="root" href="agent_dashboard.php">Home</a></li>
+                    <li class="dropdown report main active">
+                        <a href="#" class="root reports">Reports</a>
+                         <ul class="sub-menu">
+                            <li class="sub"><a href="reports.php">Month to Date</a></li>
+                            <li class="sub"><a href="reports.php">Year to Date</a></li>
+                            <li class="sub leads"><a href="reports.php">Leads</a>
+                                <ul class="leads-sub">
+                                    <li><a href="reports.php">State</a></li>
+                                    <li><a href="reports.php">Source</a></li>
+                                    <li><a href="reports.php">Agent</a></li>
+                                </ul>
+                            </li>
+                            <li class="sub bookings"><a href="reports.php">Bookings</a>
+                                <ul class="bookings-sub">
+                                    <li><a href="reports.php">State</a></li>
+                                    <li><a href="reports.php">Source</a></li>
+                                    <li><a href="reports.php">Agent</a></li>
+                                    <li><a href="reports.php">Other</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="main"><a href="#" class="root">Agents</a></li>
+                    <li class="last dropdown account main"><a href="account_info.php" class="root">My Account</a>
+                        <ul class="sub-menu">
+                            <li class="sub settings"><a href="#" onClick="return false;">Settings</a>
+                                <ul class="settings-sub">
+                                    <li><a href="template_maker.php">My Info</a></li>
+                                </ul>
+                            </li>
+                            <li class="sub"><a href="#" class="logout">Log Out</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+        </div><!-- end header --> 
+    </div><!-- end header-wrapper -->
+    <div class="container-holder reports">
+        <div class="container">
+        
+            <div class="container-top">
+                <div class="date">
+                    September 2012                </div><!-- date -->
+                
+                <div class="content">
+                    <ul class="items">
+                        <li class="first"><a href="#" class="left-arrow"></a></li>
+                        <li>
+                            <h1 class="top-number">15</h1>
+                            <p class="text">calls have been received</p>
+                            <a href="#" class="see-them">See them</a>
+                        </li>
+                        <li>
+                            <h1 class="top-number">12</h1>
+                            <p class="text">followup emails sent</p>
+                            <a href="#" class="see-them">See them</a>
+                        </li>
+                        <li>
+                            <h1 class="top-number">10</h1>
+                            <p class="text">booking from leads</p>
+                            <a href="#" class="see-them">See them</a>
+                        </li>
+                        <li>
+                            <h1 class="top-number">2</h1>
+                            <p class="text">other bookings</p>
+                            <a href="#" class="see-them">See them</a>
+                        </li>
+                        <li class="last-item">
+                            <!--<h1 class="top-number goal" id="goal">50</h1>-->
+                           
+                            <input type="text" name="goal" id="goal" class="goal" value="50" />
+                            <p class="text">booking is your goal this month</p>
+                            <div class="progress-bar"><div class="complete"></div></div>
+                            <p class="progress-count">25% of your goal</p>
+                        </li>
+                        <li class="last"><a href="#" class="right-arrow"></a></li>
+                    </ul>
+                </div><!-- end content -->
+            </div><!-- end container-top -->                  
+        </div><!-- end container -->
+    	<div class="container-body">
+			<div class="body-content">            
+           		<div class="welcome"><p>Have a great day !</p></div>                                    
+             <div class="form-items">
+             	<form>                   
+                    <span class="field">
+                        <label for="source">Source</label><br/>
+                        <select name="source" id="source" class="source">
+                            <option value="">Source 1</option>
+                            <option value="">Source 2</option>
+                            <option value="">Source 3</option>
+                            <option value="">Source 4</option>
+                            <option value="">Source 6</option>
+                        </select>
+                    </span>
+                    <span class="field">
+                        <label for="type">City</label><br/>
+                        <select name="city" id="city" class="city">
+                            <option value="city1">City 1</option>
+                            <option value="city2">City 2</option>
+                            <option value="city1">City 3</option>
+                            <option value="city2">City 4</option>
+                            <option value="city1">City 5</option>
+                            <option value="city2">City 6</option>
+                            <option value="city1">City 7</option>
+                            <option value="city2">City 8</option>
+                            <option value="city1">City 9</option>
+                            <option value="city2">City 10</option>
+                        </select>
+                    </span>
+                    <span class="field">
+                        <label for="type">State</label><br/>
+                        <select name="state" id="state" class="state">
+                            <option value="state1">State 1</option>
+                            <option value="state2">State 2</option>
+                            <option value="state1">State 3</option>
+                            <option value="state2">State 4</option>
+                            <option value="state1">State 5</option>
+                            <option value="state2">State 6</option>
+                            <option value="state1">State 7</option>
+                            <option value="state2">State 8</option>
+                            <option value="state1">State 9</option>
+                            <option value="state2">State 10</option>                          
+                        </select>
+                    </span>
+                     <span class="field">
+                        <label for="startdate">Start Date</label><br/>
+                        <input type="text" name="startdate" id="startdate" class="startdate"/>
+                    </span>
+                    <span class="field">
+                        <label for="enddate">End Date</label><br/>
+                        <input type="text" name="enddate" id="enddate" class="enddate"/>
+                    </span>
+                     <span class="field">
+                        <button class="execute" id="execute">Execute</button>
+                    </span>
+                </form>
+             </div><!-- form-items -->
+            </div><!-- end body-content -->
+       </div><!-- end container-body-->  
+       
+       <div class="footer">
+        <div class="footer-content">
+            Copyright 2012 Guest Retriever  |  
+            <a href="#">Privacy Policy</a>  |  
+            <a href="#">Contact Us</a>
+        </div><!-- end footer-content -->
+       </div><!-- end footer -->        
+   </div><!-- container holder -->
+</div><!-- end wrap -->
+</body>
+</html>
+
+<!-- Hosting24 Analytics Code -->
+<script type="text/javascript" src="http://stats.hosting24.com/count.php"></script>
+<!-- End Of Analytics Code -->

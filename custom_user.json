@@ -1,0 +1,107 @@
+[
+    {
+        "pk": -1,
+        "model": "custom_user.emailuser",
+        "fields": {
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "last_login": "2013-08-09T14:01:08.504",
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
+            "email": "",
+            "date_joined": "2013-08-09T14:01:08.504"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "custom_user.emailuser",
+        "fields": {
+            "is_active": true,
+            "is_superuser": true,
+            "is_staff": true,
+            "last_login": "2013-08-11T15:15:54.703",
+            "groups": [],
+            "user_permissions": [],
+            "password": "pbkdf2_sha256$10000$DAAVk3Glf3Vb$P112dIl/6gD96RA6MOj8hhzM0m+xTvFXHMxwAvR9aDc=",
+            "email": "paolo.cesare.calvi@gmail.com",
+            "date_joined": "2013-08-09T14:01:18.410"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "custom_user.emailuser",
+        "fields": {
+            "is_active": true,
+            "is_superuser": true,
+            "is_staff": true,
+            "last_login": "2013-08-09T14:01:18.449",
+            "groups": [],
+            "user_permissions": [],
+            "password": "pbkdf2_sha256$10000$x2mqVZX5lD2h$9BBDWspr1Um7RxRWhecOYEsCKkJ8BaML38OTwGTWD/4=",
+            "email": "vince@nvisionventures.com",
+            "date_joined": "2013-08-09T14:01:18.449"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "custom_user.emailuser",
+        "fields": {
+            "is_active": true,
+            "is_superuser": true,
+            "is_staff": true,
+            "last_login": "2013-08-09T14:01:18.433",
+            "groups": [],
+            "user_permissions": [],
+            "password": "pbkdf2_sha256$10000$pbUz2AlkiOWB$hjWaOoyQkDyKv+ufGc9c4YGbuLofQNYcHCjhYobcGzo=",
+            "email": "brandon@fetchmyguest.com",
+            "date_joined": "2013-08-09T14:01:18.433"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "custom_user.emailuser",
+        "fields": {
+            "is_active": true,
+            "is_superuser": true,
+            "is_staff": true,
+            "last_login": "2013-08-09T14:01:18.447",
+            "groups": [],
+            "user_permissions": [],
+            "password": "pbkdf2_sha256$10000$TSwaM2gxBlHl$KMhG16ZhThKuxGIH9A2k1hJXxwcyv9w7LzIzWFOyCqI=",
+            "email": "vinay.kanojia@classicinformatics.com",
+            "date_joined": "2013-08-09T14:01:18.447"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "custom_user.emailuser",
+        "fields": {
+            "is_active": true,
+            "is_superuser": true,
+            "is_staff": true,
+            "last_login": "2013-08-09T14:01:18.442",
+            "groups": [],
+            "user_permissions": [],
+            "password": "pbkdf2_sha256$10000$YMOsEQuxHMEb$o7Tty8psWaA/G6iWbpatZiaWxYmhtFXpU/uuM+YXh6c=",
+            "email": "sachin@classicinformatics.com",
+            "date_joined": "2013-08-09T14:01:18.442"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "custom_user.emailuser",
+        "fields": {
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "last_login": "2013-08-11T18:47:03.373",
+            "groups": [],
+            "user_permissions": [],
+            "password": "pbkdf2_sha256$10000$eSCHwhkHFbam$kEO3HCGxsTHkSwjEOQXurfV5zsf93xnziPqnPlNcXMY=",
+            "email": "sharkyit@gmail.com",
+            "date_joined": "2013-08-11T18:47:03.373"
+        }
+    }
+]

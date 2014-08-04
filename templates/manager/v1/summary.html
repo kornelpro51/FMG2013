@@ -1,0 +1,298 @@
+{% extends 'manager/base.html' %}
+
+
+{% load nvd3_tags %}
+
+
+{% block content %}
+    <div class="container">
+        <!-- shout box -->
+        <div class='row-fluid'>
+
+            <div class='span3'>
+                <div class="thumbnail well">
+                    <div class='shout'>
+                        <div class='shoutbox'>
+                            <h1 ng-bind="init_val.leads_in"></h1>
+                        </div>
+                    </div>
+                    <div class="caption">
+                        <h5><i class='icon-fmg-plug icon-fmg-blue'></i> Leads In</h5>
+                    </div>
+                </div>
+            </div>
+            <div class='span3'>
+                <div class="thumbnail well">
+                    <div class='shout'>
+                        <div class='shoutbox'>
+                            <h1 ng-bind="init_val.follow_ups"></h1>
+                        </div>
+                    </div>
+                    <div class="caption">
+                        <h5><i class='icon-fmg-stairs icon-fmg-green'></i> Follow Ups</h5>
+                    </div>
+                </div>
+            </div>
+            <div class='span3'>
+                <div class="thumbnail well">
+                    <div class='shout'>
+                        <div class='shoutbox'>
+                            <h1 ng-bind="init_val.hot"></h1>
+                        </div>
+                    </div>
+                    <div class="caption">
+                        <h5><i class='icon-fmg-fire icon-fmg-red'></i> Hot Leads</h5>
+                    </div>
+                </div>
+            </div>
+            <div class='span3'>
+                <div class="thumbnail well">
+                    <div class='shout'>
+                        <div class='wide shoutbox'>
+                            <h1>{{ init_val.target }}</h1>
+                            <progress percent="init_val.booked" class="progress-success" animate="false"></progress>
+                            <span style="margin-top:10px;">
+                                <strong>{{ init_val.booked }}</strong> of <strong>{{ init_val.target }}</strong>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="caption">
+                        <h5><i class='icon-fmg-success icon-fmg-green'></i> Booking Goal per Month</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end shout box -->
+        <!-- charts -->
+        <!-- end charts -->
+        <div class="row-fluid">
+            <!-- lead by source -->
+            <div class="span8">
+                <div class="block well">
+                    <div class="navbar">
+                        <div class="navbar-inner">
+                            <h5>Lead By Source</h5>
+
+                            <div class="nav pull-right">
+                                <a href="#" class="dropdown-toggle just-icon" data-toggle="dropdown"><i
+                                        class="font-cog"></i></a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li><a href="#"><i class="font-heart"></i>Favorite it</a></li>
+                                    <li><a href="#"><i class="font-refresh"></i>Reload page</a></li>
+                                    <li><a href="#"><i class="font-link"></i>Attach something</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="body">
+                        {% include_container chartcontainer 307 672 %}
+                    </div>
+                </div>
+            </div>
+            <!-- end lead by source -->
+            {% comment %}
+            <!-- lead by agent -->
+            <div class="span4">
+                <div class="block well">
+                    <div class="navbar">
+                        <div class="navbar-inner">
+                            <h5>Lead By Agent</h5>
+
+                            <div class="nav pull-right">
+                                <a href="#" class="dropdown-toggle just-icon" data-toggle="dropdown"><i
+                                        class="font-cog"></i></a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li><a href="#"><i class="font-heart"></i>Favorite it</a></li>
+                                    <li><a href="#"><i class="font-refresh"></i>Reload page</a></li>
+                                    <li><a href="#"><i class="font-link"></i>Attach something</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="body">
+                        <div class="chart" id="placeholder2"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- lead by agent -->
+            {% endcomment %}
+            <!-- office specific leads -->
+            <div class="span4">
+                <div class="block well">
+                    <div class="navbar">
+                        <div class="navbar-inner">
+                            <h5>Local Leads (Office Specific)</h5>
+
+                            <div class="nav pull-right">
+                                <a href="#" class="dropdown-toggle just-icon" data-toggle="dropdown"><i
+                                        class="font-cog"></i></a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li><a href="#"><i class="font-heart"></i>Favorite it</a></li>
+                                    <li><a href="#"><i class="font-refresh"></i>Reload page</a></li>
+                                    <li><a href="#"><i class="font-link"></i>Attach something</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="body">
+                        <div class="chart" id="placeholder2"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- lead by agent -->
+        </div>
+        <div class="row-fluid">
+            <!-- lead by source -->
+            <div class="span4">
+                <div class="block well">
+                    <div class="navbar">
+                        <div class="navbar-inner">
+                            <h5>Bookings by Source</h5>
+
+                            <div class="nav pull-right">
+                                <a href="#" class="dropdown-toggle just-icon" data-toggle="dropdown"><i
+                                        class="font-cog"></i></a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li><a href="#"><i class="font-heart"></i>Favorite it</a></li>
+                                    <li><a href="#"><i class="font-refresh"></i>Reload page</a></li>
+                                    <li><a href="#"><i class="font-link"></i>Attach something</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="body">
+                        <div class="chart" id="placeholder1">.</div>
+                    </div>
+                </div>
+            </div>
+            <!-- end lead by source -->
+            <!-- lead by agent -->
+            <div class="span4">
+                <div class="block well">
+                    <div class="navbar">
+                        <div class="navbar-inner">
+                            <h5>Bookings by Agent</h5>
+
+                            <div class="nav pull-right">
+                                <a href="#" class="dropdown-toggle just-icon" data-toggle="dropdown"><i
+                                        class="font-cog"></i></a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li><a href="#"><i class="font-heart"></i>Favorite it</a></li>
+                                    <li><a href="#"><i class="font-refresh"></i>Reload page</a></li>
+                                    <li><a href="#"><i class="font-link"></i>Attach something</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="body">
+                        <div class="chart" id="placeholder2"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- lead by agent -->
+            <!-- office specific leads -->
+            <div class="span4">
+                <div class="block well">
+                    <div class="navbar">
+                        <div class="navbar-inner">
+                            <h5>Year to Date Effectiveness</h5>
+
+                            <div class="nav pull-right">
+                                <a href="#" class="dropdown-toggle just-icon" data-toggle="dropdown"><i
+                                        class="font-cog"></i></a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li><a href="#"><i class="font-heart"></i>Favorite it</a></li>
+                                    <li><a href="#"><i class="font-refresh"></i>Reload page</a></li>
+                                    <li><a href="#"><i class="font-link"></i>Attach something</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="body">
+                        <div class="chart" id="placeholder2"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- lead by agent -->
+        </div>
+        <div class="row-fluid">
+            <!-- lead by source -->
+            <div class="span4">
+                <div class="block well">
+                    <div class="navbar">
+                        <div class="navbar-inner">
+                            <h5>Local Bookings by Source (Office)</h5>
+
+                            <div class="nav pull-right">
+                                <a href="#" class="dropdown-toggle just-icon" data-toggle="dropdown"><i
+                                        class="font-cog"></i></a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li><a href="#"><i class="font-heart"></i>Favorite it</a></li>
+                                    <li><a href="#"><i class="font-refresh"></i>Reload page</a></li>
+                                    <li><a href="#"><i class="font-link"></i>Attach something</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="body">
+                        <div class="chart" id="placeholder1">.</div>
+                    </div>
+                </div>
+            </div>
+            <!-- end lead by source -->
+            <!-- lead by agent -->
+            <div class="span4">
+                <div class="block well">
+                    <div class="navbar">
+                        <div class="navbar-inner">
+                            <h5>Santa Cruz County, CA</h5>
+
+                            <div class="nav pull-right">
+                                <a href="#" class="dropdown-toggle just-icon" data-toggle="dropdown"><i
+                                        class="font-cog"></i></a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li><a href="#"><i class="font-heart"></i>Favorite it</a></li>
+                                    <li><a href="#"><i class="font-refresh"></i>Reload page</a></li>
+                                    <li><a href="#"><i class="font-link"></i>Attach something</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="body">
+                        <div class="chart" id="placeholder2"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- lead by agent -->
+            <!-- office specific leads -->
+            <div class="span4">
+                <div class="block well">
+                    <div class="navbar">
+                        <div class="navbar-inner">
+                            <h5>Best Performing Properties</h5>
+
+                            <div class="nav pull-right">
+                                <a href="#" class="dropdown-toggle just-icon" data-toggle="dropdown"><i
+                                        class="font-cog"></i></a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li><a href="#"><i class="font-heart"></i>Favorite it</a></li>
+                                    <li><a href="#"><i class="font-refresh"></i>Reload page</a></li>
+                                    <li><a href="#"><i class="font-link"></i>Attach something</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="body">
+                        <div class="chart" id="placeholder2"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- lead by agent -->
+        </div>
+    </div>
+{% endblock %}
+
+{% block JS %}
+    {% include_chart_jscss %}
+    {% load_chart charttype chartdata chartcontainer extra %}
+{% endblock %}

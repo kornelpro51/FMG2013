@@ -1,0 +1,191 @@
+
+    <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?kit=m0tazYRimFnV1hoGKbgtnw');
+
+    ol {
+        margin: 0;
+        padding: 0
+    }
+
+    .c3 {
+        max-width: 432pt;
+        background-color: #ffffff;
+        padding: 72pt 90pt 72pt 90pt
+    }
+
+    .c0 {
+        height: 12pt;
+        direction: ltr
+    }
+
+    .c1 {
+        font-weight: bold
+    }
+
+    .c2 {
+        direction: ltr
+    }
+
+    .title {
+        padding-top: 24pt;
+        line-height: 1.0;
+        text-align: left;
+        color: #000000;
+        font-size: 36pt;
+        font-family: "Cambria";
+        font-weight: bold;
+        padding-bottom: 6pt
+    }
+
+    .subtitle {
+        padding-top: 18pt;
+        line-height: 1.0;
+        text-align: left;
+        color: #666666;
+        font-style: italic;
+        font-size: 24pt;
+        font-family: "Georgia";
+        padding-bottom: 4pt
+    }
+
+    li {
+        color: #000000;
+        font-size: 12pt;
+        font-family: "Cambria"
+    }
+
+    p {
+        color: #000000;
+        font-size: 12pt;
+        margin: 0;
+        font-family: "Cambria"
+    }
+
+    h1 {
+        padding-top: 24pt;
+        line-height: 1.0;
+        text-align: left;
+        color: #000000;
+        font-size: 24pt;
+        font-family: "Cambria";
+        font-weight: bold;
+        padding-bottom: 6pt
+    }
+
+    h2 {
+        padding-top: 18pt;
+        line-height: 1.0;
+        text-align: left;
+        color: #000000;
+        font-size: 18pt;
+        font-family: "Cambria";
+        font-weight: bold;
+        padding-bottom: 4pt
+    }
+
+    h3 {
+        padding-top: 14pt;
+        line-height: 1.0;
+        text-align: left;
+        color: #000000;
+        font-size: 14pt;
+        font-family: "Cambria";
+        font-weight: bold;
+        padding-bottom: 4pt
+    }
+
+    h4 {
+        padding-top: 12pt;
+        line-height: 1.0;
+        text-align: left;
+        color: #000000;
+        font-size: 12pt;
+        font-family: "Cambria";
+        font-weight: bold;
+        padding-bottom: 2pt
+    }
+
+    h5 {
+        padding-top: 11pt;
+        line-height: 1.0;
+        text-align: left;
+        color: #000000;
+        font-size: 11pt;
+        font-family: "Cambria";
+        font-weight: bold;
+        padding-bottom: 2pt
+    }
+
+    h6 {
+        padding-top: 10pt;
+        line-height: 1.0;
+        text-align: left;
+        color: #000000;
+        font-size: 10pt;
+        font-family: "Cambria";
+        font-weight: bold;
+        padding-bottom: 2pt
+    }</style>
+
+<p class="c2"><span>Hello {{ customer.last_name }},</span></p>
+
+<p class="c2"><span>&nbsp;</span></p>
+
+<p class="c2"><span>Thank you for your interest in </span><span class="c1">{{ agency.name }}</span><span>, located in {{ agency.city }}.</span>
+</p>
+
+<p class="c2"><span>&nbsp;</span></p>
+
+
+{% if requested_property %}
+
+    <p class="c2"><span>You have requested a stay at {{ requested_property.property.address }},
+    from {{ lead.arrival }} to {{ lead.departure }}.</span></p>
+    <p class="c2"><span class="c1">The property is available at a rate of ${{ requested_property.rate }} </span></p>
+{% endif %}
+{% if not_available_property %}
+
+    <p class="c2"><span>You have requested a stay at {{ requested_property.property.address }},
+    from {{ lead.arrival }} to {{ lead.departure }}.</span></p>
+    <p class="c2"><span class="c1">The property unfortunately is ont available </span></p>
+{% endif %}
+{% if proposed_properties %}
+<p class="c0"><span></span></p>
+
+<p class="c2"><span>As follows are the beach houses we have available for your dates:</span></p>
+
+<p class="c2"><span>&nbsp;</span></p>
+    {% for proposed_property in proposed_properties %}
+
+
+<p class="c2"><span class="c1">{{ proposed_property.property.address }} ~ {{ proposed_property.property.bedrooms }} Bedroom
+    ~ {{ proposed_property.property.bedrooms }} Bath ~ {{ proposed_property.property.bathrooms }}
+    Sleeps {{ proposed_property.property.sleeps }}. {{ proposed_property.property.description }}.</span>
+</p>
+
+<p class="c2"><span class="c1">The rate is ${{ proposed_property.rate }}. This includes tax and cleaning.</span></p>
+
+<p class="c2"><span class="c1"><a href="{{ proposed_property.property.link }}">{{ proposed_property.property.link }}</a> </span></p>
+    
+    {% endfor %}
+    
+
+{% endif %} 
+
+
+
+<p class="c2"><span>&nbsp;</span></p>
+
+<p class="c2"><span>If you have any questions or would like to make a reservation you can email or call us, 831-475-1808. We are happy to assist.</span>
+</p>
+
+<p class="c0"><span></span></p>
+
+<p class="c2"><span>Best,</span></p>
+
+<p class="c2"><span>{{ agent.first_name }} {{ agent.lastname_name }}</span></p>
+
+<p class="c2"><span>Phone {{ agency.phone }}</span></p>
+
+<p class="c2"><span>Fax {{ agency.fax }}</span></p>
+
+<p class="c2"><span>{{ agency.website }}</span></p></body>

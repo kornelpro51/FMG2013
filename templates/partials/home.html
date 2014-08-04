@@ -1,0 +1,366 @@
+{% verbatim %}
+<div class="container">
+  <div class="lead-wrap">
+
+    <!-- Shout boxes for quick overview -->
+
+    <div class='row-fluid'>
+
+      <div class='span3'>
+        <div class="thumbnail well">
+          <div class='shout'>
+            <div class='shoutbox'>
+              <h1 ng-bind="init_val.leads_in"></h1>
+            </div>
+          </div>
+          <div class="caption">
+            <h5><i class='icon-fmg-plug icon-fmg-blue'></i> Leads In</h5>
+          </div>
+        </div>
+      </div>
+      <div class='span3'>
+        <div class="thumbnail well">
+          <div class='shout'>
+            <div class='shoutbox'>
+              <h1 ng-bind="init_val.follow_ups"></h1>
+            </div>
+          </div>
+          <div class="caption">
+            <h5><i class='icon-fmg-stairs icon-fmg-green'></i> Follow Ups</h5>
+          </div>
+        </div>
+      </div>
+      <div class='span3'>
+        <div class="thumbnail well">
+          <div class='shout'>
+            <div class='shoutbox'>
+              <h1 ng-bind="init_val.hot"></h1>
+            </div>
+          </div>
+          <div class="caption">
+            <h5><i class='icon-fmg-fire icon-fmg-red'></i> Hot Leads</h5>
+          </div>
+        </div>
+      </div>
+      <div class='span3'>
+        <div class="thumbnail well">
+          <div class='shout'>
+            <div class='wide shoutbox'>
+              <h1>{{ init_val.target }}</h1>
+              <progress percent="getPercent(init_val.booked, init_val.target)" animate="true"></progress>
+              <span style="margin-top:10px;">
+                <strong>{{ init_val.booked }}</strong> of <strong>{{ init_val.target }}</strong>
+              </span>
+            </div>
+          </div>
+          <div class="caption">
+            <h5><i class='icon-fmg-success icon-fmg-green'></i> Booking Goal per Month</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- End shout box -->
+
+    <!-- Actual Leads -->
+    <div class="row-fluid">
+      <div class="row-fluid">
+        <div class="block well">
+          <div class="navbar">
+            <div class="navbar-inner">
+              <div class="span2">
+                <button class="btn btn-success" ng-click="addLead()">Add Lead <i
+                  class="icon-plus icon-white"></i></button>
+                </div>
+                <div class="span6" style="margin-top: 6px;">
+                  <form ng-submit='searchLeads()'>
+                    <input class="span12" placeholder="Type to filter leads (at least 3 characters) and press enter" type="text"
+                    ng-model="queryString">
+                  </form>
+                </div>
+                <div class="span4">
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Loader for leads ng-show/hide -->
+
+        <div ng-show='leadsLoaded()' style='text-align: center;'>
+          <br><br>
+          <img ng-src='/static/include/images/elements/loaders/1.gif'>
+
+          <p>Loading Leads</p>
+
+        </div>
+        <!-- End Loader -->
+
+        <!-- Leads Tabular Data -->
+
+        <div ng-hide='leadsLoaded()'>
+          <div class='row-fluid'>
+            <div class="table-overflow">
+              <table class="table table-bordered table-condensed">
+                <thead>
+                  <tr>
+                    <th>Status</th>
+                    <th>Date</th>
+                    <th>Source</th>
+                    <th>Guest</th>
+                    <!--<th>Phone</th>-->
+                    <th>Properties</th>
+                    <th>Arrival/Departure</th>
+                    <!--<th>Departure</th> -->
+                    <th>Send Rate/Info</th>
+                    <th>Details</th>
+                  </tr>
+                </thead>
+                <tbody ng-repeat="lead in leads.results">
+                  <tr ng-class="noFlags(lead)">
+                    <td style='min-width: 100px;'>
+                      <i class='icon-fmg-bone' ng-show='lead.phone_call' title='Walk in / PhoneCall'
+                      ng-click='togglePhoneCall(lead)'></i>
+                      <i class='icon-fmg-bone icon-fmg-disabled' ng-hide='lead.phone_call' title='Walk in / PhoneCall'
+                      ng-click='togglePhoneCall(lead)'></i>
+
+                      <i class='icon-fmg-bone icon-fmg-green' ng-show='lead.first_response'
+                      title='First Response'></i>
+                      <i class='icon-fmg-bone icon-fmg-disabled' ng-hide='lead.first_response'
+                      title='First Response'></i>
+
+                      <i class='icon-fmg-bone icon-fmg-blue' ng-show='lead.second_response'
+                      title='Second Response'></i>
+                      <i class='icon-fmg-bone icon-fmg-disabled' ng-hide='lead.second_response'
+                      title='Second Response'></i>
+
+                      <i class='icon-fmg-bone icon-fmg-yellow' ng-show='lead.offer' title='Offer Response'></i>
+                      <i class='icon-fmg-bone icon-fmg-disabled' ng-hide='lead.offer' title='Offer Response'></i>
+
+                      <i class='icon-fmg-bone icon-fmg-red' ng-show='lead.hot' title='Hot Lead'
+                      ng-click='toggleHot(lead)'></i>
+                      <i class='icon-fmg-bone icon-fmg-disabled' ng-hide='lead.hot' title='Hot Lead'
+                      ng-click='toggleHot(lead)'></i>
+
+                      <i class='icon-fmg-success icon-fmg-green' ng-show='lead.booked' ng-click='toggleBooking(lead)'
+                      title='Booked'></i>
+                      <i class='icon-fmg-success icon-fmg-disabled' ng-hide='lead.booked'
+                      ng-click='toggleBooking(lead)' title="Booked"></i>
+
+                      <i class='icon-time' ng-show='lead.long_term' title='Long Term'
+                      ng-click='toggleLongTerm(lead)'></i>
+                      <i class='icon-time icon-fmg-disabled' ng-hide='lead.long_term' title='Long Term'
+                      ng-click='toggleLongTerm(lead)'></i>
+                    </td>
+                    <td style='min-width: 75px;'>
+                      <i class="icon-download-alt"></i> {{ lead.created * 1000 | date:'MMM d' }}<br>
+                      <i class="icon-comments"></i> {{ lead.modified | date:'medium' | fromNow }}
+                    </td>
+                    <td>{{ lead.source }}</td>
+                    <td>
+                      {{ lead.customer_name | craigslist }}
+                    <!--<button class='btn btn-mini' ng-click='showHistory($index)'>
+                        <i class='font-info-sign'></i>
+                      </button> -->
+                      <br>
+                      {{ lead.customer_serial.phone }}
+                      <br>
+                      {{ lead.customer_serial.email | craigslist }}
+                    </td>
+                    <!--<td>{{ lead.customer_serial.phone }}</td>-->
+                    <td>
+                      <!--<div ng-repeat='p in lead.lead_properties | requestedProperties track by $index'>-->
+                      <div ng-repeat='p in lead.lead_properties.slice(0,1) track by $index'>
+                        <span ng-show="p.property_details.address">{{ p.property_details.address }}</span>
+                        <span ng-hide="p.property_details.address">{{ p.property_details.title }}</span>
+                      </div>
+                    </td>
+                    <td style='min-width: 90px;'>
+                      <i class='icon-suitcase'></i> {{ lead.arrival | date:'mediumDate' }} <br>
+                      <i class='icon-plane'></i> {{ lead.departure | date:'mediumDate' }}
+                    </td>
+                    <td>
+                      <a class="btn btn-primary" ng-click='editLead(lead)'>
+                        <i class="icon-share-sign"></i>
+                      </a>
+                    </td>
+                    <td>
+                      <button class="btn" ng-click='showHistory($index)'>
+                        <i class='icon-caret-left' ng-hide="infoIsCollapsed[$index]"></i>
+                        <i class='icon-caret-down' ng-show="infoIsCollapsed[$index]"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan='8' ng-show="infoIsCollapsed[$index]">
+                      <div class="row">
+                        <div class="span12" style="text-align: center;" ng-hide="lead.messages">
+                          <br><br>
+                          <img ng-src='/static/include/images/elements/loaders/1.gif'>
+
+                          <p>Loading Lead Data</p>
+                        </div>
+                        <div class="span12" ng-show="lead.messages">
+                          <div class="row-fluid">
+                            <h6>Property Info</h6>
+                          </div>
+                          <div class='row-fluid'>
+                            <ul class="thumbnails">
+                              <li class="span2" ng-repeat="p in lead.lead_properties track by $index">
+                                <div class="thumbnail well">
+                                  <div class="caption">
+                                    <h5 style="text-align: left">{{ p.property_details.title }}</h5>
+
+                                    <p style="text-align: left">
+                                      Bedrooms: {{ p.property_details.bedrooms }}
+                                      <span ng-show="p.property_details.loft">+ Loft</span><br>
+                                      Bathrooms: {{ p.property_details.bathrooms }} <br>
+                                      Rate: {{ p.rate }}
+                                    </p>
+
+
+                                  </div>
+                                </div>
+                              </li>
+                            </ul>
+                          </div>
+                          <div class="row-fluid">
+                            <h6>Customer Interaction History</h6>
+                          </div>
+                          <div class='row-fluid'>
+                            <accordion>
+                              <accordion-group ng-repeat='message in lead.messages track by $index'>
+                              <accordion-heading>
+                              <div class='row-fluid'>
+                                <div class='span3' style="overflow: hidden; display: inline-block; white-space: nowrap;">
+                                  <i class='icon-reply' ng-show='message.outgoing'></i>
+                                  {{ message.from_header }}
+                                </div>
+                                <div class='span6' style="overflow: hidden; display: inline-block; white-space: nowrap;">{{ message.subject | words:15 }}</div>
+                                <div style="overflow: hidden; display: inline-block; white-space: nowrap; float: right;">
+                                  {{ message.processed * 1000 | date:'MMM d - h:mm:ss a' }}
+                                  <span ng-show="message.events.mandrill_send.counter"><i class="icon-check-sign"></i></span>
+                                  <span ng-show="message.events.mandrill_spam.counter"><i class="icon-trash"></i></span>
+                                  <span ng-show="message.events.mandrill_bounce.counter"><i class="icon-question-sign"></i></span>
+                                  <span ng-show="message.events.mandrill_reject.counter"><i class="icon-warning-sign"></i></span>
+                                  <span ng-show="message.events.mandrill_open.counter"><i class="icon-folder-open-alt"></i>{{ message.events.mandrill_open.counter }}</span>
+                                  <span ng-show="message.events.mandrill_click.counter"><i class="icon-bullseye"></i>{{ message.events.mandrill_click.counter }}</span>
+                                </div>
+                              </div>
+                            </accordion-heading>
+                            <!--<div ng-bind-html-unsafe='formatMessage(message.body)'></div>-->
+                            <pre style="max-height: 200px; overflow: scroll; background-color: #FFF;">{{ message.body }}</pre>
+                            <div class='row-fluid'>
+                              <br>
+                              <button class='btn btn-success' ng-click="sendEmail(lead)">Reply via Email
+                              </button>
+                              <button class='btn btn-success' ng-click="sendAutoResponse(lead)">Send Automated
+                                Response
+                              </button>
+                              <button class='btn btn-success' ng-click='sendOffer(lead)'>Send the offer
+                              </button>
+                              <button class='btn' ng-class='{"btn-disabled": lead.booked}' ng-click='toggleBooking(lead)'>
+                                Book<span ng-show="lead.booked">ed</span> Lead
+                              </button>
+                            </div>
+                          </accordion-group>
+                        </accordion>
+                      </div>
+                      <div class="row-fluid">
+                        <div class="block well">
+                          <div class="navbar">
+                            <div class="navbar-inner">
+                              <h5>Notes</h5>
+                            </div>
+                          </div>
+                          <div class="body">
+                            <div class="timeline-messages">
+
+                              <!-- Comment -->
+                              <div class="message" ng-repeat="note in lead.notes track by $index">
+                                <div class="message-body">
+                                  <div class="text"><p>{{ note.content }}</p></div>
+                                  <p class="attribution">by <a ng-href="{{ 'mailto:' + note.user }}"
+                                   ng-bind="note.user"></a> at {{
+                                   note.modified * 1000 |
+                                   date:'short' }}
+                                 </p>
+                               </div>
+                             </div>
+
+                           </div>
+                           ​
+                           <div class="enter-message">
+                            <textarea name="enter-message" class="auto" rows="3" cols="1"
+                            placeholder="Leave a note ...." ng-model="notes[$index]"
+                            style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 67px;">
+                          </textarea>
+
+                          <div class="message-actions">
+                            <div class="send-button">
+                              <input type="submit" name="send-message" class="btn btn-danger"
+                              value="Add Note"
+                              ng-click="addNote(notes[$index], $index, lead)">
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- /table with toolbar -->
+
+  </div>
+
+  <div class='row-fluid' style="margin-top: 10px; margin-bottom:30px;">
+    <div class='span12'>
+      <div class="pagination pagination-right">
+        <ul>
+          <li ng-class="styleForPrevious()"><a href="" ng-click='getPrevious()'>Prev</a></li>
+          <li ng-repeat='page in pages' ng-class="styleForActive(page)"><a href="" ng-click='getPage(page)'>{{
+            page }}</a></li>
+            <li ng-class="styleForNext()"><a href='' ng-click="getNext()">Next</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- End Leads Tabular Data -->
+
+</div>
+<!-- End Leads -->
+
+</div>
+<div class="lead-footer" ng-hide='leadsLoaded()'>
+  <div class="row-fluid" style="margin-top: 5px; height:25px;">
+    <div class="span2">
+      <i class='icon-fmg-bone'></i> Phone Call / Walk-in
+    </div>
+    <div class="span2">
+      <i class='icon-fmg-bone icon-fmg-green'></i> First Response
+    </div>
+    <div class="span2">
+      <i class='icon-fmg-bone icon-fmg-blue'></i> Second Response
+    </div>
+    <div class="span2">
+      <i class='icon-fmg-bone icon-fmg-yellow'></i> Offer Response
+    </div>
+    <div class="span2">
+      <i class='icon-fmg-bone icon-fmg-red'></i> Hot Lead
+    </div>
+    <div class="span2">
+      <i class='icon-fmg-success icon-fmg-green'></i> Booked
+    </div>
+  </div>
+</div>
+</div>
+{% endverbatim %}

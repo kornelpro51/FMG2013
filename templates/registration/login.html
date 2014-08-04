@@ -1,0 +1,23 @@
+{% extends "full_width.html" %}
+{% load i18n bootstrap_toolkit %}
+{% block head_title %}{% trans "Tenant" %}{% endblock %}
+{% block extra_head %}
+    {{ form.media }}
+{% endblock %}
+{% block content %}
+    <div class="row-fluid">
+        <div class="span4 offset4 well">
+            <h1 class="text-center">{% block header %}{% trans 'Login' %}{% endblock %}</h1>
+            <form action="" method="post" class="form-horizontal">
+                {% csrf_token %}
+
+                {{ form|as_bootstrap }}
+                <div class="form-actions">
+                <button type="submit" class="btn btn-primary">{% trans 'Login' %}</button>
+                    <a class="btn" href="#" onclick="history.go(-1); return false;">{% trans 'Cancel' %}</a></p>
+                </div>
+            </form>
+
+        </div>
+    </div>
+{% endblock content %}

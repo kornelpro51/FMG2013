@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manager Dashboard - Fetch My Guest</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+
+    <!-- Set the favicon -->
+    <link rel="icon" href="{{ STATIC_URL }}favicon.ico">
+
+    <!-- Set the style sheet -->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ STATIC_URL }}include/css/main.css">
+
+
+    <!-- setting jQuery -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+
+    <!-- setting scripts -->
+    <script type="text/javascript" src="{{ STATIC_URL }}include/js/jquery_ui_custom.js"></script>
+
+    <script type="text/javascript" src="{{ STATIC_URL }}include/js/plugins/charts/excanvas.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}include/js/plugins/charts/jquery.flot.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}include/js/plugins/charts/jquery.flot.resize.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}include/js/plugins/charts/jquery.sparkline.min.js"></script>
+
+    <script type="text/javascript" src="{{ STATIC_URL }}include/js/plugins/forms/jquery.tagsinput.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}include/js/plugins/forms/jquery.inputlimiter.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}include/js/plugins/forms/jquery.maskedinput.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}include/js/plugins/forms/jquery.autosize.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}include/js/plugins/forms/jquery.ibutton.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}include/js/plugins/forms/jquery.dualListBox.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}include/js/plugins/forms/jquery.validate.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}include/js/plugins/forms/jquery.uniform.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}include/js/plugins/forms/jquery.select2.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}include/js/plugins/forms/jquery.cleditor.js"></script>
+
+    <script type="text/javascript" src="{{ STATIC_URL }}include/js/plugins/uploader/plupload.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}include/js/plugins/uploader/plupload.html4.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}include/js/plugins/uploader/plupload.html5.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}include/js/plugins/uploader/jquery.plupload.queue.js"></script>
+
+    <script type="text/javascript" src="{{ STATIC_URL }}include/js/plugins/wizard/jquery.form.wizard.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}include/js/plugins/wizard/jquery.form.js"></script>
+
+    <script type="text/javascript" src="{{ STATIC_URL }}include/js/plugins/ui/jquery.collapsible.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}include/js/plugins/ui/jquery.timepicker.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}include/js/plugins/ui/jquery.jgrowl.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}include/js/plugins/ui/jquery.pie.chart.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}include/js/plugins/ui/jquery.fullcalendar.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}include/js/plugins/ui/jquery.elfinder.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}include/js/plugins/ui/jquery.fancybox.js"></script>
+
+    <script type="text/javascript" src="{{ STATIC_URL }}include/js/plugins/tables/jquery.dataTables.min.js"></script>
+
+    <script type="text/javascript" src="{{ STATIC_URL }}include/js/plugins/bootstrap/bootstrap.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}include/js/plugins/bootstrap/bootstrap-bootbox.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}include/js/plugins/bootstrap/bootstrap-progressbar.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}include/js/plugins/bootstrap/bootstrap-colorpicker.js"></script>
+
+
+</head>
+<body>
+<toaster-container toaster-options="{'time-out': 3000}"></toaster-container>
+<!-- Main Wrapper -->
+<div class="wrapper">
+
+    <!-- Sidebar for Navigation -->
+    <div class="sidebar">
+        <!-- setting the logo -->
+        <a href="/manager/" title="" class="logo">
+            <img src="{{ STATIC_URL }}include/images/fmg-logo-beta.png" width="210" alt="Fetch My Guest"/>
+        </a>
+
+        <ul class="navigation"><!-- standard nav -->
+            <li class="active"><a href="/manager/" title=""><i class="icon-white icon-home"></i> Home</a></li>
+            <li>
+                <a href="/manager/agents/" title=""><i class="icon-white icon-user"></i> Manage Agents</a>
+                <ul>
+                    <li><a href="/manager/agents/leads/" title="">Leads by agents</a></li>
+                    <li><a href="/manager/agents/bookings/" title="">Booking by agents</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="/manager/source/" title=""><i class="icon-white icon-home"></i> Manage Lead Sources</a>
+                <ul>
+                    <li><a href="/manager/source/leads/" title="">Leads by agents</a></li>
+                    <li><a href="/manager/source/bookings/" title="">Booking by agents</a></li>
+                </ul>
+            </li>
+            <li><a href="/manager/schedule/" title=""><i class="icon-white icon-time"></i> Manage Schedule</a></li>
+            <li><a href="/manager/alerts/" title=""><i class="icon-white icon-bell"></i> Manage Alerts</a></li>
+            <li><a href="/manager/goals/" title=""><i class="icon-white icon-fire"></i> Monthly Goal</a></li>
+            <li>
+                <a href="/manager/properties/" title=""><i class="icon-white icon-location"></i> Manage Properties</a>
+                <ul>
+                    <li><a href="/manager/properties/leads/" title="">Leads by Properties</a></li>
+                    <li><a href="/manager/properties/bookings/" title="">Booking by Properties</a></li>
+                </ul>
+            </li>
+        </ul>
+        <!-- /standard nav -->
+    </div>
+    <div class="content">
+        <div class="page-header"><!-- Page header -->
+            <h5>Dashboard</h5>
+            <ul class="topnav">
+                <li class="topuser">
+                    <a title=""><i class="icon-user"></i> <span ng-bind="init_val.agent"></span></a>
+                </li>
+                <li class="dropdown">
+                    <a ng-show="connected" class="dropdown-toggle"><i class="icon-bell-alt large"></i><strong
+                            ng-show="alerts.length" ng-bind="alerts.length"></strong></a>
+                    <ul class="dropdown-menu">
+                        <!--<li ng-repeat="alert in alerts"><a href="javascript:void(0);" ng-click="editLead(alert); alerts.splice($index,1)" title="">New <span ng-bind="alert.object.source"></span> lead</a></li>-->
+                        <li ng-repeat='alert in alerts' ng-click="viewAlert(alert)">
+                            {{ alert.content }}
+                        </li>
+                    </ul>
+                </li>
+                <li class="topuser"><a><span ng-bind="date|date:'medium'"></span></a></li>
+
+                <li class="sidebar-button"><a href="#" title=""><b class="responsive-nav"></b></a></li>
+                <li><a href="#" title=""><b class="logout"></b></a></li>
+            </ul>
+
+        </div>
+        <!-- /page header -->
+        <!-- main content body -->
+
+        <div class="notice">
+            <!--notification ng-model="msg"></notification-->
+        </div>
+        <div class="body">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+<!-- UserVoice JavaScript SDK (only needed once on a page) -->
+<script>(function () {
+    var uv = document.createElement('script');
+    uv.type = 'text/javascript';
+    uv.async = true;
+    uv.src = '//widget.uservoice.com/aG5U1aaYifjaqKQEj6keg.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(uv, s)
+})()</script>
+
+<!-- A tab to launch the Classic Widget -->
+<script>
+    UserVoice = window.UserVoice || [];
+    UserVoice.push(['showTab', 'classic_widget', {
+        mode: 'full',
+        primary_color: '#cc6d00',
+        link_color: '#007dbf',
+        default_mode: 'support',
+        forum_id: 202908,
+        tab_label: 'Feedback & Support',
+        tab_color: '#cc6d00',
+        tab_position: 'middle-right',
+        tab_inverted: false
+    }]);
+</script>
+
+{% block JS %}
+{% endblock %}
+
+</body>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Guest Retriever</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="js/functions.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css" media="screen"/>
+<!--[if IE 7]>
+<style type="text/css">
+	#wrap .container .container-top .content ul li{
+    	padding: 24px 20px 0px 24px;
+    }
+    #wrap .container .container-top .content ul li h1.top-number{
+    	margin-bottom:2px;
+        margin-top:30px;
+    }
+	#wrap .container .container-top .content ul li a.see-them{
+    	margin-left:0;
+        margin-right:0;
+    }
+</style>
+<![endif]-->
+<!--[if IE 8]>
+<style type="text/css">
+	#wrap .container .container-top .content ul li{
+    	padding: 24px 20px 0px 24px;
+    }
+</style>
+<![endif]-->
+<!--[if IE 9]>
+<style type="text/css">
+	#wrap .container-body .body-content .flags ul li{
+	margin-bottom: 1px;
+}
+</style>
+<![endif]-->
+<!--[if IE]>
+<style type="text/css">
+    #wrap .menubg{
+        float: none;
+        height: 50px;
+    }
+#wrap .header-wrapper{
+    margin-top:-55px;
+    }
+</style>
+<![endif]-->
+<script type="text/javascript">
+      
+     
+    $(document).ready(function(){
+        $('.errorMsg').hide();
+
+        $('#signUp').click(function(){
+            $('.errorMsg').hide();            
+            var name = $('#signUpName').val();
+            var email = $('#signUpEmail').val();
+            var password = $('#SignUppassword').val();            
+
+           
+            if( (name != 'Full name') && (email != 'Email') && valid_email(email) && (password != 'Password') && (password.length > 5)){
+                var data = 'uname=' + name + '&uemail=' + email + '&upassword=' + password;
+                $.ajax({
+                    type: "POST",
+                    url: "usersignup.php", //url of you php file.
+                    data: data,
+                    success: function(response){
+                        //$('#message').html(html);
+                        if( response > 0 )
+                            $('.signUp-email-exist').show();                 
+                                                        
+                    }
+                });                
+           } else {                
+                if($('#signUpName').val() == 'Full name'){
+                    $('.signUp-name').show();
+                }
+                if($('#signUpEmail').val() == 'Email' || !valid_email($('#signUpEmail').val())){
+                    $('.signUp-email').show();
+                }
+                if($('#SignUppassword').val() == 'Password'){
+                    $('.signUp-password').show();
+                }
+                else if($('#SignUppassword').val().length <= 5){
+                    $('.signUp-password-length').show();
+                }
+           }
+           return false;            
+        });
+
+        $('#login').click(function(){
+            $('.errorMsg').hide();
+            var email = $('#loginEmail').val();
+            var password =$('#loginPassword').val();
+
+            if( ( email != 'Email' ) && valid_email(email) && ( password != 'Password') && (password.length > 5)){
+
+                var data = 'uemail=' + email + '&upassword=' + password;
+                $.ajax({
+                    type: "POST",
+                    url: "userlogin.php", //url of you php file.
+                    data: data,
+                    success: function(html){
+                        $('#message').html(html);
+                    }
+                }); 
+            } else {
+                if($('#loginEmail').val() == 'Email' || !valid_email($('#loginEmail').val())){
+                    $('.login-email').show();
+                }
+                if($('#loginPassword').val() == 'Password'){
+                    $('.login-password').show();
+                } else if($('#loginPassword').val().length <= 5){
+                    $('.login-password-length').show();
+                }
+            }
+
+            return false;
+        });       
+
+    });
+</script>
+</head>
+<body>
+<div id="wrap">
+	<div class="top-layer"></div> <!-- holdes top orange layer -->
+    <div class="menubg"></div>
+    <div class="header-wrapper">
+        <div class="header">
+                <h1 class="logo">Logo</h1>
+                <h1 class="header-label">Guest Retriever</h1>
+                
+                <!--<ul class="nav" style=": none;">
+                    <li class="first main active"><a class="root" href="#">Home</a></li>
+                    <li class="dropdown main">
+                        <a href="#" class="root">Reports</a>
+                         <ul class="sub-menu">
+                            <li class="sub"><a href="#">Month to Date</a></li>
+                            <li class="sub"><a href="#">Year to Date</a></li>
+                            <li class="sub leads"><a href="#">Leads</a>
+                                <ul class="leads-sub">
+                                    <li><a href="#">State</a></li>
+                                    <li><a href="#">Source</a></li>
+                                    <li><a href="#">Agent</a></li>
+                                </ul>
+                            </li>
+                            <li class="sub bookings"><a href="#">Bookings</a>
+                                <ul class="bookings-sub">
+                                    <li><a href="#">State</a></li>
+                                    <li><a href="#">Source</a></li>
+                                    <li><a href="#">Agent</a></li>
+                                    <li><a href="#">Other</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="main"><a href="#" class="root">Agents</a></li>
+                    <li class="last main"><a href="#" class="root">My Account</a></li>
+
+                </ul>-->
+        </div><!-- end header --> 
+    </div><!-- end header-wrapper -->
+    <div class="container-holder login">
+    	<div class="container-body">
+			<div class="body-content">          
+                <div class="sign-up">
+                    <h4>New To Guest Retriever? Join Today!</h4>
+                            <form method="post" id="signUp-form" action="session_test.php" method="post">
+                                <input type="text" name="name" id="signUpName" value="Full name" onfocus="if(this.value == 'Full name'){this.value='';}" onblur="if(this.value == ''){this.value = 'Full name';}"/>
+                                <em class="errorMsg signUp-name">
+                                    Please enter your full name
+                                </em>
+                                <input type="text" name="email" id="signUpEmail" value="Email" onfocus="if(this.value == 'Email'){this.value='';}" onblur="if(this.value == ''){this.value = 'Email';}" />
+                                <em class="errorMsg signUp-email">
+                                    Please enter a valid email address
+                                </em>
+                                <em class="errorMsg signUp-email-exist">
+                                    A user with this email alreay exists
+                                </em>
+                                <input type="password" name="password" id="SignUppassword" value="Password" onfocus="if(this.value == 'Password'){this.value='';}" onblur="if(this.value == ''){this.value = 'Password';}">
+                                 <em class="errorMsg signUp-password">
+                                    Please enter a password
+                                </em>
+                                <em class="errorMsg signUp-password-length">
+                                    Password should be atleast 6 characters long
+                                </em>
+                                <input class="signUp" id="signUp" type="submit" value="Sign Up">            
+                                <!--<div id="message"></div>-->
+                            </form>
+                </div><!-- end sign-up -->
+                <div class="log-in">
+                <h4>Already A Member? Sign In!</h4>
+                    <form action="#" class="loginForm">                       
+                        <input type="text" name="email" id="loginEmail" value="Email" onfocus="if(this.value == 'Email'){this.value='';}" onblur="if(this.value == ''){this.value = 'Email';}"/>
+                        <em class="errorMsg login-email">
+                            Please enter a valid email address
+                        </em>
+                        <input type="password" name="password" id="loginPassword" value="Password" onfocus="if(this.value == 'Password'){this.value='';}" onblur="if(this.value == ''){this.value = 'Password';}">
+                        <em class="errorMsg login-password">
+                            Please enter a password
+                        </em>
+                        <em class="errorMsg login-password-length">
+                            Password should be atleast 6 characters long
+                        </em>
+                        <input type="submit" id="login" value="Log in">
+                    </form>
+                    
+                </div><!-- emd log-in -->
+                <div id="message"><h2 class='signup-success'>Thank you  for joining Fetch, a confirmation email has been sent, please verify you email.</h2></div>
+            </div><!-- end body-content -->
+       </div><!-- end comtainer-body-->  
+       
+       <div class="footer">
+        <div class="footer-content">
+            Copyright 2012 Guest Retriever  |  
+            <a href="#">Privacy Policy</a>  |  
+            <a href="#">Contact Us</a>
+        </div><!-- end footer-content -->
+       </div><!-- end footer -->        
+   </div><!-- container holder -->
+</div><!-- end wrap -->
+</body>
+</html>
+
+<!-- Hosting24 Analytics Code -->
+<script type="text/javascript" src="http://stats.hosting24.com/count.php"></script>
+<!-- End Of Analytics Code -->

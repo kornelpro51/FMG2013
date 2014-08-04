@@ -1,0 +1,65 @@
+{% verbatim %}
+<div class="row">
+
+    <div class="col-lg-3 col-sm-6 col-xs-6 col-xxs-12">
+        <div class="smallstat box">
+            <i class="icon-fmg-Plug blue"></i>
+            <span class="title">Leads in</span>
+            <span class="value">{{ init_val.leads_in }}</span>
+        </div>
+    </div>
+    <!--/col-->
+
+    <div class="col-lg-3 col-sm-6 col-xs-6 col-xxs-12">
+        <div class="smallstat box">
+            <i class="icon-fmg-stairs green"></i>
+            <span class="title">Follow ups</span>
+            <span class="value">{{ init_val.follow_ups }}</span>
+        </div>
+    </div>
+    <!--/col-->
+
+    <div class="col-lg-3 col-sm-6 col-xs-6 col-xxs-12">
+        <div class="smallstat box">
+            <i class="icon-fmg-fire red"></i>
+            <span class="title">Hot Leads</span>
+            <span class="value">{{ init_val.hot }}</span>
+        </div>
+    </div>
+    <!--/col-->
+
+    <div class="col-lg-3 col-sm-6 col-xs-6 col-xxs-12">
+        <div class="smallstat box">
+            <!--<i class="fa fa-money yellow"></i>
+            <span class="title">Account</span>
+            <span class="value">$19 999,99</span> -->
+            <span class="title">
+                <progress percent="35"></progress>
+            </span>
+            <span class="value">
+                <strong>{{ init_val.booked }}</strong> of <strong>{{ init_val.target }}</strong>
+            </span>
+        </div>
+    </div>
+    <!--/col-->
+
+</div><!--/row-->
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="box">
+            <div class="box-content">
+                <div class='wizard'>
+                    <ul class="steps">
+                        <li ng-repeat="step in wizardSteps track by $index"><span class="badge">{{ $index + 1 }}</span></li>
+                    </ul>
+                </div>
+                <div class="step-content">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endverbatim %}

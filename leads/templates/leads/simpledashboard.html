@@ -1,0 +1,112 @@
+{% extends 'full_width.html' %}
+{% block extrahead %}
+    <style>
+    @font-face {
+        font-family: 'icomoon';
+        src:url('{{ STATIC_URL }}demos/fetch/new/css/fonts/icomoon.eot');
+        src:url('{{ STATIC_URL }}demos/fetch/new/css/fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+            url('{{ STATIC_URL }}demos/fetch/new/css/fonts/icomoon.woff') format('woff'),
+            url('{{ STATIC_URL }}demos/fetch/new/css/fonts/icomoon.ttf') format('truetype'),
+            url('{{ STATIC_URL }}demos/fetch/new/css/fonts/icomoon.svg#icomoon') format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+    /*[data-icon]:before {
+        font-family: 'icomoon';
+        content: attr(data-icon);
+        speak: none;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+    }*/
+    .flags a{
+        font-family:"icomoon";
+        float:left;
+        font-size:1.3em;
+        text-shadow:0px 1px 0px #333;
+        margin-right:2.5px
+    }
+    a.gray-flag:before {
+        content: "\f35f";
+        color:#e5e5e5;
+        text-shadow:0px -1px 0px #333
+    }
+    a.gray-booked:before {
+        color:#e5e5e5;
+        content: "\f310";
+        font-size:0.9em;
+        margin-left:2px;
+        text-shadow:0px -1px 0px #333;
+    }
+    a.green-flag:before {
+        color: #7DD06A;
+        content: "\f35f";
+    }
+    a.blue-flag:before {
+        color:#54BCFF;
+        content: "\f35f";
+    }
+    a.yellow-flag:before {
+        color:#FFAA00;
+        content: "\f35f";
+    }
+    a.red-flag:before {
+        color:#B70000;
+        content: "\f35f";
+    }
+    a.booked-flag:before {
+        color:#76CB6A;
+        content: "\f310";
+        font-size:0.9em;
+        margin-left:2px;
+    }
+    .k-hierarchy-cell a:link {text-decoration:none;}
+    .k-hierarchy-cell a:visited {text-decoration:none;}
+    .k-hierarchy-cell a:hover {text-decoration:none;}
+    .k-hierarchy-cell a:active {text-decoration:none;}
+    /*.k-hierarchy-cell a{
+        font-family:"icomoon";
+        float:left;
+        font-size:1.3em;
+        text-shadow:0px 1px 0px #333;
+        margin-right:2.5px
+        color:;
+    }*/
+    /*.k-hierarchy-cell a.k-something:before {
+        color:#B70000;
+        content: "\f35f";
+    }*/
+</style>
+{% endblock extrahead %}
+{% block content %}
+<div id="grid"></div>
+<script>
+    var dataSource;
+    $(document).ready(function(){
+                var dataSource = new kendo.data.DataSource({
+                    transport: {
+                        read: {
+                            url: "/api/leads/",
+                            dataType: "json"
+
+                        }
+                    },
+                    schema: {
+                            data: "results",
+                            model: {
+                                id: "id"
+                            }
+                        }
+                });
+
+                $("#grid").kendoGrid({
+                            dataSource: dataSource
+                        }
+
+                )
+            }
+    )
+</script>
+{%  endblock content %}

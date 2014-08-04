@@ -1,0 +1,312 @@
+{% verbatim %}
+
+<div class="container">
+<div class="row-fluid">
+    <h4>Lead Information</h4>
+    <span ng-show='lead.booked'>
+        (Booked on <strong>{{ lead.booked_date * 1000 | date:'mediumDate' }}</strong>)
+        </span>
+    <p ng-show='showCustomer'>
+        <h5 ng-show="requestedProperties" ng-class="{red: requestedProperties.length > 1}">
+            {{ requestedProperties.length }} properties requested.
+        </h5>
+        <p><strong>{{lead.customer_name}}</strong> along with <strong>{{ lead.adults }}</strong> adults and <strong>{{
+        lead.children }}</strong> children, is planning a vacation between <strong>{{ lead.arrival | date:'mediumDate'
+        }}</strong> and <strong>{{ lead.departure | date:'mediumDate' }}</strong>. The complete information is as
+        follows.</p>
+    <p ng-hide='showCustomer'>
+        <label>Customer First Name</label>
+        <input type='text' class="span4" ng-model='lead.customer_serial.first_name'>
+        <br>
+        <label>Customer Last Name</label>
+        <input type='text' class="span4" ng-model='lead.customer_serial.last_name'>
+        <br>
+        <label>Customer Email</label>
+        <input type='text' class="span4" ng-model='lead.customer_serial.email'>
+        <br>
+        <label>Customer Phone</label>
+        <input type='text' class="span4" ng-model='lead.customer_serial.phone'>
+    </p>
+    <button class='btn' ng-click='editCustomer()' ng-show='showCustomer'><i class="icon-edit"></i> Edit Customer</button>
+    <button class='btn btn-primary' ng-click='saveCustomer()' ng-hide='showCustomer'><i class="icon-save"></i> Save Customer</button>
+</div>
+<div class="row-fluid">
+<div class="span6">
+    <div class="well row-fluid block">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <h5>Properties</h5>
+            </div>
+        </div>
+        <div>
+            <accordion>
+            <accordion-group ng-repeat="p in lead.lead_properties">
+                <!--<div class='span12' style='margin-left: 15px; margin-top: 10px;'>
+                    <strong>{{ lead.customer_name }}</strong>, has requested <br><br>
+                    <ul>
+                        <li ng-repeat='p in lead.lead_properties'>
+                            <strong>{{ p.property_details.title }}</strong> at the rate of
+                            <input type='text' class='input-mini' ng-model='p.rate'> arriving on
+                            <input type='text' datepicker-popup="mediumDate" show-weeks=false ng-model='lead.arrival'>
+                            and departing on
+                            <input type='text' datepicker-popup="mediumDate" show-weeks=false ng-model='lead.departure'>
+                        </li>
+                    </ul>
+                </div> -->
+                <accordion-heading>
+                    <div>
+                    <div style="display: inline-block">
+                    <strong  ng-show="p.property_details.address">{{ p.property_details.address }}</strong>
+                    <strong ng-hide="p.property_details.address">{{ p.property_details.title }}</strong>
+                    </div>
+                    <div style="display: inline-block; float: right;">
+                        {{ p.available_from | date: 'MMM d, EEE' }} - {{ p.available_to | date: 'MMM d, EEE' }}
+                    </div>
+                    </div>
+                </accordion-heading>
+                <div class="control-group">
+                    <label class="control-label"><strong>Property Title</strong></label>
+
+                    <div class="controls">
+                        {{ p.property_details.title }}
+                    </div>
+                    <label class="control-label"><strong>Address</strong></label>
+
+                    <div class="controls">
+                        {{ p.property_details.address }}
+                    </div>
+                    <label class="control-label"><strong>Bedrooms / Bathrooms</strong></label>
+
+                    <div class="controls">
+                        {{ p.property_details.bedrooms }} / {{ p.property_details.bathrooms }} <span ng-show="p.property_details.loft">+ Loft</span>
+                    </div>
+                    <label class="control-label" ng-show="p.status == 'NA'">
+                        <strong>Arrival / Departure</strong>
+                    </label>
+
+                    <div class="controls" ng-show="p.status == 'NA'">
+                        {{ p.available_from | date: 'mediumDate' }} / {{ p.available_to | date: 'mediumDate' }}
+                    </div>
+                    <label class="control-label" ng-show="p.status == 'NA'">
+                        <strong>Status</strong>
+                    </label>
+
+                    <div class="controls" ng-show="p.status == 'NA'">
+                        This property was marked as not available!
+                    </div>
+                </div>
+                <div class="control-group" ng-hide="p.status == 'NA'">
+                    <div class="row-fluid">
+                        <div class="span6">
+                            <label class="control-label">Arrival Date</label>
+
+                            <div class="controls">
+                                <input type='text' class="span12" datepicker-popup="mediumDate" show-weeks=false
+                                       ng-model='p.available_from'>
+                            </div>
+                        </div>
+                        <div class="span6">
+                            <label class="control-label">Departure Date</label>
+
+                            <div class="controls">
+                                <input type='text' class="span12" datepicker-popup="mediumDate" show-weeks=false
+                                       ng-model='p.available_to'>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="control-group" ng-hide="p.status == 'NA'">
+                    <label class="control-label">Rate</label>
+
+                    <div class="controls">
+                        <input type='text' class="span12" ng-model='p.rate'>
+                    </div>
+                </div>
+                <div class="control-group" ng-hide="p.status == 'NA'">
+                    <label class="control-label"><strong>Status</strong></label>
+
+                    <div class="controls" ng-show="p.status == 'PR'">
+                        Proposed by the agent
+                        <br>
+                        <label class='checkbox inline'>
+                            <input type='checkbox' ng-model='p.keep'>
+                            Click to keep this property while adding new properties
+                        </label>
+                    </div>
+                    <div class="controls" ng-show="p.status == 'RQ'">
+                        Requested by the client
+                        <br>
+                        <label class='checkbox inline'>
+                            <input type='checkbox' ng-model='p.keep'>
+                            Click to keep this property while adding new properties
+                        </label>
+                    </div>
+                </div>
+            </accordion-group>
+            </accordion>
+        </div>
+        <div class='row-fluid'>
+            <div class="control-group">
+                <!--<label class="checkbox" style='margin-top: 10px;'>
+                <div style='margin-left: 15px;'>
+                    <input type="checkbox" ng-model='propertyNotAvailable'>
+                </div>
+                If the requested properties are not available, tick the checkbox to select new properties
+            </label>-->
+                <div class="controls">
+                    <label class="checkbox inline">
+                        <input type="checkbox" ng-model='propertyNotAvailable'>
+                        Click the box to disable original properties and offer alternatives
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="seperator"></div>
+
+        <div class="row-fluid" ng-show='propertyNotAvailable'>
+            <div ng-repeat="property in lead_properties">
+                <div class="control-group">
+                    <label class="control-label">Selected Property</label>
+
+                    <div class="controls">
+                        <select ui-select2='propertyListOptions' ng-model='property.property'>
+                            <option value="0"> ---</option>
+                            <option ng-repeat="item in properties.results" value="{{ item.id }}">{{ item.address }}
+                            </option>
+                        </select>
+                        <a class="btn btn-mini" ng-click="addPropertyToLead()" style="margin-left: 20px;">
+                            <i class="icon-plus"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="row-fluid">
+                        <div class="span6">
+                            <label class="control-label">Arrival Date</label>
+
+                            <div class="controls">
+                                <input type='text' class="span12" datepicker-popup="mediumDate" show-weeks=false
+                                       ng-model='property.available_from'>
+                            </div>
+                        </div>
+                        <div class="span6">
+                            <label class="control-label">Departure Date</label>
+
+                            <div class="controls">
+                                <input type='text' class="span12" datepicker-popup="mediumDate" show-weeks=false
+                                       ng-model='property.available_to'>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Rate</label>
+
+                    <div class="controls">
+                        <input type='text' class="span12" ng-model='property.rate'>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <!-- /form validation -->
+</div>
+<div class='span6'>
+    <div class="row-fluid">
+        <h6>Client Interaction History</h6>
+    </div>
+    <div class='row-fluid'>
+        <accordion>
+            <accordion-group ng-repeat='message in lead.messages track by $index'>
+                <accordion-heading>
+                    <div class='row-fluid'>
+                        <div class='span4' style="overflow:hidden;">
+                            <i class='icon-reply' ng-show='message.outgoing'></i>
+                            {{ message.from_header }}
+                        </div>
+                        <div class='span6'>{{ message.subject | words:15 }}</div>
+                        <div class='span2'>
+                            {{ message.processed * 1000 | date:'mediumDate'}} {{ message.processed | date:'mediumTime'}}
+                            <span ng-show="message.events.mandrill_send.counter"><i class="icon-check-sign"></i></span>
+                            <span ng-show="message.events.mandrill_spam.counter"><i class="icon-trash"></i></span>
+                            <span ng-show="message.events.mandrill_bounce.counter"><i class="icon-question-sign"></i></span>
+                            <span ng-show="message.events.mandrill_reject.counter"><i class="icon-warning-sign"></i></span>
+                            <span ng-show="message.events.mandrill_open.counter"><i class="icon-folder-open-alt"></i>{{ message.events.mandrill_open.counter }}</span>
+                            <span ng-show="message.events.mandrill_click.counter"><i class="icon-bullseye"></i>{{ message.events.mandrill_click.counter }}</span>
+
+                        </div>
+                    </div>
+                </accordion-heading>
+                <!--<div ng-bind-html-unsafe='formatMessage(message.body)'></div>-->
+                <div>
+                    <pre>{{ message.body }}</pre>
+                </div>
+                <div class='row-fluid' ng-hide="lead.messages.length == 0">
+                    <br>
+                    <button class='btn btn-success' ng-click="sendEmail(lead)">Reply via Email</button>
+                    <button class='btn btn-success' ng-click="sendAutoResponse(lead)">Send Follow Up Email</button>
+                    <button class='btn btn-success' ng-click='sendOffer(lead)'>Send Special Offer</button>
+                </div>
+            </accordion-group>
+        </accordion>
+    </div>
+    <div class="row-fluid">
+        <div class="block well">
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <h5>Agent Notes</h5>
+                </div>
+            </div>
+            <div class="body">
+                <div class="timeline-messages">
+
+                    <!-- Comment -->
+                    <div class="message" ng-repeat="note in lead.notes track by $index">
+
+                        <div class="message-body">
+                            <div class="text"><p>{{ note.content }}</p></div>
+                            <p class="attribution">by <a ng-href="{{ 'mailto:' + note.user }}"
+                                                         ng-bind="note.user"></a> at {{
+                                note.modified * 1000 |
+                                date:'short' }}
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+                ​
+                <div class="enter-message">
+                    <textarea name="enter-message" class="auto" rows="3" cols="1"
+                              placeholder="Leave a note ...." ng-model="note"
+                              style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 67px;">
+                    </textarea>
+
+                    <div class="message-actions">
+                        <div class="send-button">
+                            <input type="submit" name="send-message" class="btn btn-danger"
+                                   value="Add Note"
+                                   ng-click="addNote(note, lead)">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+</div>
+<div class='span12'>
+    <button class='btn btn-success' ng-click='saveAndContinue()'>Next</button>
+    <button class='btn' ng-class='{"btn-disabled": lead.booked}' ng-click='toggleBooking(lead)'>
+                                        Book<span ng-show="lead.booked">ed</span> Lead</button>
+    <!--<button class='btn btn-success' ng-click="sendEmail(lead)">Reply via Email</button>
+    <button class='btn btn-success' ng-click="sendAutoResponse(lead)">Send follow up Response</button>
+    <button class='btn btn-success' ng-click='sendOffer(lead)'>Send special offer</button> -->
+    <button class='btn btn-danger' ng-click='redirectToHome()'>Cancel</button>
+</div>
+
+{% endverbatim %}

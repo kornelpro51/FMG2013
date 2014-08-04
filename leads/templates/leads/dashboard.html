@@ -1,0 +1,482 @@
+{% extends 'full_width.html' %}
+{% block extrahead %}
+<style>
+    @font-face {
+        font-family: 'icomoon';
+        src:url('{{ STATIC_URL }}demos/fetch/new/css/fonts/icomoon.eot');
+        src:url('{{ STATIC_URL }}demos/fetch/new/css/fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+            url('{{ STATIC_URL }}demos/fetch/new/css/fonts/icomoon.woff') format('woff'),
+            url('{{ STATIC_URL }}demos/fetch/new/css/fonts/icomoon.ttf') format('truetype'),
+            url('{{ STATIC_URL }}demos/fetch/new/css/fonts/icomoon.svg#icomoon') format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+    /*[data-icon]:before {
+        font-family: 'icomoon';
+        content: attr(data-icon);
+        speak: none;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+    }*/
+    .flags a{
+        font-family:"icomoon";
+        float:left;
+        font-size:1.3em;
+        text-shadow:0px 1px 0px #333;
+        margin-right:2.5px
+    }
+    a.gray-flag:before { 
+        content: "\f35f";
+        color:#e5e5e5;
+        text-shadow:0px -1px 0px #333
+    }
+    a.gray-booked:before {
+        color:#e5e5e5;
+        content: "\f310";
+        font-size:0.9em;
+        margin-left:2px;
+        text-shadow:0px -1px 0px #333;
+    }
+    a.green-flag:before { 
+        color: #7DD06A;
+        content: "\f35f";
+    }
+    a.blue-flag:before { 
+        color:#54BCFF;
+        content: "\f35f";
+    }
+    a.yellow-flag:before { 
+        color:#FFAA00;
+        content: "\f35f";
+    }
+    a.red-flag:before { 
+        color:#B70000;
+        content: "\f35f";
+    }
+    a.booked-flag:before { 
+        color:#76CB6A;
+        content: "\f310";
+        font-size:0.9em;
+        margin-left:2px;
+    }
+    .k-hierarchy-cell a:link {text-decoration:none;}
+    .k-hierarchy-cell a:visited {text-decoration:none;}
+    .k-hierarchy-cell a:hover {text-decoration:none;}
+    .k-hierarchy-cell a:active {text-decoration:none;}
+    /*.k-hierarchy-cell a{
+        font-family:"icomoon";
+        float:left;
+        font-size:1.3em;
+        text-shadow:0px 1px 0px #333;
+        margin-right:2.5px
+        color:;
+    }*/
+    /*.k-hierarchy-cell a.k-something:before {
+        color:#B70000;
+        content: "\f35f";
+    }*/
+</style>
+
+<script src="{{ STATIC_URL }}kendoui/examples/content/shared/js/console.js"></script>
+{% endblock extrahead %}
+{% block content %}
+    <div id="example" class="k-content">
+        <!-- template for leads datagrid -->
+        <div id="grid"></div>
+
+        <!-- kendoui templates for lead toolbars -->
+        {% include "leads/includes/toolbars.html" %}
+
+        <!-- kendoui templates for popups -->
+        {% include "leads/includes/popups.html" %}
+
+        <!-- kendoui templates for lead details -->
+        {% include "leads/includes/details.html" %}
+
+        <!-- kendoui templates for lead columns -->
+        {% include "leads/includes/columns.html" %}
+       
+        <script>
+            $(document).ready(function() {
+                // datagrid handler for leads table
+                var grid = $('#grid').kendoGrid({
+                    dataSource: {
+                        transport: {
+                            // for getting leads for current month
+                            read: {
+                                url: "/api/leads/",
+                                contentType: 'application/json; charset=utf-8',
+                                dataType: "json",
+                                type: "GET"
+                            },
+                            // for updating leads
+                            update: {
+                                url: function(options) {
+                                    return '/leads/' + options.id + '/'
+                                },
+                                contentType: 'application/json; charset=utf-8',
+                                dataType: 'json',
+                                type: 'PUT'
+                            },
+                            parameterMap: function(data, type) {
+                                return kendo.stringify(data);
+                            }
+                        },
+                        pageSize: 10,
+                        schema: {
+                            data: "",
+                            model: {
+                                id: "id",                              
+                                fields: {
+                                    created: {
+                                        editable: false
+                                    },
+                                    source: {
+                                        editable: false
+                                    },
+                                    customer: {
+                                        editable: false
+                                    },
+                                    arrival: {
+                                        editable: false
+                                    },
+                                    departure: {
+                                        editable: false
+                                    },
+                                    first_response: {
+                                        type: "boolean"
+                                    },
+                                    second_response: {
+                                        type: "boolean"
+                                    },
+                                    offer: {
+                                        type: "boolean"
+                                    },
+                                    hot: {
+                                        type: "boolean"
+                                    },
+                                    booked: {
+                                        type: "boolean"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    // columns for leads table
+                    columns: [
+                        {
+                            field: 'modified',
+                            title: 'Date',
+                            template: "#= kendo.toString(new Date(modified),'MM/dd/yyyy(HH:mm)') #"
+                        },
+                        {
+                            field: 'source',
+                            title: 'Source'
+                        },
+                        {
+                            field: 'customer_name',
+                            title: 'Customer'
+                        },
+                        {
+                            field: 'arrival',
+                            title: 'Arrival Date',
+                            template: "#= kendo.toString(new Date(arrival),'MM/dd/yyyy') #"
+                        },
+                        {
+                            field: 'departure',
+                            title: 'Departure Date',
+                            template: "#= kendo.toString(new Date(departure),'MM/dd/yyyy') #"
+                        },
+                        {
+                            field: 'first_response',
+                            title: 'First Response'
+                        },
+                        {
+                            field: 'second_response',
+                            title: 'Second Response'
+                        },
+                        {
+                            field: 'offer',
+                            title: 'Offer',
+                            width: '80px'
+                        },
+                        {
+                            field: 'hot',
+                            title: 'Hot',
+                            width: '80px'
+                        },
+                        {
+                            field: 'booked',
+                            title: 'Booked',
+                            width: '80px'
+                        }
+                    ],
+                    batch: true,
+                    editable: true,
+                    groupable: true,
+                    navigatable: true,
+                    toolbar: [
+                        {
+                            name: "save"
+                        },
+                        {
+                            name: "cancel"
+                        },
+                        {
+                            template: kendo.template($("#status-toolbar-template").html())
+                        },
+                        {
+                            template: kendo.template($("#search-toolbar-template").html())
+                        }
+                    ],
+                    sortable: true,
+                    pageable: {
+                        refresh: true,
+                        pageSizes: true
+                    },
+                    detailTemplate: kendo.template($("#template").html()),
+                    detailInit: detailInit,
+
+                    dataBound: function() {
+                        this.tbody.find("tr.k-master-row td.k-hierarchy-cell a").wrap("<div class='flags'></div>");
+                        this.tbody.find("tr.k-master-row td.k-hierarchy-cell a").removeClass("k-icon");
+
+                        var rows = this.tbody.find("tr.k-master-row");
+                        var grid = this;
+                        rows.each(function(index, row) {
+                            var rowItem = grid.dataItem(row);
+                            if(rowItem.booked === true) {
+                                $(row).find("td.k-hierarchy-cell a").addClass("booked-flag");
+                            } else if(rowItem.hot === true) {
+                                $(row).find("td.k-hierarchy-cell a").addClass("red-flag");
+                            } else if(rowItem.offer === true) {
+                                $(row).find("td.k-hierarchy-cell a").addClass("yellow-flag");
+                            } else if(rowItem.second_response === true) {
+                                $(row).find("td.k-hierarchy-cell a").addClass("blue-flag");
+                            } else if(rowItem.first_response === true) {
+                                $(row).find("td.k-hierarchy-cell a").addClass("green-flag");
+                            } else {
+                                $(row).find("td.k-hierarchy-cell a").addClass("gray-flag");
+                            }
+                        });
+
+                        this.expandRow(this.tbody.find("tr.k-master-row").first());
+                    }
+                });
+                
+                var items = [
+                    {
+                        Id: 0,
+                        Title: "All"
+                    },
+                    {
+                        Id: "1",
+                        Title: "First Response"
+                    }, 
+                    {
+                        Id: 2,
+                        Title: "Second Response"
+                    }, 
+                    {
+                        Id: 3,
+                        Title: "Offer"
+                    },
+                    {
+                        Id: 4,
+                        Title: "Hot"
+                    },
+                    {
+                        Id: 5,
+                        Title: "Booked"
+                    }
+                ];
+                grid.find("#status-select").kendoDropDownList({
+                    dataSource: items,
+                    dataTextField: "Title",
+                    dataValueField: "Id",
+                    change: function() {
+                        var value = this.value();
+                        switch(value) {
+                            case "1":
+                                grid.data("kendoGrid").dataSource.filter({
+                                    field: "first_response", 
+                                    operator: "eq", 
+                                    value: true
+                                });
+                                break;
+                            case "2":
+                                grid.data("kendoGrid").dataSource.filter({
+                                    field: "second_response", 
+                                    operator: "eq", 
+                                    value: true
+                                });
+                                break;
+                            case "3":
+                                grid.data("kendoGrid").dataSource.filter({
+                                    field: "offer", 
+                                    operator: "eq", 
+                                    value: true
+                                });
+                                break;
+                            case "4":
+                                grid.data("kendoGrid").dataSource.filter({
+                                    field: "hot", 
+                                    operator: "eq", 
+                                    value: true
+                                });
+                                break;
+                            case "5":
+                                grid.data("kendoGrid").dataSource.filter({
+                                    field: "booked", 
+                                    operator: "eq", 
+                                    value: true
+                                });
+                                break;
+                            default:
+                                grid.data("kendoGrid").dataSource.filter({});
+                        }
+                    }
+                });
+                $('#search').keyup(function() { 
+                    grid.data("kendoGrid").dataSource.filter({
+                        field: "customer", 
+                        operator: "contains", 
+                        value: $(this).val()
+                    });
+                });
+            });
+            
+            // for initializing of lead details
+            function detailInit(e) {
+                var detailRow = e.detailRow;
+
+                detailRow.find(".tabstrip").kendoTabStrip({
+                    animation: {
+                        open: { effects: "fadeIn" }
+                    }
+                });
+
+                var notesForLeadDataSource = new kendo.data.DataSource({
+                    transport: {
+                        // for getting notes for lead
+                        read: {
+                            url: '/leads/notes-for-lead/' + e.data.id + '/',
+                            contentType: 'application/json; charset=utf-8',
+                            dataType: "json",
+                            type: "GET"
+                        },
+                        // for posting new notes
+                        create: {
+                            url: '/leads/notes-for-lead/' + e.data.id + '/',
+                            contentType: 'application/json; charset=utf-8',
+                            dataType: "json",
+                            type: "POST"
+                        },
+                        parameterMap: function(data, type) {
+                            if(data && type=="create") {
+                                return kendo.stringify(data.models["0"]);
+                            }
+                        }
+                    },
+                    batch: true,
+                    schema: {
+                        model: {                          
+                            fields: {
+                                content: {
+                                    validation: {
+                                        required: true
+                                    }
+                                } 
+                            }
+                        }
+                    },
+                    pageSize: 10
+                });
+                
+                var messagesForLeadDataSource = new kendo.data.DataSource({
+                    transport: {
+                        // for getting email messages for lead
+                        read: {
+                            url: '/leads/messages-for-lead/' + e.data.id + '/',
+                            contentType: 'application/json; charset=utf-8',
+                            dataType: "json",
+                            type: "GET"
+                        }
+                    },
+                    pageSize: 10
+                });
+
+                // datagrid handler for notes table
+                detailRow.find(".kendo-notes").kendoGrid({
+                    dataSource: notesForLeadDataSource,
+                    // columns for comment table
+                    columns: [
+                        {
+                            field: 'created',
+                            title: 'Date'
+                        },
+                        {
+                            field: 'user',
+                            title: 'User'
+                        },
+                        {
+                            field: 'content',
+                            title: 'Content'
+                        }
+                    ],
+                    groupable: true,
+                    sortable: true,
+                    pageable: {
+                        refresh: true,
+                        pageSizes: true
+                    },
+                    toolbar: [
+                        {
+                            template: '<a class="k-grid-custom k-grid-add k-button k-button-icontext" id="toolbar-add-new-note"><span class=" k-icon k-add"></span>Add new note</a>',
+                            name: "create"
+                        }
+                    ],
+                    editable: {
+                        mode: "popup",
+                        template: kendo.template($("#popup_create_note").html())
+                    }
+
+                });
+
+                // datagrid handler for email messges table
+                detailRow.find(".kendo-emails").kendoGrid({
+                    dataSource: messagesForLeadDataSource,
+                    // columns for comment table
+                    columns: [
+                        {
+                            field: 'processed',
+                            title: 'Processed'
+                        },
+                        {
+                            field: 'subject',
+                            title: 'Subject'
+                        },
+                        {
+                            field: 'from_header',
+                            title: 'Sender'
+                        },
+                        {
+                            field: 'to_header',
+                            title: 'Recipient'
+                        }
+                    ],
+                    groupable: true,
+                    sortable: true,
+                    pageable: {
+                        refresh: true,
+                        pageSizes: true
+                    }
+
+                });
+            }
+        </script>
+    </div>
+{% endblock content %}

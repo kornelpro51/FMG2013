@@ -1,0 +1,30 @@
+{% extends 'full_width.html' %}
+{% block content %}
+    <p>
+        Message: {{ message }} Is lead source: {% if message.is_lead_source %}True{% endif %}
+    </p>
+    <p>
+       Lead: {{ message.lead }} Source: {{ message.lead.source }}
+    </p>
+    <p>
+       Customer email: {{ message.lead.customer.email }} Customer name: {{ message.lead.customer.filrst_name }} {{ message.lead.customer.last_name }}
+    </p>
+    <p>
+       Arrival: {{ message.lead.arrival }} Departure: {{ message.lead.departure }}
+    </p>
+    <p>
+       Adults: {{ message.lead.adults }} Children: {{ message.lead.children }}
+    </p>
+    <p>
+        Subject: {{ message.subject }}
+    </p>
+    <p>
+        <h2>Message:</h2><br>{{ message.get_text_body|linebreaksbr }}
+    </p>
+    <h2>Log:</h2>
+    {% for line in lines %}
+        {{ line|linebreaksbr }}
+    {% endfor %}
+
+
+{% endblock content %}

@@ -1,0 +1,30 @@
+<!-- template for lead status column -->
+<script id="status-column-template" type="text/x-kendo-template">
+    <div class="flags">
+        #if(first_response){#
+            <span class="green-flag"></span>
+        #}else{#
+            <span class="gray-flag"></span>
+        #}#
+        #if(second_response){#
+            <span class="blue-flag"></span>
+        #}else{#
+            <span class="gray-flag"></span>
+        #}#
+        #if(offer){#
+            <span class="yellow-flag"></span>
+        #}else{#
+            <span class="gray-flag"></span>
+        #}#
+        #if(hot){#
+            <span class="red-flag"></span>
+        #}else{#
+            <span class="gray-flag"></span>
+        #}#
+        #if(booked){#
+            <span class="booked-flag"></span>
+        #}else{#
+            <span class="gray-booked"></span>
+        #}#
+    </div>
+</script>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>                               
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Guest Retriever</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="js/functions.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.8.22.custom.min.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css" media="screen"/>
+
+<!--[if IE 7]>
+<style type="text/css">
+    #wrap .container .container-top .content ul li{
+        padding: 24px 20px 0px 24px;
+    }
+    #wrap .container .container-top .content ul li h1.top-number{
+        margin-bottom:2px;
+        margin-top:30px;
+    }
+    #wrap .container .container-top .content ul li a.see-them{
+        margin-left:0;
+        margin-right:0;
+    }
+</style>
+<![endif]-->
+<!--[if IE 8]>
+<style type="text/css">
+    #wrap .container .container-top .content ul li{
+        padding: 24px 20px 0px 24px;
+    }
+</style>
+<![endif]-->
+<!--[if IE 9]>
+<style type="text/css">
+    #wrap .container-body .body-content .flags ul li{
+    margin-bottom: 1px;
+}
+</style>
+<![endif]-->
+<!--[if IE]>
+<style type="text/css">
+    #wrap .menubg{
+        float: none;
+        height: 50px;
+    }
+#wrap .header-wrapper{
+    margin-top:-55px;
+    }
+</style>
+<![endif]-->
+
+</head>
+<body>
+<div id="wrap">
+    <div class="top-layer"></div> <!-- holdes top orange layer -->
+    <div class="menubg"></div>
+    <div class="header-wrapper">
+        <div class="header">
+                <h1 class="logo">Logo</h1>
+                <h1 class="header-label">Guest Retriever</h1>
+                
+                <ul class="nav" style=": none;">
+                    <li class="first main"><a class="root" href="agent_dashboard.php">Home</a></li>
+                    <li class="dropdown report main">
+                        <a href="#" class="root reports">Reports</a>
+                         <ul class="sub-menu">
+                            <li class="sub"><a href="reports.php">Month to Date</a></li>
+                            <li class="sub"><a href="reports.php">Year to Date</a></li>
+                            <li class="sub leads"><a href="reports.php">Leads</a>
+                                <ul class="leads-sub">
+                                    <li><a href="reports.php">State</a></li>
+                                    <li><a href="reports.php">Source</a></li>
+                                    <li><a href="reports.php">Agent</a></li>
+                                </ul>
+                            </li>
+                            <li class="sub bookings"><a href="reports.php">Bookings</a>
+                                <ul class="bookings-sub">
+                                    <li><a href="reports.php">State</a></li>
+                                    <li><a href="reports.php">Source</a></li>
+                                    <li><a href="reports.php">Agent</a></li>
+                                    <li><a href="reports.php">Other</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="main"><a href="#" class="root">Agents</a></li>
+                    <li class="last dropdown account main"><a href="account_info.php" class="root">My Account</a>
+                        <ul class="sub-menu">
+                            <li class="sub settings"><a href="#" onClick="return false;">Settings</a>
+                                <ul class="settings-sub">
+                                    <li><a href="template_maker.php">My Info</a></li>
+                                </ul>
+                            </li>
+                            <li class="sub"><a href="#" class="logout">Log Out</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+        </div><!-- end header --> 
+    </div><!-- end header-wrapper -->
+    <div class="container-holder template">       
+        <div class="container-body">
+            <div class="body-content">            
+                <div class="welcome"><p>Have a great day !</p></div>                                    
+                
+                <div class="template-form">
+                    <h1 class="header">My Info</h1>
+                    <form enctype="multipart/form-data" action="template/template.php" method="post" target="_blank">
+                        <span class="row">
+                            <label for="logo">Logo: </label>
+                            <!--<input type="text" name="logo" id="logo" class="logo"/>-->
+                            <input type="file" name="logo" id="companyLogo" style="" />
+                        </span>
+                        <span class="row">
+                            <label for="company">Company:</label>
+                            <input type="text" name="company" id="company" class="company"/>
+                        </span>
+                        <span class="row">
+                            <label for="offer">Special Offer:</label>
+                            <textarea name="offer" id="offer"  class="offer"></textarea>
+                            <!--<input type="text" name="offer" id="offer" class="offer"/>-->
+                        </span>
+                        <span class="row">
+                            <label for="area">Area:</label>
+                            <input type="text" name="area" id="area"/>                        </span>
+                        <span class="row">
+                            <label for="address">Address:</label>
+                            <textarea name="address" id="address"  class="address"></textarea>
+                            <!--<input type="text" name="address" id="address" class="address"/>-->
+                        </span>
+                        <span class="row">
+                            <label for="phone">Phone:</label>
+                            <input type="text" name="phone" id="phone"/>       
+                        </span>
+                         <span class="row">
+                            <label for="agent">Agent:</label>
+                            <input type="text" name="agent" id="agent"/>       
+                        </span>
+                        <span class="row">
+                            <label for="city">City:</label>
+                            <input type="text" name="city" id="city"/>          
+                        </span>
+                        <span class="row">
+                            <label for="state">State:</label>
+                            <input type="text" name="state" id="state"/>          
+                        </span>
+                        <span class="row">
+                            <label for="email">Email:</label>
+                            <input type="email" name="email" id="email" class="email" />         
+                        </span>
+                        <span class="row">
+                            <label for="web">Web:</label>
+                            <input type="text" name="web" id="web" class="web" />         
+                        </span>
+                        
+                        <input type="submit" value="Execute">
+                    </form>
+                </div><!-- end template-form -->
+            </div><!-- end body-content -->
+       </div><!-- end container-body-->  
+       
+       <div class="footer">
+        <div class="footer-content">
+            Copyright 2012 Guest Retriever  |  
+            <a href="#">Privacy Policy</a>  |  
+            <a href="#">Contact Us</a>
+        </div><!-- end footer-content -->
+       </div><!-- end footer -->        
+   </div><!-- container holder -->
+</div><!-- end wrap -->
+</body>
+</html>
+
+<!-- Hosting24 Analytics Code -->
+<script type="text/javascript" src="http://stats.hosting24.com/count.php"></script>
+<!-- End Of Analytics Code -->

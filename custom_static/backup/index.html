@@ -1,0 +1,608 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="static/favicon.ico" type="image/x-icon">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Dashboard | Fetch My Guest</title>
+    <link rel="stylesheet" type="text/css" href="demos/fetch/new/css/style.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="themes/base/jquery.ui.all.css" />
+    <link rel="stylesheet" type="text/css" href="demos.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <!--<script src="js/jquery.js" type="text/javascript"></script>-->
+    <link rel="stylesheet" href="themes/base/jquery.ui.all.css">
+    <script src="js/jquery-1.9.1.js" type="text/javascript"></script>
+    <script src="jquery.json-2.2.min.js" type="text/javascript"></script>
+    <script src="ui/jquery.ui.core.js"></script>
+    <script src="ui/jquery.ui.widget.js"></script>
+    <script src="ui/jquery.ui.mouse.js"></script>
+    <script src="ui/jquery.ui.button.js"></script>
+    <script src="ui/jquery.ui.draggable.js"></script>
+    <script src="ui/jquery.ui.position.js"></script>
+    <script src="ui/jquery.ui.resizable.js"></script>
+    <script src="ui/jquery.ui.button.js"></script>
+    <script src="ui/jquery.ui.dialog.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="ui/jquery.ui.datepicker.js"></script>
+    <link rel="stylesheet" href="demos.css">
+    <script src="tinymce/tinymce.min.js"></script>
+    <script>
+        
+        $(function () {
+            $("#dialog-message").hide();
+            $("#dialog-form").hide();
+            $("#dialog-editor").hide();
+            $("#dialog-addguest").hide();
+        });
+        $(function () {
+            $(".datepicker").datepicker({ dateFormat: "yy-mm-dd" });
+        });
+       
+    </script>
+    
+    <script src="js/angular.min.js"></script>
+    <!-- django-rest-resource is use to make an optimized call to an API -->
+    <script src="angular-django-rest-resource.js" type="text/javascript"></script>
+    <!-- Here we defined module and controller to access data from API -->
+    <script src="script.js"></script>
+	
+	-	<!-- Google Analytics Code -->
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42636953-1', 'fetchmyguest.com');
+  ga('send', 'pageview');
+	</script>
+
+</head>
+<body>
+    <div id="mainCont" ng-controller="StatesController">
+    <script>
+        var Timer;
+        var TotalSeconds;
+        var audioElement;
+        function CreateTimer(TimerID, Time) {
+
+            Timer = document.getElementById(TimerID);
+            TotalSeconds = Time;
+
+            //showalert()
+            angular.element(document.getElementById('mainCont')).scope().showalert();
+            window.setTimeout("Tick()", 1000);
+        }
+        function Tick() {
+            //showalert()
+            angular.element(document.getElementById('mainCont')).scope().showalert();
+            window.setTimeout("Tick()", 1000);
+        }
+       
+        $(document).ready(function () {
+            
+            window.onload = CreateTimer("showalert", 30);
+        });
+    </script>
+        <div id="wrap">
+            <div class="header-wrapper">
+                <div class="header">
+                    <a href="/fetch/dashboard/">
+                        <img id='guestretriever-logo' src="images/Fetch-My-Guest-BETA.png" alt="FetchMyGuest logo"
+                            width="430" /></a>
+                    <ul class="nav" style=": none;">
+                        <li class="first main active "><a class="root" href="/fetch/dashboard/">Home</a></li>
+                        <!-- end of tab home -->
+                        <li class="dropdown report main "><a href="#" class="root reports">Reports</a>
+                            <ul class="sub-menu">
+                                <li class="sub leads"><a href="#">Leads &raquo;</a>
+                                    <ul class="leads-sub">
+                                        <li><a href="#">Source</a></li>
+                                        <li><a href="#">City</a></li>
+                                        <li><a href="#">State</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- end of tab reports -->
+                        <li class="dropdown main "><a href="javascript:void(0);" id="showalert" ng-click="showalert();" class="root alerts"><span id="alert-id">No New
+                            Alerts</span></a>
+                            <ul class="sub-menu">
+                                <li class="sub"><a id="comment-alert-link-id" href="#"><span id="comment-alert-id">No
+                                    New Comments</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown agent main "><a href="#" class="root agents">Agents</a>
+                            <ul class="sub-menu">
+                                <li class="sub"><a href="/fetch/verify/">No New Users</a></li>
+                                <li class="sub"><a href="#">Training</a></li>
+                            </ul>
+                        </li>
+                        <!-- end of tab agents -->
+                        <li class="last dropdown account main "><a href="#" class="root">My Account</a>
+                            <ul class="sub-menu">
+                                <li class="sub"><a href="/accounts/logout/" class="logout">Log Out</a></li>
+                                <li class="sub settings"><a href="#">Settings &raquo;</a>
+                                    <ul class="settings-sub">
+                                        <li><a href="/fetch/my_info/edit/16/">My Info</a></li>
+                                        <li><a href="/fetch/inner/">Inner</a></li>
+                                        <li><a href="/fetch/bookings_goal/edit/16/">Goals</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- end of tab my account -->
+                    </ul>
+                    <!-- end of nav tabs -->
+                </div>
+                <!-- end of div .header -->
+            </div>
+            <!-- end of div .header-wrapper -->
+            <div class="container-holder ">
+                <div class="container">
+                    <span id="bingoboard-tooltip" class="classic" style="display: none;"></span>
+                    <div class="container-top">
+                        <div class="date_container">
+                            <div class="date">
+                                <a href="/fetch/dashboard/">July 24, 2013</a>
+                            </div>
+                            <!-- end date -->
+                        </div>
+                        <!-- end date_container -->
+                        <div class="content">
+                            <ul class="items row">
+                                <li class="span3">
+                                    <h1 class="top-number calls-received">
+                                        1</h1>
+                                    <p class="text">
+                                        <a class="iconm leadin" aria-hidden="true" data-icon="&#xf0ea;"></a>Leads In</p>
+                                </li>
+                                <li class="span3">
+                                    <h1 class="top-number emails-sent">
+                                        3</h1>
+                                    <p class="text">
+                                        <a class="iconm fol-up" aria-hidden="true" data-icon="&#xe002;"></a>Follow Ups</p>
+                                </li>
+                                <li class="span3">
+                                    <h1 class="top-number bookings-from-leads">
+                                        0</h1>
+                                    <p class="text">
+                                        <a class="iconm book-lead" aria-hidden="true" data-icon="&#xf310;"></a>Bookings
+                                        from Leads</p>
+                                </li>
+                                <li class="last-item">
+                                    <h1 class="top-number bookings-from-leads">
+                                        0</h1>
+                                    <p class="text">
+                                        Bookings is your goal this month</p>
+                                    <div class="progress-bar">
+                                        <div id='id_progress_bar' class="complete" style="width: 100%;">
+                                        </div>
+                                    </div>
+                                    <p class="progress-count">
+                                        100% of your goal</p>
+                                </li>
+                            </ul>
+                            <!-- end items -->
+                        </div>
+                        <!-- end content -->
+                    </div>
+                    <!-- end container-top -->
+                </div>
+                <!-- end container -->
+                <div class="container-body clearfix">
+                    <div class="body-content clearfix">
+                        <div class="flags">
+                            <ul>
+                                <li class="flag-legend" data-tooltip="Has been contacted via phone"><span class="white">
+                                </span>= Phone Contact</li>
+                                <li class="flag-legend" data-tooltip="Email response to guest"><span class="green"></span>
+                                    = Rate/Prop Info Email</li>
+                                <li class="flag-legend" data-tooltip="Marketing template"><span class="blue"></span>
+                                    = Follow Up Response</li>
+                                <li class="flag-legend" data-tooltip="Special offers approved by manager"><span class="yellow">
+                                </span>= Special Offer</li>
+                                <li class="flag-legend" data-tooltip="In communication/potential close"><span class="red">
+                                </span>= Hot Lead</li>
+                                <li class="flag-legend" data-tooltip="Check off once booking is confirmed"><span
+                                    class="booked-icon"></span>= Booking</li>
+                            </ul>
+                        </div>
+                        <!-- end flags -->
+                        <div id="fetch-search-for-leads-box" class="search-box clearfix">
+                            <span class="span2"><a href="javascript:void(0);" ng-click="showaddguest();" class="fetch-booking-toolbar btn btn-success" id="fetch-booking-toolbar-add-guest">
+                                Add Guest <i class="icon-white icon-plus"></i></a></span>
+                            <input type="text" name="search" id="search" placeholder="Enter Guest name" class="span7" ng-model="searchText.customer_name" />
+                            <input type="submit" id="fetch-search-for-leads-box-submit" class="search-submit"
+                                value="Search For Leads" />
+                        </div>
+                        <!-- end search -->
+                        <div class="row">
+                            <!-- end statusleftbar -->
+                            <div class="search-result span12 ">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 20%">
+                                                <div class="btn-group ">
+                                                    <button type="button" class="btn-orange dropdown-toggle" data-toggle="dropdown">
+                                                        Status <span class="caret"></span>
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a href="#" class="lead-status-link hot" data-status="5">Hot leads <span>(0)</span></a></li>
+                                                        <li><a href="#" class="lead-status-link firsres" data-status="2">Rate/Prop Info Emails
+                                                            Sent <span>(1)</span></a></li>
+                                                        <li><a href="#" class="lead-status-link secores" data-status="3">Follow Up Responses
+                                                            <span>(0)</span></a> </li>
+                                                        <li><a href="#" class="lead-status-link specoff" data-status="4">Special Offers <span>
+                                                            (0)</span></a> </li>
+                                                    </ul>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                Date
+                                            </th>
+                                            <th>
+                                                Source
+                                            </th>
+                                            <th>
+                                                Guest
+                                            </th>
+                                            <th>
+                                                Phone
+                                            </th>
+                                            <th>
+                                                Property
+                                            </th>
+                                            <th>
+                                                Arrival
+                                            </th>
+                                            <th>
+                                                Departure
+                                            </th>
+                                            <th class="t_center">
+                                                Comments
+                                            </th>
+                                            <th width="14%" class="t_center">
+                                                Send Rate/Prop Info
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody ng-repeat="filterdata in stateData | filter:searchText |orderBy:'id'" on-finish-render="testdiv()">
+                                        <tr class="result-item item1">
+                                            <td class="align sixth">
+                                                <div class='phone-contact-1152'>
+                                                    <a id="phone_call{{filterdata.id}}" ng-click="bookSts(filterdata.id, filterdata.phone_call,'gray','white','phone_call',filterdata.customer,filterdata.source,filterdata.reply_message_id)"
+                                                        class='flag-phone-contact' href="" data-pk="1152"><span class="status-flag " data-tooltip="Phone Contact"
+                                                            ng:class="GetStatusClass(filterdata.phone_call ,'gray' ,'white')"></span>
+                                                    </a>
+                                                </div>
+                                                <div class='first-response-1152' id="first_response{{filterdata.id}}" ng-click="bookSts(filterdata.id, filterdata.first_response,'green','gray','first_response',filterdata.customer,filterdata.source,filterdata.reply_message_id)">
+                                                    <span class="status-flag" data-tooltip="Rate/Prop Info Email" ng:class="GetStatusClass(filterdata.first_response ,'green' ,'gray')">
+                                                    </span>
+                                                </div>
+                                                <div class='second-response-1152' id="second_response{{filterdata.id}}" ng-click="bookSts(filterdata.id, filterdata.second_response,'blue','gray','second_response',filterdata.customer,filterdata.source,filterdata.reply_message_id)">
+                                                    <span class="status-flag" data-tooltip="Follow Up Response" ng:class="GetStatusClass(filterdata.second_response ,'blue' ,'gray')">
+                                                    </span>
+                                                </div>
+                                                <div class='offer-response-1152' id="offer{{filterdata.id}}" ng-click="bookSts(filterdata.id, filterdata.offer,'yellow','gray','offer',filterdata.customer,filterdata.source,filterdata.reply_message_id)">
+                                                    <span class="status-flag" data-tooltip="Special Offer" ng:class="GetStatusClass(filterdata.offer ,'yellow' ,'gray')">
+                                                    </span>
+                                                </div>
+                                                <div class='hot-lead-1152' id="hot{{filterdata.id}}" ng-click="bookSts(filterdata.id, filterdata.hot,'red','gray','hot',filterdata.customer,filterdata.source,filterdata.reply_message_id)">
+                                                    <a class='flag-hot-lead' href="" data-pk="1152"><span class="status-flag" ng:class="GetStatusClass(filterdata.hot ,'red' ,'gray')"
+                                                        data-tooltip="Hot Lead"></span></a>
+                                                </div>
+                                                <div class='booked-1152' id="booked{{filterdata.id}}" ng-click="bookSts(filterdata.id, filterdata.booked,'booked','gray-booked','booked',filterdata.customer,filterdata.source,filterdata.reply_message_id)">
+                                                    <a class='flag-booked' href="" data-pk="1152"><span class="status-flag" ng:class="GetStatusClass(filterdata.booked ,'booked' ,'gray-booked')"
+                                                        data-tooltip="Booking"></span></a>
+                                                </div>
+                                            </td>
+                                            <td class="align tenth sublink" ng-click="abcd(filterdata.id);">
+                                                {{filterdata.modified | date:'MM/dd/yyyy'}}
+                                            </td>
+                                            <td class="align first sublink" ng-click="abcd(filterdata.id);">
+                                                {{filterdata.source}}
+                                            </td>
+                                            <td class="align second">
+                                                <a href="" ng-click="showmsg(filterdata.id,filterdata.adults,filterdata.children);" class="guest-name">{{filterdata.customer_name}}</a>
+                                            </td>
+                                            <td class="align ninth sublink" ng-click="abcd(filterdata.id);">
+                                                {{filterdata.phone_call}}
+                                            </td>
+                                            <td class="align third sublink" ng-click="abcd(filterdata.id);">
+                                                <a href="{{filterdata.properties}}" class="guest-name">Property</a>
+                                            </td>
+                                            <td class="align fourth arrival-1152 sublink" ng-click="abcd(filterdata.id);">
+                                                {{filterdata.arrival | date:'MM/dd/yyyy'}}
+                                            </td>
+                                            <td class="align fifth departure-1152 sublink" ng-click="abcd(filterdata.id);">
+                                                {{filterdata.departure | date:'MM/dd/yyyy'}}
+                                            </td>
+                                            <td class="t_center">
+                                                0
+                                            </td>
+                                            <td class="align eighth t_center">
+                                                <a class="email-guest" title="Send rate/prop info" href="javascript:void(0);" ng-click="actionPopup(filterdata.id,filterdata.arrival,filterdata.departure,filterdata.customer,filterdata.source,filterdata.reply_message_id);"
+                                                    data-pk="1152"></a>
+                                            </td>
+                                        </tr>
+                                        <tr id="tr{{filterdata.id}}" style="display: none">
+                                            <td colspan="10">
+                                                <table class="table table-bordered">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>
+                                                                Subject
+                                                            </th>
+                                                            <th>
+                                                                Processed
+                                                            </th>
+                                                            <th>
+                                                                MailBox
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="tbody{{filterdata.id}}">
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr id="trmsg{{filterdata.id}}" style="display: none;">
+                                            <td colspan="10">
+                                                <table class="table table-bordered">
+                                                    <tbody id="tbody1">
+                                                        <td>
+                                                            <div class="comment_section row">
+                                                                <div class="span">
+                                                                    <p class="">
+                                                                        Property: 4995<br />
+                                                                        Cliff Drive, Capitola Village</p>
+                                                                    <p class="">
+                                                                        <span>Email: <a id="hrefemail" href="mailto:vince@nvisionventures.com">vince@nvisionventures.com</a></span>
+                                                                        <br />
+                                                                        <span id="spnphone">Phone: 888 666 7767</span><br />
+                                                                        Adults: 5 | Children: 2 | Message: Test 4</p>
+                                                                    <h3 class="title">
+                                                                        Comments:</h3>
+                                                                    <p class="">
+                                                                        Requested property is: - 4995 Cliff Drive, Capitola Village with rates at $1078.80
+                                                                        Available properties on 08/09/2013 to 08/12/2013 are: - 116B Esplanade, Capitola
+                                                                        Village with rates at $1200.00
+                                                                    </p>
+                                                                    <p>
+                                                                        Suggested and emailed by: vince
+                                                                    </p>
+                                                                    <div class="b_link">
+                                                                        <p>
+                                                                            <a href="#" title="Add Comment"><i class="icon icon-comment"></i>Add comment</a>
+                                                                            | <a href="#" title="Reply to email"><i class="icon icon-envelope"></i>Reply to email</a>
+                                                                            | <!--<a href="#" title="Send follow up response"><i class="icon icon-share"></i>Send follow
+                                                                                up response</a>--></p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <!-- end results -->
+                                <div id='loader' style='position: absolute; top: 50%; left: 50%;'>
+                                    <img src="static/demos/fetch/images/loading.gif" />
+                                </div>
+                            </div>
+                            <!-- end search-result -->
+                        </div>
+                    </div>
+                    <!-- end body-content -->
+                </div>
+                <!-- end container-body-->
+                <div class="footer">
+                    <div class="footer-content">
+                        Copyright 2012 Fetch My Guest | <a href="#">Privacy Policy</a> | <a href="#">Contact
+                            Us</a>
+                    </div>
+                </div>
+            </div>
+            <!-- end of div .container-holder -->
+            <div id="dialog-message" title="Status Update">
+                <p>
+                    <span class="ui-icon ui-icon-circle-check" style="float: left; margin: 0 7px 50px 0;">
+                    </span>Your Status has been change.
+                </p>
+                <p>
+                    <!--Currently using <b>36% of your storage space</b>.-->
+                </p>
+            </div>
+            <div id="dialog-form" title="Send Rate/Prop Info">
+                <table class="table table-no-border">
+                    <tr>
+                        <td colspan="2">
+                            <label id="lblsts">
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" id="propsts" checked="checked" />
+                        </td>
+                        <td>
+                            <label>
+                                Is Property Available?</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>
+                                Additional Property</label>
+                        </td>
+                        <td>
+                            <select id="id_property_name" multiple="multiple">
+                                <!--ng-model="proplsttest" ng-options="item.title for item in proplst"-->
+                                <!--ng-options="item.title as item.title for item in proplst1"-->
+                                <!--<option value="{{obj.id}}">{{obj.title}}</option>-->
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>
+                                Set Property Rate:</label>
+                        </td>
+                        <td>
+                            <input type="text" id="txtPropRate" value="0.00" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>
+                                Available From:</label>
+                        </td>
+                        <td>
+                            <input type="text" value="" class="datepicker" id="datepickerArr" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>
+                                Available To:</label>
+                        </td>
+                        <td>
+                            <input type="text" class="datepicker" value="{{}}" id="datepickerDep" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="dialog-editor">
+                <textarea id="textarea1" style="height:250px;width:750px;">We are Here</textarea>
+            </div>
+            <div id="dialog-addguest">
+               <table class="table table-no-border">
+                    <tr>
+                        <td colspan="2">
+                            <label id="Label1">
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>
+                               Name:</label>
+                        </td>
+                        <td>
+                            <input type="text" id="txtname" value="" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>
+                                Email:</label>
+                        </td>
+                        <td>
+                            <input type="text" id="txtemail" value="" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>
+                                Phone :</label>
+                        </td>
+                        <td>
+                            <input type="text" id="txtphone" value="" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>
+                                Property :</label>
+                        </td>
+                        <td>
+                            <select id="Select1">
+                                
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>
+                                Source:</label>
+                        </td>
+                        <td>
+                            <input type="text" id="txtsource" value="" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>
+                                Arrival:</label>
+                        </td>
+                        <td>
+                            <input type="text" value="" class="datepicker" id="Text2" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>
+                                Depature:</label>
+                        </td>
+                        <td>
+                            <input type="text" class="datepicker" value="{{}}" id="Text3" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>
+                                Adults:</label>
+                        </td>
+                        <td>
+                            <input type="text" id="txtadults" value="" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>
+                                Children:</label>
+                        </td>
+                        <td>
+                            <input type="text" id="txtchildren" value="" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>
+                                Message:</label>
+                        </td>
+                        <td>
+                            <textarea id="textarea2" ></textarea>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <!--end of Action Pop Up  -->
+            <!-- end of div #wrap -->
+        </div>
+    </div>
+	
+	<!-- UserVoice JavaScript SDK (only needed once on a page) -->
+	<script>(function(){var uv=document.createElement('script');uv.type='text/javascript';uv.async=true;uv.src='//widget.uservoice.com/aG5U1aaYifjaqKQEj6keg.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(uv,s)})()</script>
+
+	<!-- A tab to launch the Classic Widget -->
+	<script>
+	UserVoice = window.UserVoice || [];
+	UserVoice.push(['showTab', 'classic_widget', {
+		mode: 'full',
+		primary_color: '#cc6d00',
+		link_color: '#007dbf',
+		default_mode: 'support',
+		forum_id: 202908,
+		tab_label: 'Feedback & Support',
+		tab_color: '#fb8021',
+		tab_position: 'middle-right',
+		tab_inverted: false
+	}]);
+	</script>
+</body>
+</html>

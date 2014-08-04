@@ -1,0 +1,23 @@
+{% extends "full_width.html" %}
+{% load i18n bootstrap_toolkit %}
+
+{% block title %}{% trans 'Registration' %}{% endblock %}
+
+{% block content %}
+
+<div class="row-fluid">
+    <div class="span4 offset4 well">
+        <h1 class="text-center">{% block header %}{% trans 'Registration' %}{% endblock %}</h1>
+        <form class="form-horizontal" method="post" action="{% url 'registration_register' %}">
+            {% csrf_token %}
+            {{ form|as_bootstrap }}
+            <div class="control-group">
+              <div class="controls">
+
+                <button type="submit" class="btn">{% trans 'Sign in' %}</button>
+              </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
